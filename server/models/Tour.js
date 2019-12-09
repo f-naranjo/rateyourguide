@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const tourSchema = new Schema({
-  // owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Guides'},
-  owner: String,
+  owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Guides'},
+  //owner: String,
   img: String,
   title: String,
   claim: String,
