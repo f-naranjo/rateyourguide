@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const guideCommentSchema = new Schema({
-  author: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}],
-  relatedTo:[{type: mongoose.Schema.Types.ObjectId, ref: 'Guides'}],
+  author: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
+  relatedTo:{type: mongoose.Schema.Types.ObjectId, ref: 'Guides'},
   title: String,
   description: String,
   rate: Number

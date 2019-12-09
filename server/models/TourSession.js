@@ -7,8 +7,8 @@ const tourSessionSchema = new Schema({
   bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bookings'}],
   maxPeople: String,
   currentPeople: Number,
-  date: Date,
-  hour: Date,
+  date: String,
+  hour: String,
   status:{
     type: String,
     enum:["pending","confirmed","deleted","out of date"]

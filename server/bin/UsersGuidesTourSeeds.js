@@ -1,7 +1,5 @@
-// Seeds file that remove all users and create 2 new users
 require('dotenv').config();
-// To execute this seed, run from the root of the project
-// $ node bin/seeds.js
+
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -767,11 +765,6 @@ let tours10 = [
     rates: [6,9,10,8,9,9,9,9]
   },
 ]
-
-
-
-
-
 
 let allGuides = []
 
