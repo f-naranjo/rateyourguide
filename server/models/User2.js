@@ -11,9 +11,15 @@ const userSchema = new Schema({
   tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comments'}]
 }, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      delete ret.createdAt;
+      return ret;
+    }
   }
 });
 

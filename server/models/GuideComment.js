@@ -8,9 +8,15 @@ const guideCommentSchema = new Schema({
   description: String,
   rate: Number
 }, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      delete ret.createdAt;
+      return ret;
+    }
   }
 });
 

@@ -2,14 +2,20 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const bookingSchema = new Schema({
-  owner: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}],
-  tourSession: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
+  owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
+  tourSession: {type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'},
   status:[],
   people: Number,
 }, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      delete ret.createdAt;
+      return ret;
+    }
   }
 });
 

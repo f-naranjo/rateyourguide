@@ -10,9 +10,9 @@ const guideSchema = new Schema({
     phone: Number,
     certification: String,
     city: String,
-    languages:{
+    languages:[{
       type: String,
-      enum: ["Spanish","English","French","German","Russian"]}
+      enum: ["Spanish","English","French","German","Russian"]}]
   },
   tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
   toursCreated: [{type: mongoose.Schema.Types.ObjectId, ref: 'Tours'}],
@@ -21,10 +21,16 @@ const guideSchema = new Schema({
   searchDisplays: Number,
   profileViews: Number,
   billing:[],
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+},{
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      delete ret.createdAt;
+      return ret;
+    }
   }
 });
 
