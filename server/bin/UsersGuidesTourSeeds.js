@@ -1,3 +1,7 @@
+//This is the first seed file to be executed:
+//It fill the DB with 20 Users, 10 Guides and about 30 tours and link
+//them in blocks of 2-4 for each guide
+
 require('dotenv').config();
 
 
@@ -27,7 +31,6 @@ let users = [
     surname: "Hernández",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -38,7 +41,6 @@ let users = [
     surname: "González",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -49,7 +51,6 @@ let users = [
     surname: "Siguenza",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -60,7 +61,6 @@ let users = [
     surname: "Malapata",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -71,7 +71,6 @@ let users = [
     surname: "Amazonia",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -82,7 +81,6 @@ let users = [
     surname: "Píscore",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -93,7 +91,6 @@ let users = [
     surname: "Thompson",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -104,7 +101,6 @@ let users = [
     surname: "I el Grande",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -115,7 +111,6 @@ let users = [
     surname: "Puentes",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
   {
@@ -126,14 +121,116 @@ let users = [
     surname: "Pulpeiro",
     phone: 666334455,
     email: "themail.transporter@gmail.com",
-    tourSessions: [],
     comments: []
   },
+  {
+    username: "ernesto",
+    password: bcrypt.hashSync("ernesto", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Ernesto",
+    surname: "Maniere",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "fernando",
+    password: bcrypt.hashSync("fernando", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Fernando",
+    surname: "Alvarez",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "carmen",
+    password: bcrypt.hashSync("carmen", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Carmen",
+    surname: "Villaclara",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "martin",
+    password: bcrypt.hashSync("martin", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Martin",
+    surname: "Escorsese",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "julia",
+    password: bcrypt.hashSync("julia", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Julia",
+    surname: "Gomez",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "antonio",
+    password: bcrypt.hashSync("antonio", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Antonio",
+    surname: "Rodriguez",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "diana",
+    password: bcrypt.hashSync("diana", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Diana",
+    surname: "Villalba",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "sergio",
+    password: bcrypt.hashSync("sergio", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Sergio",
+    surname: "Marante",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "josemanuel",
+    password: bcrypt.hashSync("josemanuel", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Jose Manuel",
+    surname: "Jerez",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+  {
+    username: "giancarlo",
+    password: bcrypt.hashSync("giancarlo", bcrypt.genSaltSync(bcryptSalt)),
+    picture: 'https://i.stack.imgur.com/l60Hf.png',
+    name: "Giancarlo",
+    surname: "Giacometti",
+    phone: 666334455,
+    email: "themail.transporter@gmail.com",
+    comments: []
+  },
+
 
 ]
 
 let guides = [
   {
+    username: "javi",
+    password: bcrypt.hashSync("javi", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Javier Morales",
       description: "Lorem fistrum ese hombree pupita caballo blanco caballo negroorl a peich. Condemor se calle ustée al ataquerl a wan la caidita.",
@@ -144,7 +241,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "English"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 10],
@@ -152,7 +248,8 @@ let guides = [
     profileViews: 233,
     billing: [],
   },
-  {
+  {username: "francisco",
+  password: bcrypt.hashSync("francisco", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Francisco Navarro",
       description: "Ergadoo torpedo fistro. Va usté muy cargadoo está la cosa muy malar a gramenawer mamaar torpedo está la cosa muy malar ese pedazo",
@@ -163,7 +260,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "English", "French"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [4, 8, 6, 9, 9],
@@ -171,7 +267,8 @@ let guides = [
     profileViews: 345,
     billing: [],
   },
-  {
+  {username: "dani",
+  password: bcrypt.hashSync("dani", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Daniel Pulpeiro",
       description: "Aaaaaah po kass bee do bee do bee do aaaaaah poulet tikka masala hana dul sae poulet tikka masala jiji potatoooo bee do bee",
@@ -182,7 +279,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "English", "French"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 8, 5, 6, 9, 9],
@@ -191,6 +287,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "lore",
+    password: bcrypt.hashSync("lore", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Lorena Matalascabras",
       description: "Tank yuuu! uuuhhh hana dul sae aaaaaah tulaliloo uuuhhh jiji chasy hahaha para tú. Pepete daa butt tank yuuu! Aaaaaah. Wiiiii belloo! Poopayee uuuhhh butt butt baboiii la bodaaa. Jiji po kass uuuhhh chasy",
@@ -201,7 +299,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "German"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 8, 5, 8, 6, 9, 9],
@@ -210,6 +307,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "carlos",
+    password: bcrypt.hashSync("carlos", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Carlos Deladisco",
       description: "Mamaar jarl mamaar la caidita. No te digo trigo por no llamarte Rodrigor hasta luego Lucas sexuarl no te digo trigo por no llamarte Rodrigor",
@@ -220,7 +319,6 @@ let guides = [
       city: "Madrid",
       languages: ["English", "French"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [9, 10],
@@ -229,6 +327,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "manu",
+    password: bcrypt.hashSync("manu", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Manuel Illo",
       description: "Por la gloria de mi madre te va a hasé pupitaa de la pradera hasta luego Lucas no puedor diodeno hasta luego Lucas a peich la caidita.",
@@ -239,7 +339,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "English"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [],
@@ -248,6 +347,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "laura",
+    password: bcrypt.hashSync("laura", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Laura Hernández",
       description: "Ta tikka masala hahaha para tú baboiii butt. Tulaliloo underweaaar daa ti aamoo! Belloo! Jiji ti aamoo!",
@@ -258,7 +359,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "French", "Russian"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 7, 7, 8, 9, 9],
@@ -267,6 +367,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "maria",
+    password: bcrypt.hashSync("maria", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Maria Sousterrain",
       description: "Condemor se calle ustée al ataquerl a wan la caidita. Pupita va usté muy cargadoo torpedo fistro. Va usté muy cargadoo",
@@ -277,7 +379,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "French", "German"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 8],
@@ -286,6 +387,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "alfonso",
+    password: bcrypt.hashSync("alfonso", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Alfonso Sinclair",
       description: "Daa po kass poopayee tank yuuu! Chasy tank yuuu! Tulaliloo hana dul sae jeje jiji tulaliloo belloo! Bee do bee do bee do tank yuuu! Jeje pepete aaaaaah uuuhhh aaaaaah. Bee do bee do bee do poulet",
@@ -296,7 +399,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "English", "French"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 8, 6, 10, 6],
@@ -305,6 +407,8 @@ let guides = [
     billing: [],
   },
   {
+    username: "claire",
+    password: bcrypt.hashSync("claire", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Claire Underwood",
       description: "Jiji pepete bananaaaa bee do bee do bee do underweaaar pepete. Ti aamoo! baboiii tank yuuu!",
@@ -315,7 +419,6 @@ let guides = [
       city: "Madrid",
       languages: ["Spanish", "English", "French", "Russian"]
     },
-    tourSessions: [],
     toursCreated: [],
     comments: [],
     rates: [7, 10, 9, 8, 9],
@@ -806,8 +909,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[0] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[0] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[0],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -817,7 +920,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[1] }, { new: true })
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[1] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[1],{$push: {toursCreated: tourCreated._id}}).then()
           .then()
         })
       })
@@ -828,8 +932,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[2] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[2] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[2],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -839,8 +943,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[3] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[3] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[3],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -850,8 +954,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[4] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[4] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[4],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -861,8 +965,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[5] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[5] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[5],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -872,8 +976,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[6] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[6] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[6],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -883,8 +987,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[7] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[7] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[7],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -894,8 +998,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[8] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[8] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[8],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       .then(() => {
@@ -905,8 +1009,8 @@ Guide.deleteMany()
         console.log(`${toursCreated.length} tours created with the following id:`);
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
-          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[9] }, { new: true })
-          .then()
+          Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[9] }, { new: true }).then()
+          Guide.findByIdAndUpdate(allGuides[9],{$push: {toursCreated: tourCreated._id}}).then()
         })
       })
       
@@ -915,3 +1019,5 @@ Guide.deleteMany()
     mongoose.disconnect()
     throw err
   })
+
+

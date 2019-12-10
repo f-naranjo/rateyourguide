@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const guideSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true, minlength: 2 },
   info:{
     name: String,
     description: String,
-    img: String,
+    img: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
     email: String,
     phone: Number,
     certification: String,
@@ -16,7 +18,7 @@ const guideSchema = new Schema({
   },
   tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
   toursCreated: [{type: mongoose.Schema.Types.ObjectId, ref: 'Tours'}],
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comments'}],
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'GuideComments'}],
   rates: [],
   searchDisplays: Number,
   profileViews: Number,

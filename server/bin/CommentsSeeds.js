@@ -1,8 +1,15 @@
+// This seed is the second one to be executed
+// It creates 27 comments for the Guides and 27 for the Tours.
+// Then the comments are linked to the Guides and the Tours and last to the users by the idx
+
 require('dotenv').config();
 
 const mongoose = require("mongoose");
 const GuideComment = require("../models/GuideComment");
 const TourComment = require("../models/TourComment");
+const Guide = require("../models/Guide");
+const Tour = require("../models/Tour");
+const User = require("../models/User");
 
 mongoose
   .connect(`${process.env.DB}`, { useNewUrlParser: true })
@@ -291,6 +298,11 @@ let tourComments = [
 
 ]
 
+let usersId = []
+
+let guideCommentsId = []
+
+let tourCommentsId = []
 
 GuideComment.deleteMany()
   .then(() => {
@@ -299,6 +311,66 @@ GuideComment.deleteMany()
   .then(guideCommentsCreated => {
     console.log(`${guideCommentsCreated.length} guideComments created with the following id:`);
     console.log(guideCommentsCreated.map(u => u._id));
+    guideCommentsCreated.forEach((guideComment) => {
+      guideCommentsId.push(guideComment._id)
+    })
+  })
+  .then(() => {
+    Guide.find()
+      .then((guidesFound) => {
+        guidesFound.forEach((guide, idx) => {
+          switch (idx) {
+            case 0:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(0, 3) })
+              .then()
+              break;
+            case 1:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(3, 6) })
+              .then()
+              break;
+            case 2:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(6, 9) })
+              .then()
+              break;
+            case 3:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(9, 11) })
+              break;
+            case 4:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(11, 13) })
+              .then()
+              break;
+            case 5:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(13, 16) })
+              .then()
+              break;
+            case 6:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(16, 19) })
+              .then()
+              break;
+            case 7:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(19, 22) })
+              .then()
+              break;
+            case 8:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(22, 24) })
+              .then()
+              break;
+            case 9:
+              Guide.findByIdAndUpdate(guide._id, { comments: guideCommentsId.slice(24, 26) })
+              .then()
+              break;
+          }
+        })
+      })
+  })
+  .then(()=>{
+    GuideComment.find()
+    .then((GuideCommentsFound)=>{
+      GuideCommentsFound.forEach((GuideCommentFound,idx)=>{
+        GuideComment.findByIdAndUpdate(GuideCommentFound._id,{author: usersId[idx]})
+        .then()
+      })
+    })
   })
   .catch(err => {
     mongoose.disconnect()
@@ -310,8 +382,74 @@ TourComment.deleteMany()
     return TourComment.create(tourComments)
   })
   .then(tourCommentsCreated => {
+    User.find()
+    .then((usersFound) =>{
+      usersFound.forEach((userFound)=>{
+        usersId.push(userFound._id)
+      })
+    })
     console.log(`${tourCommentsCreated.length} tourComments created with the following id:`);
     console.log(tourCommentsCreated.map(u => u._id));
+    tourCommentsCreated.forEach((tourComment,idx) => {
+      tourCommentsId.push(tourComment._id)
+    })
+  })
+  .then(() => {
+    Tour.find()
+      .then((toursFound) => {
+        toursFound.forEach((tour, idx) => {
+          switch (idx) {
+            case 0:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(0, 3) })
+              .then()
+              break;
+            case 1:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(3, 6) })
+              .then()
+              break;
+            case 2:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(6, 9) })
+              .then()
+              break;
+            case 3:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(9, 11) })
+              break;
+            case 4:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(11, 13) })
+              .then()
+              break;
+            case 5:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(13, 16) })
+              .then()
+              break;
+            case 6:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(16, 19) })
+              .then()
+              break;
+            case 7:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(19, 22) })
+              .then()
+              break;
+            case 8:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(22, 24) })
+              .then()
+              break;
+            case 9:
+              Tour.findByIdAndUpdate(tour._id, { comments: tourCommentsId.slice(24, 26) })
+              .then()
+              break;
+          }
+        })
+      })
+  })
+  .then(()=>{
+    TourComment.find()
+    .then((TourCommentsFound)=>{
+      TourCommentsFound.forEach((TourCommentFound,idx)=>{
+        TourComment.findByIdAndUpdate(TourCommentFound._id,{author: usersId[idx]})
+        .then()
+      })
+    })
   })
   .catch(err => {
     mongoose.disconnect()

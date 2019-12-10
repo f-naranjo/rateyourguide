@@ -9,7 +9,7 @@ const userSchema = new Schema({
   surname: String,
   phone: Number,
   email: String,
-  tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
+  bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bookings'}],
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comments'}]
 }, {
   timestamps: true,

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const tourCommentSchema = new Schema({
-  author: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}],
-  relatedTo:[{type: mongoose.Schema.Types.ObjectId, ref: 'Tours'}],
+  author: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
+  relatedTo:{type: mongoose.Schema.Types.ObjectId, ref: 'Tours'},
   title: String,
   description: String,
   rate: Number
