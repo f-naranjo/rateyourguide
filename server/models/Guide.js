@@ -16,9 +16,9 @@ const guideSchema = new Schema({
       type: String,
       enum: ["Spanish","English","French","German","Russian"]}]
   },
-  tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
-  toursCreated: [{type: mongoose.Schema.Types.ObjectId, ref: 'Tours'}],
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'GuideComments'}],
+  tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSession'}],
+  toursCreated: [{type: mongoose.Schema.Types.ObjectId, ref: 'Tour'}],
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'GuideComment'}],
   rates: [],
   searchDisplays: Number,
   profileViews: Number,

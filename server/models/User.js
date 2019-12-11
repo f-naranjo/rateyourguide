@@ -9,8 +9,8 @@ const userSchema = new Schema({
   surname: String,
   phone: Number,
   email: String,
-  bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bookings'}],
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comments'}]
+  bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booking'}],
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 }, {
   timestamps: true,
   toJSON: {

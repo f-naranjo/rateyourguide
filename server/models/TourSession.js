@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const tourSessionSchema = new Schema({
-  owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Guides'},
-  tour:{type: mongoose.Schema.Types.ObjectId, ref: 'Tours'},
-  bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bookings'}],
+  owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Guide'},
+  tour:{type: mongoose.Schema.Types.ObjectId, ref: 'Tour'},
+  bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booking'}],
   maxPeople: String,
   currentPeople: Number,
   date: String,

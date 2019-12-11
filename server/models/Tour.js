@@ -1,18 +1,17 @@
 const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const tourSchema = new Schema({
-  owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Guides'},
-  //owner: String,
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'Guide' },
   img: String,
   title: String,
   claim: String,
   description: String,
   duration: Number,
-  category:[{type:String, enum:["Aventura","Deporte","Estilo de Vida","Arte y Cultura","Gastronomia","Mar","Naturaleza"]}],
-  price: Number, 
-  meetingPoint: String, 
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comments'}],
+  category: [{ type: String, enum: ["Aventura", "Deporte", "Estilo de Vida", "Arte y Cultura", "Gastronomia", "Mar", "Naturaleza"] }],
+  price: Number,
+  meetingPoint: String,
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'TourComment' }],
   rates: []
 }, {
   timestamps: true,

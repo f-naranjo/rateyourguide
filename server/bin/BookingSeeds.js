@@ -29,19 +29,6 @@ let bookingsGenerated = bookings.map((booking, idx) => {
 
 let bookingsId = []
 
-TourSession.deleteMany()
-  .then(() => {
-    return TourSession.create(tourSessions)
-  })
-  .then(tourSessionsCreated => {
-    console.log(`${tourSessionsCreated.length} tourSessions created with the following id:`);
-    console.log(tourSessionsCreated.map(u => u._id));
-  })
-  .catch(err => {
-    mongoose.disconnect()
-    throw err
-  })
-
 Booking.deleteMany()
   .then(() => {
     return Booking.create(bookingsGenerated)

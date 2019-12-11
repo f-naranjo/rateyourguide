@@ -13,6 +13,18 @@ const MongoStore = require("connect-mongo")(session);
 const passport = require('passport')
 const cors = require('cors');
 
+// const whitelist = ['http://localhost:3000']
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   },
+//   credentials: true
+// }
+
 
 require('./configs/db.config');
 require('./configs/passport.config');
@@ -22,25 +34,17 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000']
+}));
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const whitelist = ['http://localhost:3001']
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  credentials: true
-}
-
-app.use(cors(corsOptions));
 
 // Enable authentication using session + passport
 app.use(session({

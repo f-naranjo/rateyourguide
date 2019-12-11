@@ -8,8 +8,8 @@ const userSchema = new Schema({
   surname: String,
   phone: Number,
   email: String,
-  tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSessions'}],
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comments'}]
+  tourSessions: [{type: mongoose.Schema.Types.ObjectId, ref: 'TourSession'}],
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 }, {
   timestamps: true,
   toJSON: {
