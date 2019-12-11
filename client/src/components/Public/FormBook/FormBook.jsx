@@ -3,7 +3,7 @@ import BookForm from './FormBookStyle'
 import TourService from '../../../services/TourService'
 import ButtonForward from '../../../styles/buttons'
 import ButtonBack from '../../../styles/buttons'
-
+import { Link } from 'react-router-dom'
 
 export default class FormBook extends Component {
     constructor(props) {
@@ -82,7 +82,7 @@ export default class FormBook extends Component {
                         <option value="german">Deutsch</option>
                         <option value="russian">Russian</option>
                     </select>
-                    <ButtonForward>ENCONTRAR GUÍAS</ButtonForward>
+                    <Link to="/book/guides"><ButtonForward>ENCONTRAR GUÍAS</ButtonForward></Link>
                    <ButtonBack>VOLVER</ButtonBack>
                 </form>
             </BookForm>

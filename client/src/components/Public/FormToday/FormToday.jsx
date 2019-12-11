@@ -3,6 +3,7 @@ import BookForm from './FormTodayStyle'
 import TourService from '../../../services/TourService'
 import ButtonForward from '../../../styles/buttons'
 import ButtonBack from '../../../styles/buttons'
+import { Link } from 'react-router-dom'
 
 
 export default class FormToday extends Component {
@@ -84,8 +85,8 @@ export default class FormToday extends Component {
                         <option value="german">Deutsch</option>
                         <option value="russian">Russian</option>
                     </select>
-                    <ButtonForward>ENCONTRAR GUÍAS</ButtonForward>
-                   <ButtonBack>VOLVER</ButtonBack>
+                    <Link to="/book/guides"> <ButtonForward>ENCONTRAR GUÍAS</ButtonForward></Link>
+                    <Link to="/book"><ButtonBack>VOLVER</ButtonBack></Link>
                 </form>
             </BookForm>
         )

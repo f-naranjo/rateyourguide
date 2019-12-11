@@ -34,6 +34,10 @@ label{
     font-size:1.4rem;
     margin-top:1rem;
 }
+a:first-of-type{
+    display:block;
+    margin-top:4rem;
+  }
 `;
 
 

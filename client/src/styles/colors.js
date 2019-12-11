@@ -5,6 +5,7 @@ const appColors = {
     secondary:"#e3f6f5",
     tertiary:"#bae8e8",
     highlight:"#ffd803",
+    highlightSoft:"#FFF9CC",
     white:"#ffffff",
     gray:"#f6f6f6"
 }

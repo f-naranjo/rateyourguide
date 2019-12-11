@@ -3,6 +3,7 @@ import TourService from '../../../services/TourService'
 import ButtonForward from '../../../styles/buttons'
 import ButtonBack from '../../../styles/buttons'
 import GuidePreview from '../GuidePreview/GuidePreview'
+import { Link } from 'react-router-dom'
 
 
 export default class PageGuide extends Component {
@@ -34,21 +35,23 @@ export default class PageGuide extends Component {
 
     componentWillUnmount() {
         this._isMounted = false;
-      }
+    }
 
     displayGuides = () => {
-        
+
         const { guides } = this.state;
-        
         return guides.map((guide, i) => <GuidePreview key={i} guide={guide}></GuidePreview>)
     }
 
     render() {
 
         return (
-            <div>
-              {(this.state.guides.length > 0) && this.displayGuides()}
+            <div className="guides-wrapper">
+                {(this.state.guides.length > 0) && this.displayGuides()}
+                {(this.state.guides.length > 0) && <Link className="big" to="/book"><ButtonForward className="big">VOLVER</ButtonForward></Link>}
+                {(this.state.guides.length === 0) && <h1>CARGANDO...</h1>}
             </div>
+         
         )
     }
 }
