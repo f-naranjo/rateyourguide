@@ -1,0 +1,54 @@
+import React, { Component } from 'react'
+import TourService from '../../../services/TourService'
+import ButtonForward from '../../../styles/buttons'
+import ButtonBack from '../../../styles/buttons'
+import GuidePreview from '../GuidePreview/GuidePreview'
+
+
+export default class PageGuide extends Component {
+    _isMounted = false;
+
+
+    constructor(props) {
+        super(props)
+        this.tourService = new TourService();
+    }
+
+    state = {
+        guides: [],
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+        this.tourService.allGuides()
+            .then((guides) => {
+                console.log(guides)
+                if (this._isMounted) {
+                    this.setState({
+                        ...this.state,
+                        guides: guides,
+                    })
+                }
+            })
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
+
+    displayGuides = () => {
+        
+        const { guides } = this.state;
+        
+        return guides.map((guide, i) => <GuidePreview key={i} guide={guide}></GuidePreview>)
+    }
+
+    render() {
+
+        return (
+            <div>
+              {(this.state.guides.length > 0) && this.displayGuides()}
+            </div>
+        )
+    }
+}

@@ -1,4 +1,4 @@
-const User = require('../models/User2');
+const User = require('../models/User');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
