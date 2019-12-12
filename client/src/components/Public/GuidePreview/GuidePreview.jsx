@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ButtonForward from '../../../styles/buttons'
 import DivPreview from './GuidePreviewStyle';
+import { Link } from 'react-router-dom';
 
 export default class GuidePreview extends Component {
     constructor(props) {
@@ -32,7 +33,12 @@ export default class GuidePreview extends Component {
                         <p>{toursCreated[0].claim}</p>
                     </div>
                 </div>
-                <ButtonForward>VER LAS EXPERIENCIAS</ButtonForward>
+                <Link
+                    to={{
+                        pathname:'/book/guide/tours',
+                     }}
+
+                ><ButtonForward>VER LAS EXPERIENCIAS</ButtonForward></Link>
             </DivPreview>
         )
     }

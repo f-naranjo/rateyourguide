@@ -20,6 +20,12 @@ class TourService {
     .catch(error => console.error(error))
   }
 
+  filterGuides = (location,language,duration,people) => {
+    return this.instance.post('/guides/now/filter', {location,language,duration,people})
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
   tourDetail = (idTour) => {
     return this.instance.get(`/${idTour}`)
     .then(res => Promise.resolve(res.data))

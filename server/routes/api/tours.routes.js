@@ -11,7 +11,7 @@ router.get('/all', (req, res, next) => {
       {
         path: 'comments',
         model: 'TourComment',
-        populate:{
+        populate: {
           path: 'author',
           model: 'User'
         }
@@ -50,54 +50,97 @@ router.get('/all', (req, res, next) => {
     })
 });
 
-router.get('/guides',(req,res,next)=>{
+router.get('/guides', (req, res, next) => {
   Guide.find()
-  .populate([
-    {
-      path: 'toursCreated',
-      model: 'Tour',
-    },
-    {
-      path: 'tourSessions',
-      model: 'TourSession',
-    },
-    {
-      path: 'comments',
-      model: 'GuideComment',
-      populate: {
-        path: 'author',
-        model: 'User'
+    .populate([
+      {
+        path: 'toursCreated',
+        model: 'Tour',
+      },
+      {
+        path: 'tourSessions',
+        model: 'TourSession',
+      },
+      {
+        path: 'comments',
+        model: 'GuideComment',
+        populate: {
+          path: 'author',
+          model: 'User'
+        }
       }
-    }
-  ])
-  .then((guidesFound)=>{
-    res.status(200).json(guidesFound)
-  })
-  .catch(err => {
-    next()
-    res.status(500).json({ message: err });
-  })
- 
-  
+    ])
+    .then((guidesFound) => {
+      res.status(200).json(guidesFound)
+    })
+    .catch(err => {
+      next()
+      res.status(500).json({ message: err });
+    })
+
+
 })
 
-router.get('/guide/:id',(req,res,next)=>{
+
+router.post('/guides/now/filter', (req, res, next) => {
+  const {location,language,duration,people} = req.body;
+ console.log(location,language,duration,people)
+  Guide.find()
+    .populate([
+      {
+        path: 'tourSessions',
+        model: 'TourSession',
+      },
+      {
+        path: 'toursCreated',
+        model: 'Tour',
+      }
+    ])
+    .then((guidesFound) => {
+      let filterGuides = guidesFound.filter((guides) => {
+        let hasSessions = []
+        let now = new Date()
+        let timeLimit = new Date(new Date().setUTCHours(23,59,00))
+        guides.tourSessions.forEach((session) => {
+          hasSessions.push(session.language === language && 
+          session.maxPeople - session.currentPeople > +people && 
+          session.duration<= +duration &&
+          session.date > now &&
+          session.date < timeLimit 
+          )
+        })
+        return hasSessions.includes(true)
+      }
+      )
+      return filterGuides
+    })
+    .then((filterGuides) => {
+      res.status(200).json(filterGuides)
+        .catch(err => {
+          next()
+          res.status(500).json({ message: err });
+        })
+    })
+
+})
+
+router.get('/guide/:id', (req, res, next) => {
   Guide.findById(req.params.id)
-   .populate('tourSessions')
-   .populate('toursCreated')
-  .then((guideFound)=>{
-    res.json(guideFound)
-  })
+    .populate('tourSessions')
+    .populate('toursCreated')
+    .then((guideFound) => {
+      res.json(guideFound)
+    })
 })
 
-router.get('/:id',(req,res,next)=>{
+router.get('/:id', (req, res, next) => {
   Tour.findById(req.params.id)
-  .then((tourFound)=>{
-    res.status(200).json(tourFound)
-  }).catch(function() {
-    next();
-    res.status(500).json({mes: err});
-  });
+    .then((tourFound) => {
+      res.status(200).json(tourFound)
+    }).catch(function () {
+      next();
+      res.status(500).json({ mes: err });
+    });
 })
 
 

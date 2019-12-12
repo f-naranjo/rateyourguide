@@ -28,12 +28,20 @@ function createSessions(initialDate, weeks, owner, tour) {
 
   let sessions = new Array(weeks).fill("").map((week, idx) => {
     let dataTo = new Date(dateInit.setDate(dateInit.getDate() + 7))
+    let languages = ["spanish","french","english","german","russian"]
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
     return {
       owner: owner,
       tour: tour,
       date: dataTo,
       status: "pending",
-      avaliability: "Empty"
+      avaliability: "Empty",
+      language: languages[randomInt(0,4)],
+      maxPeople:randomInt(6,12),
+      currentPeople:randomInt(0,10),
+      duration: randomInt(1,6),
     }
   })
   return sessions

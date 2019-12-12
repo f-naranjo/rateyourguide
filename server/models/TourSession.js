@@ -5,10 +5,14 @@ const tourSessionSchema = new Schema({
   owner: {type: mongoose.Schema.Types.ObjectId, ref: 'Guide'},
   tour:{type: mongoose.Schema.Types.ObjectId, ref: 'Tour'},
   bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booking'}],
-  maxPeople: String,
+  maxPeople: Number,
+  duration: Number,
+  language:{
+    type:String,
+    enum:["spanish","english","french","german","russian"]
+  },
   currentPeople: Number,
-  date: String,
-  hour: String,
+  date: Date,
   status:{
     type: String,
     enum:["pending","confirmed","deleted","out of date"]

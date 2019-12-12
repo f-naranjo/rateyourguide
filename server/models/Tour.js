@@ -7,7 +7,6 @@ const tourSchema = new Schema({
   title: String,
   claim: String,
   description: String,
-  duration: Number,
   category: [{ type: String, enum: ["Aventura", "Deporte", "Estilo de Vida", "Arte y Cultura", "Gastronomia", "Mar", "Naturaleza"] }],
   price: Number,
   meetingPoint: String,

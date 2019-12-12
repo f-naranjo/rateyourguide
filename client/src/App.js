@@ -9,7 +9,8 @@ import TourService from './services/TourService';
 import PrivateRoute from './guards/PrivateRoute';
 import FormBook from './components/Public/FormBook/FormBook';
 import FormToday from './components/Public/FormToday/FormToday';
-import PageGuide from './components/Public/PageGuides/PageGuides';
+import PageGuides from './components/Public/PageGuides/PageGuides';
+import PageTours from './components/Public/PageTours/PageTours';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class App extends React.Component {
   }
 
   state = {
-    user: null
+    user: null,
+    filterParams:undefined,
   }
 
   setUser = (user) => {
@@ -48,6 +50,20 @@ class App extends React.Component {
     this.fetchUser()
   }
 
+ 
+  handleFilterParams(filterParams){
+      console.log("entra")
+        this.setState({
+          ...this.state,
+          filterParams: filterParams
+        })
+  }
+
+
+  
+  
+
+
   render() {
     this.fetchUser()
     const { user } = this.state;
@@ -61,8 +77,11 @@ class App extends React.Component {
             {/* <PrivateRoute exact path="/" user={user} component={TodoList} /> */}
           </Switch> }
           {!user && <Switch>
-            <Route exact path="/book/guides" render={(match) =>  <PageGuide></PageGuide> }/>
-            <Route exact path="/booknow" render={(match) =>  <FormToday {...match} />} />
+
+            <Route exact path="/book/guides" render={(props) =>
+             <PageGuides {...props}></PageGuides> }/> 
+            <Route exact path="/book/guide/tours" render={(match) =>  <PageTours></PageTours> }/>
+            <Route exact path="/booknow" render={(match) =>  <FormToday handleFilterParams={()=>this.handleFilterParams()}  {...match} />} />
             <Route exact path="/book" render={(match) =>  <FormBook {...match} />} />
             <Route exact path="/tours" render={(match) =>  <AllTours {...match} />} />
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
