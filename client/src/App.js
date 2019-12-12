@@ -80,7 +80,7 @@ class App extends React.Component {
 
             <Route exact path="/book/guides" render={(props) =>
              <PageGuides {...props}></PageGuides> }/> 
-            <Route exact path="/book/guide/tours" render={(match) =>  <PageTours></PageTours> }/>
+            <Route exact path="/book/guide/tours" render={(props) =>  <PageTours {...props}></PageTours> }/>
             <Route exact path="/booknow" render={(match) =>  <FormToday handleFilterParams={()=>this.handleFilterParams()}  {...match} />} />
             <Route exact path="/book" render={(match) =>  <FormBook {...match} />} />
             <Route exact path="/tours" render={(match) =>  <AllTours {...match} />} />

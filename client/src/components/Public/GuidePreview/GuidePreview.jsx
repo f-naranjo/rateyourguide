@@ -36,6 +36,7 @@ export default class GuidePreview extends Component {
                 <Link
                     to={{
                         pathname:'/book/guide/tours',
+                        guide: this.props.guide
                      }}
 
                 ><ButtonForward>VER LAS EXPERIENCIAS</ButtonForward></Link>

@@ -19,15 +19,15 @@ export default class PageTours extends Component {
 
     componentDidMount() {
         this._isMounted = true;
-        this.tourService.allTours()
-            .then((tours) => {
-                if (this._isMounted) {
-                    this.setState({
-                        ...this.state,
-                        tours: tours,
-                    })
-                }
-            })
+        // this.tourService.allTours()
+        //     .then((tours) => {
+        //         if (this._isMounted) {
+        //             this.setState({
+        //                 ...this.state,
+        //                 tours: tours,
+        //             })
+        //         }
+        //     })
     }
 
     componentWillUnmount() {
@@ -35,14 +35,14 @@ export default class PageTours extends Component {
       }
 
     displayTours = () => {
-        const { tours } = this.state;
-        return tours.map((tour, i) => <PageTitle key={i}>{tour.title}</PageTitle>)
+       
+        return this.props.location.guide.toursCreated.map((tour, i) => <PageTitle key={i}>{tour.title}</PageTitle>)
     }
 
     render() {
         return (
             <div>
-                {(this.state.tours.length > 0) && this.displayTours()}
+                {(this.props.location.guide.toursCreated.length > 0) && this.displayTours()}
             </div>
         )
     }
