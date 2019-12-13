@@ -13,12 +13,10 @@ export default class FormToday extends Component {
     }
 
     state = {
-        location: "",
-        dateFrom: "",
-        dateTo: "",
+        location: "España",
         language: "spanish",
-        duration: "4",
-        people:"2",
+        duration: "10",
+        people: "1",
     }
 
     handleChange = (e) => {
@@ -29,29 +27,29 @@ export default class FormToday extends Component {
 
     handlePeopleSelect = (e) => {
         console.log(this.state)
-       this.setState({
-           ...this.state, 
-           "people": this.refs.people.value
+        this.setState({
+            ...this.state,
+            "people": this.refs.people.value
         })
-        
+
     }
 
     handleDurationSelect = (e) => {
         console.log(this.state)
-       this.setState({
-           ...this.state, 
-           "duration": this.refs.duration.value
+        this.setState({
+            ...this.state,
+            "duration": this.refs.duration.value
         })
-        
+
     }
 
     handleLanguageSelect = (e) => {
         console.log(this.state)
-       this.setState({
-           ...this.state, 
-           "language": this.refs.language.value
+        this.setState({
+            ...this.state,
+            "language": this.refs.language.value
         })
-        
+
     }
 
 
@@ -84,10 +82,10 @@ export default class FormToday extends Component {
     }
 
     sendFilterParams = (e) => {
-        const { location,language,duration,people } = this.state
+        const { location, language, duration, people } = this.state
         // const filterParams = [location,language,duration,people]
         //console.log("EN FORMTODAY --->  " + filterParams)
-        this.props.handleFilterParams(location,language,duration,people)
+        this.props.handleFilterParams(location, language, duration, people)
     }
     render() {
         const { location, dateFrom, dateTo, language } = this.state;
@@ -109,10 +107,10 @@ export default class FormToday extends Component {
                     </select>
                     <label htmlFor="duration">¿Qué duración prefieres?: </label>
                     <select ref="duration" name="duration" onChange={this.handleDurationSelect}>
-                        <option value="1" defaultValue>1 Hora</option>
+                        <option value="1">1 Hora</option>
                         <option value="2" >2 Horas</option>
                         <option value="4">4 Horas</option>
-                        <option value="10">No me importa</option>
+                        <option value="10" defaultValue>No me importa</option>
                     </select>
                     <label htmlFor="language">¿En qué idioma?: </label>
                     <select ref="language" name="language" onChange={this.handleLanguageSelect}>
@@ -123,8 +121,11 @@ export default class FormToday extends Component {
                         <option value="russian">Russian</option>
                     </select>
                     <Link to={{
-                        pathname:"/book/guides",
-                        filterParams:this.state }}> <ButtonForward>ENCONTRAR GUÍAS</ButtonForward></Link>
+                        pathname: "/book/guides",
+                        filterParams: this.state
+                        }}>
+                        <ButtonForward>ENCONTRAR GUÍAS</ButtonForward>
+                    </Link>
                     <Link to="/book"><ButtonBack>VOLVER</ButtonBack></Link>
                 </form>
             </BookForm>

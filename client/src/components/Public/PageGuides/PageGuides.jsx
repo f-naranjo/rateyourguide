@@ -18,7 +18,6 @@ export default class PageGuides extends Component {
 
     state = {
         guides: [],
-        // filterParams : this.props.location.info.filterParams
     }
 
     componentDidMount() {
@@ -32,6 +31,7 @@ export default class PageGuides extends Component {
                     this.setState({
                         ...this.state,
                         guides: guides,
+                        filterParams: this.props.location.filterParams
                     })
                 }
             })

@@ -10,7 +10,7 @@ import PrivateRoute from './guards/PrivateRoute';
 import FormBook from './components/Public/FormBook/FormBook';
 import FormToday from './components/Public/FormToday/FormToday';
 import PageGuides from './components/Public/PageGuides/PageGuides';
-import PageTours from './components/Public/PageTours/PageTours';
+import PageAvailableTours from './components/Public/PageAvailableTours/PageAvailableTours';
 import Navbar from './components/Public/Navbar/Navbar';
 
 class App extends React.Component {
@@ -81,7 +81,7 @@ class App extends React.Component {
 
             <Route exact path="/book/guides" render={(props) =>
              <PageGuides {...props}></PageGuides> }/> 
-            <Route exact path="/book/guide/tours" render={(props) =>  <PageTours {...props}></PageTours> }/>
+            <Route exact path="/book/guide/tours" render={(props) =>  <PageAvailableTours {...props}></PageAvailableTours> }/>
             <Route exact path="/booknow" render={(match) =>  <FormToday handleFilterParams={()=>this.handleFilterParams()}  {...match} />} />
             <Route exact path="/book" render={(match) =>  <FormBook {...match} />} />
             <Route exact path="/tours" render={(match) =>  <AllTours {...match} />} />

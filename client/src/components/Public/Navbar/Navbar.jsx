@@ -52,7 +52,7 @@ export default class Navbar extends Component {
                 
                 <ReactSVG className="icon direction" src="./direction_icon.svg"/>
                 
-                <div class="app-logo"><a href="#">DINGO</a></div>
+                <div className="app-logo"><a href="#">DINGO</a></div>
              
                 <ReactSVG className="icon ham-close" src="./close_icon.svg"/>
                 <ReactSVG className="icon ham-menu" src="./ham_icon.svg"/>
