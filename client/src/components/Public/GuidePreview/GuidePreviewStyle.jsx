@@ -11,6 +11,7 @@ const DivPreview = styled.div`
   background-color:${appColor.white}
   color: ${appColor.primary};
   transition: 0.3s ease-in-out;
+ 
   .info-wrapper{
       display:flex;
       justify-content:space-between;
@@ -68,9 +69,9 @@ const DivPreview = styled.div`
     -moz-box-shadow: 10px 10px 47px -21px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 47px -21px rgba(0,0,0,0.75);
   }
-  :first-of-type{
-      margin-top:7rem;
-  }
+//   :first-of-type{
+//       margin-top:10rem;
+//   }
 `;
 
 

@@ -9,7 +9,6 @@ export default class GuidePreview extends Component {
     }
 
     render() {
-
         const { info, rates, toursCreated } = this.props.guide;
         const mediumrate = Math.round((rates.reduce((ac, cu) => {
             return ac + cu
@@ -35,9 +34,12 @@ export default class GuidePreview extends Component {
                 </div>
                 <Link
                     to={{
-                        pathname:'/book/guide/tours',
-                        guide: this.props.guide
-                     }}
+                        pathname: '/book/guide/tours',
+                        state: {
+                            guide: this.props.guide,
+                            filterParams: this.props.filterParams
+                        }
+                    }}
 
                 ><ButtonForward>VER LAS EXPERIENCIAS</ButtonForward></Link>
             </DivPreview>

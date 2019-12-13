@@ -18,11 +18,12 @@ export default class PageGuides extends Component {
 
     state = {
         guides: [],
-        filterParams : this.props.location.filterParams
+        // filterParams : this.props.location.info.filterParams
     }
 
     componentDidMount() {
-       const {location,language,duration,people} = this.props.location.filterParams
+       if(this.props.location.filterParams){
+        const {location,language,duration,people} = this.props.location.filterParams
         this._isMounted = true;
         this.tourService.filterGuides(location,language,duration,people)
             .then((guides) => {
@@ -34,6 +35,7 @@ export default class PageGuides extends Component {
                     })
                 }
             })
+       }
     }
 
     componentWillUnmount() {
@@ -41,15 +43,17 @@ export default class PageGuides extends Component {
     }
 
     displayGuides = () => {
-
         const { guides } = this.state;
-        return guides.map((guide, i) => <GuidePreview key={i} guide={guide}></GuidePreview>)
+        const { filterParams } = this.state;
+        return guides.map((guide, i) => <GuidePreview key={i} filterParams={filterParams} guide={guide}></GuidePreview>)
     }
 
     render() {
 
         return (
+            
             <div className="guides-wrapper">
+                <h2>Estos son los guías que hemos encontrado con actividades disponibles para ti:</h2>
                 {(this.state.guides.length > 0) && this.displayGuides()}
                 {(this.state.guides.length > 0) && <Link className="big" to="/book"><ButtonForward className="big">VOLVER</ButtonForward></Link>}
                 {(this.state.guides.length === 0) && <h1>CARGANDO...</h1>}

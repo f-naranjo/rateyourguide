@@ -11,6 +11,7 @@ import FormBook from './components/Public/FormBook/FormBook';
 import FormToday from './components/Public/FormToday/FormToday';
 import PageGuides from './components/Public/PageGuides/PageGuides';
 import PageTours from './components/Public/PageTours/PageTours';
+import Navbar from './components/Public/Navbar/Navbar';
 
 class App extends React.Component {
   constructor(props) {
@@ -69,7 +70,7 @@ class App extends React.Component {
     const { user } = this.state;
     return (
       <div className="App">
-        
+            <Navbar></Navbar>
           {user && <Switch>
             <Route exact path="/tours" render={(match) =>  <AllTours {...match} />} />
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  

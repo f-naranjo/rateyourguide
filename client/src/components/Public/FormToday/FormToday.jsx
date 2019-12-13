@@ -16,9 +16,9 @@ export default class FormToday extends Component {
         location: "",
         dateFrom: "",
         dateTo: "",
-        language: "",
-        duration: "",
-        people:"",
+        language: "spanish",
+        duration: "4",
+        people:"2",
     }
 
     handleChange = (e) => {
@@ -111,8 +111,8 @@ export default class FormToday extends Component {
                     <select ref="duration" name="duration" onChange={this.handleDurationSelect}>
                         <option value="1" defaultValue>1 Hora</option>
                         <option value="2" >2 Horas</option>
-                        <option value="3">4 Horas</option>
-                        <option value="4">No me importa</option>
+                        <option value="4">4 Horas</option>
+                        <option value="10">No me importa</option>
                     </select>
                     <label htmlFor="language">¿En qué idioma?: </label>
                     <select ref="language" name="language" onChange={this.handleLanguageSelect}>

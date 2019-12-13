@@ -19,6 +19,8 @@ export default class PageTours extends Component {
 
     componentDidMount() {
         this._isMounted = true;
+
+
         // this.tourService.allTours()
         //     .then((tours) => {
         //         if (this._isMounted) {
@@ -32,17 +34,18 @@ export default class PageTours extends Component {
 
     componentWillUnmount() {
         this._isMounted = false;
+
       }
 
     displayTours = () => {
-       
-        return this.props.location.guide.toursCreated.map((tour, i) => <PageTitle key={i}>{tour.title}</PageTitle>)
+        return this.props.location.info.guide.toursCreated.map((tour, i) => <PageTitle key={i}>{tour.title}</PageTitle>)
     }
 
     render() {
         return (
             <div>
-                {(this.props.location.guide.toursCreated.length > 0) && this.displayTours()}
+                {(this.props.location.info.guide.toursCreated.length > 0) && this.displayTours()}
+        <h1>{this.props.info.filterParams.language}</h1>
             </div>
         )
     }
