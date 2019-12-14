@@ -24,10 +24,13 @@ mongoose
 
 function createSessions(initialDate, weeks, owner, tour) {
   let dateTransform = initialDate.split("-")
+  console.log(dateTransform)
+  console.log(new Date(Date.UTC(+dateTransform[0], +dateTransform[1] - 1, +dateTransform[2] - 1, +dateTransform[3], +dateTransform[4])))
   let dateInit = new Date(Date.UTC(+dateTransform[0], +dateTransform[1] - 1, +dateTransform[2] - 1, +dateTransform[3], +dateTransform[4]))
 
   let sessions = new Array(weeks).fill("").map((week, idx) => {
     let dataTo = new Date(dateInit.setDate(dateInit.getDate() + 7))
+    console.log(dataTo)
     let languages = ["spanish","french","english","german","russian"]
     function randomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
@@ -38,6 +41,7 @@ function createSessions(initialDate, weeks, owner, tour) {
       date: dataTo,
       status: "pending",
       avaliability: "Empty",
+      //language:"spanish",
       language: languages[randomInt(0,4)],
       maxPeople:randomInt(6,12),
       currentPeople:randomInt(0,10),
@@ -58,7 +62,9 @@ Guide.find()
     allGuides.push(guide._id)
     allToursOfGuide[idx]=guide.toursCreated
     guide.toursCreated.forEach((tourCreated,idx)=>{
-      tourSessions.push(...createSessions(`2019-12-${15+(idx+1)}-10-00`,5,guide._id,tourCreated))
+      //if hours are set to 0, it takes current hour.
+      //the server has one hour less by default
+      tourSessions.push(...createSessions(`2019-12-${7+(idx+1)}-20-30`,5,guide._id,tourCreated))
     })
   })
 })

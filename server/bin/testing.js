@@ -33,13 +33,17 @@
 
 // console.log(createSessions2("2019-08-04-10-00", 10))
 
-Date.prototype.setHours = function(h) { 
-  this.setTime(h * 60 * 60 * 1000); 
-  return this; 
-} 
+// Date.prototype.setHours = function(h) { 
+//   this.setTime(h * 60 * 60 * 1000); 
+//   return this; 
+// } 
 
-let date = new Date()
-let now = new Date(new Date().setUTCHours(23,59,00))
-let date2 = new Date(2018,05,16,20,15)
-console.log(date2)
-console.log(now)
+// let date = new Date()
+// let now = new Date(new Date().setUTCHours(23,59,00))
+// let date2 = new Date(2018,05,16,20,15)
+// console.log(date2)
+// console.log(now)
+
+let dateInit= new Date(Date.UTC(2019,11,13,23,50))
+let dataTo = new Date(dateInit.setDate(dateInit.getDate() + 7))
+console.log(dataTo)

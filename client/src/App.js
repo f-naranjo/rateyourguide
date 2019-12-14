@@ -12,6 +12,7 @@ import FormToday from './components/Public/FormToday/FormToday';
 import PageGuides from './components/Public/PageGuides/PageGuides';
 import PageAvailableTours from './components/Public/PageAvailableTours/PageAvailableTours';
 import Navbar from './components/Public/Navbar/Navbar';
+import PageSessionDetail from './components/Public/PageSessionDetail/PageSessionDetail';
 
 class App extends React.Component {
   constructor(props) {
@@ -79,11 +80,11 @@ class App extends React.Component {
           </Switch> }
           {!user && <Switch>
 
-            <Route exact path="/book/guides" render={(props) =>
-             <PageGuides {...props}></PageGuides> }/> 
-            <Route exact path="/book/guide/tours" render={(props) =>  <PageAvailableTours {...props}></PageAvailableTours> }/>
             <Route exact path="/booknow" render={(match) =>  <FormToday handleFilterParams={()=>this.handleFilterParams()}  {...match} />} />
             <Route exact path="/book" render={(match) =>  <FormBook {...match} />} />
+            <Route exact path="/book/guides" render={(props) => <PageGuides {...props}></PageGuides> }/> 
+            <Route exact path="/book/guide/tours" render={(props) =>  <PageAvailableTours {...props}></PageAvailableTours> }/>
+            <Route exact path="/book/guide/tour/session" render={(props) =>  <PageSessionDetail {...props}></PageSessionDetail> }/>
             <Route exact path="/tours" render={(match) =>  <AllTours {...match} />} />
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
             <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />

@@ -3,15 +3,94 @@ import appColor from '../../../styles/colors';
 
 const DivPreviewTour = styled.div`
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:2rem 1rem;
-  margin:10rem 2rem;
-  background-color:${appColor.white}
+  flex-direction:row;
+  align-items:flex-start;
+  justify-content:space-between;
+  width:100%;
+  padding:0rem 2rem;
+  margin: 2rem 0;
+
   color: ${appColor.primary};
   transition: 0.3s ease-in-out;
+  .preview-wrapper{
+      display:flex;
+      background-color:${appColor.white};
+  }
+  .tour-img{
+      background-color:#000000;
+      height:auto;
+      width:40%;
+    }
+   .tour-img img{
+        object-fit:cover;
+        width:100%;
+    }
+    .tour-info{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:1rem;
+        width:60%;
+        h2{
+            font-size:1.5rem;
+            margin-bottom:1rem;
+            font-weight:600;
+        }
+        p{
+            font-size:1.4rem;
+            text-align: left;
+            line-height:1.8rem;
+            span{
+                font-weight:600;
+            }
+            margin-bottom:1rem;
+        }
  
+        .tour-items{
+            display:flex;
+            align-items:center;
+            justify-content:flex-end;
+            width:100%;
+            p{
+                margin:0 1rem;
+                :last-of-type{
+                    margin:0;
+                }
+            }
+        }
+
+        .tour-title{
+            margin-top:1rem;
+            padding-right:1rem;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            width:100%;
+            p{
+                width:20%;
+            }
+            h2{
+                width:80%;
+                text-align:left;
+            }
+            flex-wrap:wrap;
+
+        }
+        a{
+            font-size:1.2rem;
+            padding:1rem 1.5rem;
+            border-radius: 4rem;
+            background-color: ${appColor.highlight}
+            text-decoration:none;
+            color:${appColor.primary}
+            align-self:flex-end;
+            margin-top:1.5rem;
+        }
+    }
+ 
+
+
+
   .info-wrapper{
       display:flex;
       justify-content:space-between;
@@ -69,9 +148,9 @@ const DivPreviewTour = styled.div`
     -moz-box-shadow: 10px 10px 47px -21px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 47px -21px rgba(0,0,0,0.75);
   }
-//   :first-of-type{
-//       margin-top:10rem;
-//   }
+  :first-of-type{
+      margin-top:10rem;
+  }
 `;
 
 

@@ -44,6 +44,12 @@ class TourService {
     .catch(error => console.error(error))
   }
 
+  sessionDetail = (idSession) => {
+    return this.instance.get(`/session/${idSession}`)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
 }
 
 export default TourService;

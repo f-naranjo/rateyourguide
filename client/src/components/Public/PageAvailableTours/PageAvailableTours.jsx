@@ -23,8 +23,9 @@ export default class PageAvailableTours extends Component {
         const {toursCreated, tourSessions} = this.props.location.state.guide
         const {location, language, duration, people} = this.props.location.state.filterParams
         let now = new Date()
-        let hourLimit = 24
+        let hourLimit = 23
         let timeLimit = new Date(new Date().setUTCHours(hourLimit))
+        console.log(timeLimit)
         const availableSessions = tourSessions.filter((session)=>{
             return session.language === language 
             && session.duration < duration 
@@ -58,12 +59,14 @@ export default class PageAvailableTours extends Component {
         //     return mediumA - mediumB
         // })
 
-        console.log(this.props.location.state.guide.toursCreated)
-        console.log(this.props.location.state.guide.tourSessions)
-        console.log(availableTours)
+        // console.log(this.props.location.state.guide.toursCreated)
+        // console.log(this.props.location.state.guide.tourSessions)
+        // console.log(availableTours)
+        console.log(availableSessions[0]._id)
         this.setState({
             ...this.state,
             tours: availableTours,
+            sessions: availableSessions,
         })
 
         // this.tourService.allTours()
@@ -83,11 +86,11 @@ export default class PageAvailableTours extends Component {
     }
 
     displayTours = () => {
-        return this.state.tours.map((tour, i) => <TourPreview key={i} tour={tour}></TourPreview>)
+        return this.state.tours.map((tour, i) => <TourPreview key={i} tour={tour} sessionId={this.state.sessions[i]._id}></TourPreview>)
     }
 
     render() {
-        console.log(this.state.tours)
+        // console.log(this.state.tours)
         return (
             <div>
                 {(this.state.tours) && this.displayTours()}
