@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import TourService from '../../../services/TourService'
-import ButtonForward from '../../../styles/buttons'
-import ButtonBack from '../../../styles/buttons'
 import GuidePreview from '../GuidePreview/GuidePreview'
 import { Link } from 'react-router-dom'
+import ButtonBack from '../../../styles/buttonBack';
+import HeroInfo from '../../../styles/heroinfo';
 
-
-export default class PageGuides extends Component {
+export default class PageGuidesNow extends Component {
     _isMounted = false;
 
 
@@ -24,7 +23,7 @@ export default class PageGuides extends Component {
        if(this.props.location.filterParams){
         const {location,language,duration,people} = this.props.location.filterParams
         this._isMounted = true;
-        this.tourService.filterGuides(location,language,duration,people)
+        this.tourService.filterGuidesNow(location,language,duration,people)
             .then((guides) => {
                 console.log(guides)
                 if (this._isMounted) {
@@ -53,11 +52,10 @@ export default class PageGuides extends Component {
         return (
             
             <div className="guides-wrapper">
-                <h2>Estos son los guías que hemos encontrado con actividades disponibles para ti:</h2>
+               <HeroInfo><h1>Estos son los guías que hemos encontrado con actividades disponibles para ti:</h1></HeroInfo>
                 {(this.state.guides.length > 0) && this.displayGuides()}
-                {(this.state.guides.length > 0) && <Link className="big" to="/book"><ButtonForward className="big">VOLVER</ButtonForward></Link>}
+                {(this.state.guides.length > 0) && <Link className="big" to="/book"><ButtonBack className="big">VOLVER</ButtonBack></Link>}
                 {(this.state.guides.length === 0) && <h1>CARGANDO...</h1>}
-       
             </div>
          
         )

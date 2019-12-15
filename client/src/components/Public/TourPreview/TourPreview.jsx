@@ -10,6 +10,7 @@ export default class TourPreview extends Component {
 
     render() {
         const { title, img, claim, date, price, rates } = this.props.tour;
+        console.log(this.props.tour)
         const mediumrate = Math.round((rates.reduce((ac, cu) => {
             return ac + cu
         }, 0) / rates.length))
@@ -22,15 +23,16 @@ export default class TourPreview extends Component {
                     <div className="tour-info">
                         <div className="tour-title">
                         <h2>{title}</h2>
-                        <p>⭐️<span>{mediumrate}</span>/10</p>
+                        <p><i class="fas fa-star"></i> <span>{mediumrate}</span>/10</p>
+                        </div>
+                        <div className="tour-items">
+                        <p><i class="fas fa-stopwatch"></i> 2h</p>
+                        <p><i class="fas fa-clock"></i> Hoy a las 10:00</p>
                         </div>
                         
                         <p>{claim}</p>
-                        <p>Madrid Centro</p>
-                        <div className="tour-items">
-                        <p>2h</p>
-                        <p>Hoy a las 10:00</p>
-                        </div>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid Centro</p>
+                        
                         
                         <Link
                             to={{
@@ -40,7 +42,7 @@ export default class TourPreview extends Component {
 
                                 }
                             }}
-                        >RESERVAR</Link>
+                        ><i class="fas fa-check"></i> RESERVAR</Link>
                     </div>
                 </div>
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import TourService from '../../../services/TourService'
-import ButtonForward from '../../../styles/buttons'
-import ButtonBack from '../../../styles/buttons'
 import { Link } from 'react-router-dom'
 import SessionDetail from './PageSessionDetailStyle'
+import ButtonForward from '../../../styles/buttons';
+import ButtonBack from '../../../styles/buttonBack';
+import HeroInfo from '../../../styles/heroinfo';
 
 
 export default class PageSessionDetail extends Component {
@@ -60,14 +61,13 @@ export default class PageSessionDetail extends Component {
             return (
 
                 <div className="guides-wrapper">
-                    <h2>Aquí tienes todos los detalles de tu experiencia:</h2>
-
+                    <HeroInfo><h1>Aquí tienes todos los detalles de tu experiencia:</h1></HeroInfo>
                     <SessionDetail>
 
                         <div className="img-container"><img src={tour.img} /></div>
                         <div className="tour-header">
                         <h1>{tour.title}</h1>
-                        <div className="tour-maininfo"><p className="rate"><span>9*</span>/10</p><p>{duration}h</p><p>10:00</p><p>{tour.price}€</p>
+                        <div className="tour-maininfo"><p className="rate"><i class="fas fa-star"></i><span> 9*</span>/10</p><p><i class="fas fa-stopwatch"></i> {duration}h</p><p><i class="fas fa-clock"></i> 10:00</p><p><i class="fas fa-euro-sign"></i>{tour.price}</p>
                                 </div>
                         </div>
                             
@@ -81,12 +81,8 @@ export default class PageSessionDetail extends Component {
                                 <img src="https://media.metrolatam.com/2019/02/27/screenshot20190227at123048pm-c1134760775ab2f1b3aa9046ea66964a.jpg" />
                             
                             <div className="nav-buttons">
-                                <ButtonBack>Volver</ButtonBack>
-                                <div className="nav-confirm">
-                                    
-                                    <ButtonForward>  <span>Reservar</span></ButtonForward>
-                                </div>
-
+                                <ButtonBack><i class="fas fa-arrow-left"></i> Volver</ButtonBack>   
+                                <ButtonForward><i class="fas fa-check"></i> <span> Reservar</span></ButtonForward>
                             </div>
 
                         </div>

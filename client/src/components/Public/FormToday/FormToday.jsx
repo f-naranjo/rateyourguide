@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import BookForm from './FormTodayStyle'
 import TourService from '../../../services/TourService'
-import ButtonForward from '../../../styles/buttons'
-import ButtonBack from '../../../styles/buttons'
+
 import { Link } from 'react-router-dom'
+import ButtonBack from '../../../styles/buttonBack'
+import ButtonForward from '../../../styles/buttons'
 
 
 export default class FormToday extends Component {
@@ -107,10 +108,10 @@ export default class FormToday extends Component {
                     </select>
                     <label htmlFor="duration">¿Qué duración prefieres?: </label>
                     <select ref="duration" name="duration" onChange={this.handleDurationSelect}>
-                        <option value="1">1 Hora</option>
-                        <option value="2" >2 Horas</option>
-                        <option value="4">4 Horas</option>
-                        <option value="10" defaultValue>No me importa</option>
+                        <option value="1">Máximo 1 Hora</option>
+                        <option value="2" >Máximo 2 Horas</option>
+                        <option value="4">Máximo 4 Horas</option>
+                        <option value="10" defaultValue selected>Sin límite</option>
                     </select>
                     <label htmlFor="language">¿En qué idioma?: </label>
                     <select ref="language" name="language" onChange={this.handleLanguageSelect}>
@@ -121,12 +122,13 @@ export default class FormToday extends Component {
                         <option value="russian">Russian</option>
                     </select>
                     <Link to={{
-                        pathname: "/book/guides",
+                        pathname: "/book/now/guides",
                         filterParams: this.state
                         }}>
+                            
                         <ButtonForward>ENCONTRAR GUÍAS</ButtonForward>
                     </Link>
-                    <Link to="/book"><ButtonBack>VOLVER</ButtonBack></Link>
+                    <Link to="/book/now"><ButtonBack>VOLVER</ButtonBack></Link>
                 </form>
             </BookForm>
         )

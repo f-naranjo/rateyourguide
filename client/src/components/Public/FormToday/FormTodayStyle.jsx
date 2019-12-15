@@ -17,6 +17,7 @@ form{
     flex-direction:column;
     margin-top:6rem;
     width:80%;
+    max-width:500px;
 
 }
 
@@ -73,6 +74,12 @@ a:first-of-type{
     display:block;
     margin-top:4rem;
   }
+
+a{
+    text-decoration:none;
+    color:${appColor.primary}
+}
+
 `;
 
 

@@ -21,29 +21,7 @@ const ButtonForward = styled.p`
     background-color:${appColor.white};
     border: 2px solid ${appColor.highlight};
   }
-`;
 
-const ButtonBack = styled.a`
-  font-size: 1.2rem;
-  margin: 1rem 0;
-  padding:1.5rem 1.8rem;
-  text-transform: uppercase;
-  border-radius:4rem;
-  border: 2px solid ${appColor.tertiary};
-  text-align: center;
-  color: ${appColor.primary};
-  background-color: ${appColor.gray};
-  width:80%;
-  align-self:center;
-  transition:0.3s;
-
-  :first-of-type{
-    margin-top:3rem;
-  }
-  :hover{
-    transition:0.3s;
-    cursor:pointer;
-  }
 `;
 
 export default ButtonForward;

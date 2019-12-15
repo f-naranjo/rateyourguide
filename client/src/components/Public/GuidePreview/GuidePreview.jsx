@@ -16,19 +16,19 @@ export default class GuidePreview extends Component {
         return (
             <DivPreview>
                 <div className="info-wrapper">
+                <div className="personal-img">
+                        <img src={info.img} alt="" className="avatar" />
+                        <p><span className="rate">{mediumrate}</span>/10</p>
+                    </div>
                     <div className="personal-info">
                         <h2>{info.name} {info.surname}</h2>
                         <p>{info.description}</p>
                     </div>
-                    <div className="personal-img">
-                        <img src={info.img} alt="" className="avatar" />
-                        <p><span className="rate">{mediumrate}</span>/10</p>
-                    </div>
                 </div>
                 <div className="featured-tour">
-                    <h3>El tour estrella de {info.name}:</h3>
+                    <h3><i class="fas fa-star"></i> La experiencia estrella de {info.name}:</h3>
                     <div className="tour-preview">
-                        <h4>⭐ {toursCreated[0].title}</h4>
+                        <h4>{toursCreated[0].title}</h4>
                         <p>{toursCreated[0].claim}</p>
                     </div>
                 </div>

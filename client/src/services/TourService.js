@@ -20,8 +20,14 @@ class TourService {
     .catch(error => console.error(error))
   }
 
-  filterGuides = (location,language,duration,people) => {
+  filterGuidesNow = (location,language,duration,people) => {
     return this.instance.post('/guides/now/filter', {location,language,duration,people})
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
+  filterGuidesBook = (location,language,people,dateFrom,dateTo) => {
+    return this.instance.post('/guides/book/filter', {location,language,people,dateFrom,dateTo})
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }

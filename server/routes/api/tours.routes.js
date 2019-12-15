@@ -94,6 +94,10 @@ router.post('/guides/now/filter', (req, res, next) => {
       {
         path: 'toursCreated',
         model: 'Tour',
+        populate: {
+          path: 'owner',
+          model: 'Guide'
+        }
       }
     ])
     .then((guidesFound) => {
@@ -108,6 +112,49 @@ router.post('/guides/now/filter', (req, res, next) => {
             session.duration <= +duration &&
             session.date > now &&
             session.date < timeLimit
+          )
+        })
+        return hasSessions.includes(true)
+      }
+      )
+      return filterGuides
+    })
+    .then((filterGuides) => {
+      res.status(200).json(filterGuides)
+        .catch(err => {
+          next()
+          res.status(500).json({ message: err });
+        })
+    })
+
+})
+
+router.post('/guides/book/filter', (req, res, next) => {
+  const {location,language,people,dateFrom,dateTo} = req.body;
+  console.log("estos son los datos" + location,language,people,dateFrom,dateTo)
+  Guide.find()
+    .populate([
+      {
+        path: 'tourSessions',
+        model: 'TourSession',
+      },
+      {
+        path: 'toursCreated',
+        model: 'Tour',
+        populate: {
+          path: 'owner',
+          model: 'Guide'
+        }
+      }
+    ])
+    .then((guidesFound) => {
+      let filterGuides = guidesFound.filter((guides) => {
+        let hasSessions = []
+        guides.tourSessions.forEach((session) => {
+          hasSessions.push(session.language === language &&
+            session.maxPeople - session.currentPeople > +people &&
+            session.date > new Date(dateFrom) &&
+            session.date < new Date(dateTo)
           )
         })
         return hasSessions.includes(true)

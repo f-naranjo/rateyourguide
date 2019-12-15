@@ -18,26 +18,26 @@ const DivPreview = styled.div`
       align-items:flex-start;
       padding:1rem;
       .personal-info{
-        padding-right:2rem;
+        padding-left:2rem;
         text-align:left;
         h2{
-            font-size:1.2rem;
+            font-size:1.5rem;
             font-weight:600;
             margin-bottom:0.8rem;
             text-transform:uppercase;
         }
         p{
-            line-height:1.2rem;
+            line-height:1.5rem;
             margin-left:1.5rem;
-            font-size:1.2rem;
+            font-size:1.5rem;
         }
         p::before,p::after{
             content:'"';
         }
     }
       img{
-          width:60px;
-          height:60px;
+          width:80px;
+          height:80px;
           object-fit:cover;
           border-radius:50%;
           margin-bottom:0.5rem;
@@ -48,17 +48,17 @@ const DivPreview = styled.div`
       }
   }
   .featured-tour{
-      font-size:1.2rem;
+      font-size:1.5rem;
       text-align:left;
-      padding:1rem;
+      padding:2rem;
   }
   .tour-preview{
-      padding:1.5rem 1rem;
+      padding:2rem;
       margin-top:1rem;
       background-color:${appColor.highlightSoft};
       text-align:left;
       h4{
-          font-size:1.2rem;
+          font-size:1.5rem;
           font-weight: 600;
           margin-bottom:1rem;
       }
