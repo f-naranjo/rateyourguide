@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../../models/User");
+const Guide= require("../../models/Guide");
 const uploader = require('../../configs/cloudinary.config')
 
 // Bcrypt to encrypt passwords
@@ -94,6 +95,32 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+router.post('/loginGuide', (req, res, next) => {
+  passport.authenticate('local', (err, theUser, failureDetails) => {
+    if (err) {
+      res.status(500).json({ message: 'Something went wrong authenticating user' });
+      return;
+    }
+
+    if (!theUser) {
+      // "failureDetails" contains the error messages
+      // from our logic in "LocalStrategy" { message: '...' }.
+      res.status(401).json(failureDetails);
+      return;
+    }
+
+    // save user in session
+    req.login(theUser, (err) => {
+      if (err) {
+        res.status(500).json({ message: 'Session save went bad.' });
+        return;
+      }
+      // We are now logged in (that's why we can also send req.user)
+      res.status(200).json(theUser);
+    });
+  })(req, res, next);
+});
+
 router.post('/logout', (req, res, next) => {
   // req.logout() is defined by passport
   req.logout();
@@ -102,6 +129,15 @@ router.post('/logout', (req, res, next) => {
 
 
 router.get('/loggedin', (req, res, next) => {
+  // req.isAuthenticated() is defined by passport
+  if (req.isAuthenticated()) {
+    res.status(200).json(req.user);
+    return;
+  }
+  res.status(403).json({ message: 'Unauthorized' });
+});
+
+router.get('/loggedinGuide', (req, res, next) => {
   // req.isAuthenticated() is defined by passport
   if (req.isAuthenticated()) {
     res.status(200).json(req.user);

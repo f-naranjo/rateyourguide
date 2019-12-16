@@ -3,7 +3,7 @@ import AuthService from '../../services/AuthService';
 import AuthForm from '../../styles/authForms';
 import { ReactSVG } from 'react-svg';
 
-export default class Login extends Component {
+export default class LoginGuide extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
@@ -20,11 +20,11 @@ export default class Login extends Component {
   handleLogin = (e) => {
     const { setUser, history } = this.props;
     e.preventDefault()
-    this.authService.login(this.state)
+    this.authService.loginGuide(this.state)
     .then(
       (user) => {
         setUser(user)
-        history.push("/")
+        history.push("/guides/adminpanel")
       },
       (error) => {
         console.error(error)
@@ -38,7 +38,7 @@ export default class Login extends Component {
       
       <AuthForm>
       <ReactSVG src="./dingologo.svg"></ReactSVG>
-      <h2>¡Bienvenido de nuevo!</h2>
+      <h2>¡Hola!</h2>
         <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Usuario: </label>
           <input type="text" name="username" value={username} onChange={this.handleChange}/>

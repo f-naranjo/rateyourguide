@@ -8588,6 +8588,11 @@ react-calendar@^2.19.1:
     prop-types "^15.6.0"
     react-lifecycles-compat "^3.0.4"
 
+react-checkbox-group@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-checkbox-group/-/react-checkbox-group-5.0.2.tgz#ccf6d5bd36d549727f8bc2c44b011224e4599450"
+  integrity sha512-iNnKCwVNNlsj6DXIzPO9qx5BcwPf3lXV0u8UW6YcsVDwlS2AC+bJXq76z2uwbtWZbCIZHzm2mxMMj4Bzm3B+lw==
+
 react-date-picker@^7.9.0:
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-7.9.0.tgz#728cf4a7d47c5fa9c669f648bc7e7bdc55a1c79e"

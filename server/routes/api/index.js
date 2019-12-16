@@ -10,6 +10,7 @@ const TourSession = require("../../models/TourSession");
 
 router.use('/auth', require('./auth.routes'))
 router.use('/tours', require('./tours.routes'))
+router.use('/guides', require('./guides.routes'))
 
 
 

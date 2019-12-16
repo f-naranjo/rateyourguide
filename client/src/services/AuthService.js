@@ -20,8 +20,20 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
-  loggedInUser = () => {
+  loginGuide = (guide) => {
+    return this.instance.post('/loginGuide', guide)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
+  loggedIn= () => {
     return this.instance.get('/loggedin')
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
+  loggedInGuide = () => {
+    return this.instance.get('/loggedinGuide')
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }

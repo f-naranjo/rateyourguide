@@ -32,35 +32,6 @@ export default class FormBook extends Component {
         this.setState({...this.state, dateFrom: date[0], dateTo: date[1],date: date})
     }
 
-    handleSignUp = (e) => {
-        e.preventDefault()
-        const { history, setUser } = this.props;
-        this.authService.signup(this.state)
-            .then(
-                (user) => {
-                    setUser(user);
-                    history.push("/")
-                },
-                (error) => {
-                    console.error(error)
-                }
-            )
-    }
-
-    handleUpload = (e) => {
-        const uploadData = new FormData();
-        uploadData.append('picture', e.target.files[0])
-        this.authService.upload(uploadData)
-            .then(
-                (data) => {
-                    this.setState({ ...this.state, picture: data.secure_url })
-                },
-                (error) => {
-                    console.error(error)
-                }
-            )
-    }
-
     render() {
         const { location, dateFrom, dateTo, language } = this.state;
         return (

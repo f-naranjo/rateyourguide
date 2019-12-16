@@ -11,6 +11,7 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require('passport')
+//const passportGuides = require('passport')
 const cors = require('cors');
 
 // const whitelist = ['http://localhost:3000']
@@ -27,7 +28,9 @@ const cors = require('cors');
 
 
 require('./configs/db.config');
-require('./configs/passport.config');
+//require('./configs/passport.config');
+require('./configs/passportGuide.config');
+
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -63,6 +66,25 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+
+
+// app.use(session({
+//   secret: 'Todo-app',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//     secure: false,
+//     httpOnly: true,
+//     maxAge: 60 * 60 * 24 * 1000
+//   },
+//   store: new MongoStore({
+//     mongooseConnection: mongoose.connection,
+//     ttl: 24 * 60 * 60
+//   })
+// }))
+// app.use(passportGuides.initialize())
+// app.use(passportGuides.session())
+
     
 
 const index = require('./routes');

@@ -6,19 +6,17 @@ const HomeDiv = styled.div`
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:2rem 1rem;
-  margin:1rem 2rem;
+  padding:8rem 2rem 0 2rem;
   color: ${appColor.primary};
   transition: 0.3s ease-in-out;
   div {
     background-none;
   }
   svg{
-    
     width:80%;
     fill:${appColor.tertiary}
     margin:4rem;
-    margin-top:10rem;
+    margin-top:0rem;
   }
   h2{
     font-size:1.8rem;

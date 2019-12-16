@@ -3,6 +3,7 @@ import MainNav from './NavbarStyle'
 import TourService from '../../../services/TourService'
 import { ReactSVG } from 'react-svg'
 import { Link } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
 export default class Navbar extends Component {
     constructor(props) {

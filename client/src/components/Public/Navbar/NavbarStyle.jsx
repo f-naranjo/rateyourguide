@@ -13,6 +13,7 @@ padding:2rem;
 font-size:2rem;
 background-color:${appColor.primary}
 color: ${appColor.secondary};
+
     svg{
         fill:${appColor.secondary}
         height:32px;
