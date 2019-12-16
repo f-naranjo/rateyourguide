@@ -87,9 +87,9 @@ const AdminTourDiv = styled.div`
         display:flex;
         flex-wrap:wrap;
         justify-content: space-between;
+        align-self:flex-end;
+        margin-top:auto;
     }
-
-    
 
 `;
 

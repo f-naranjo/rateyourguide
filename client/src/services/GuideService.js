@@ -20,6 +20,12 @@ class GuideService{
     .catch(error => console.error(error))
   }
 
+  deleteTour = (tourId) => {
+    return this.instance.get(`/tour/${tourId}/delete`)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.log(error))
+  }
+
 }
 
 export default GuideService;

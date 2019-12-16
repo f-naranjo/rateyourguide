@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const TourSession = require('./TourSession')
 const tourSchema = new Schema({
   owner: { type: mongoose.Schema.Types.ObjectId, ref: 'Guide' },
   img: String,
@@ -24,6 +24,13 @@ const tourSchema = new Schema({
     }
   }
 });
+
+tourSchema.pre('remove', function(next) {
+  TourSession.remove({tour: this._id}).exec();
+  next();
+});
+
+
 
 const Tour = mongoose.model('Tour', tourSchema);
 module.exports = Tour;

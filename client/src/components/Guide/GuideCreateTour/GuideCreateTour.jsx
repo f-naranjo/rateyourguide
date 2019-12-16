@@ -51,7 +51,7 @@ export default class GuideCreateTour extends Component {
     handleChange = (e) => {
         const { name, value } = e.target;
         this.setState({ ...this.state, [name]: value })
-        console.log(this.state)
+       
     }
 
 
@@ -60,16 +60,16 @@ export default class GuideCreateTour extends Component {
             this.authService.loggedIn()
                 .then(
                     (user) => {
-                        console.log(user)
+
                         this.setUser(user)
                     },
                     (error) => {
-                        console.log("2")
+                       
                         this.setUser(false)
                     }
                 )
                 .catch(() => {
-                    console.log("3")
+                 
                     this.setUser(false)
                 })
         }
@@ -89,12 +89,9 @@ export default class GuideCreateTour extends Component {
         this.guideService.createTour(this.state.userId,this.state.img,this.state.title,this.state.claim,this.state.description,this.state.price,this.state.meetingPoint)
         .then(
           (tourCreated) => {
-            //history.push("/guides/adminpanel/tour")
-          },
-          (error) => {
-            console.error(error)
+            this.props.history.push("/guides/adminpanel/tours")
           }
-        )
+        ).catch(err=>console.log(err))
     }
 
     render() {

@@ -73,27 +73,13 @@ class App extends React.Component {
 
   render() {
     this.fetchUser()
-    const { user } = this.state;
-    return (
-      <div className="App">
-        {user &&
-          <div className="App-Clients">
-            {/* <Navbar></Navbar> */}
+    
+    if(!this.state.user){
+      return(
+        <div className="App-Clients">
+            <Navbar></Navbar>
             <Switch>
-              <Route exact path="/" render={(match) => <Home {...match} />} />
-              <Route exact path="/book/now" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
-              <Route exact path="/book" render={(match) => <FormBook {...match} />} />
-              <Route exact path="/book/guides" render={(props) => <PageGuidesBook {...props}></PageGuidesBook>} />
-              <Route exact path="/book/now/guides" render={(props) => <PageGuidesNow {...props}></PageGuidesNow>} />
-              <Route exact path="/book/guide/tours" render={(props) => <PageAvailableTours {...props}></PageAvailableTours>} />
-              <Route exact path="/book/guide/tour/session" render={(props) => <PageSessionDetail {...props}></PageSessionDetail>} />
-            </Switch>
-          </div>
-        }
-        {!user &&
-          <div className="App-Clients">
-            {/* <Navbar></Navbar> */}
-            <Switch>
+            <Route exact path="/loginGuide" render={(match) => <LoginGuide {...match} setUser={this.setUser} />} />
               <Route exact path="/" render={(match) => <Home {...match} />} />
               <Route exact path="/book/now" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
               <Route exact path="/book" render={(match) => <FormBook {...match} />} />
@@ -104,9 +90,12 @@ class App extends React.Component {
               <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />
               <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
             </Switch>
-          </div>}
-        {user &&
-          <div className="App-Guides">
+          </div>
+      )
+    }
+    if(this.state.user.info){
+      return(
+        <div className="App-Guides">
             <GuideSidebar/>
             <Switch>
               <Route exact path="/guides/adminpanel" render={(match) => <GuideHome {...match}/>} />
@@ -118,16 +107,10 @@ class App extends React.Component {
               <Route exact path="/guides/adminpanel/profile" render={(match) => <GuideProfile {...match} />} />
             </Switch>
           </div>
-        }
-        {!user &&
-          <div className="App-Guides">
-            <Switch>
-              <Route exact path="/loginGuide" render={(match) => <LoginGuide {...match} setUser={this.setUser} />} />
-            </Switch>
-          </div>
-        }
-      </div>
-    );
+      )
+    }
+    return(<h1>Cargando...</h1>)
+
   }
 }
 

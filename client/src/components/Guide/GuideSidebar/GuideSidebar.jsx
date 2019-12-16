@@ -112,6 +112,11 @@ export default class GuideSidebar extends Component {
                                 pathname: "/guides/adminpanel/profile",
                                 guide: this.state.guide
                             }}><i class="fas fa-user-edit"></i> Editar Perfil</Link></li>
+                            <li><Link
+                            to={{
+                                pathname: "/guides/logout",
+                                guide: this.state.guide
+                            }}><i class="fas fa-user-edit"></i> Logout</Link></li>
                 </ul>
                
             </GuideSidebarDiv>

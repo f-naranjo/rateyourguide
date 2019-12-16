@@ -20,8 +20,8 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
-  loginGuide = (guide) => {
-    return this.instance.post('/loginGuide', guide)
+  loginGuide = (user) => {
+    return this.instance.post('/login/guide/true', user)
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }
@@ -40,6 +40,12 @@ class AuthService {
 
   upload = (picture) => {
     return this.instance.post('/upload', picture)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
+  logout = (picture) => {
+    return this.instance.post('/logout')
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }

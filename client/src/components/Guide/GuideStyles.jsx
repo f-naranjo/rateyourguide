@@ -35,14 +35,15 @@ const GuideMainDiv = styled.div`
   }
 
   .admin-btn{
-    font-size:1.2rem;
+    font-size:1rem;
     padding:1rem 1rem;
     border-radius: 4rem;
     text-decoration:none;
-    align-self:flex-start;
+    align-self:flex-end;
     margin-top:1.5rem;
     margin-bottom:1.5rem;
     transition:0.3s;
+
 }
 
 .admin-btn-xl{

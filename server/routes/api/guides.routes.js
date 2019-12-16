@@ -40,14 +40,19 @@ router.post('/tour/create', (req, res, next) => {
         console.log(err)
       }
     )
-    // .then(updatedGuide => {
-    //   res.status(200).json(tourCreated)
-    // });
+    .then((updatedGuide) => {
+      res.status(200).json(updatedGuide)
+    });
   })
 })
 
-router.delete('/tour/delete/:id',(req,res,next) =>{
-  
+router.get('/tour/:id/delete',(req,res,next) =>{
+  Tour.findByIdAndDelete(req.params.id)
+    .then(deletedTour => res.json(deletedTour))
+    .catch(function() {
+      next();
+      throw new Error("Hmmmmm.... problems!");
+    });
 })
 
 

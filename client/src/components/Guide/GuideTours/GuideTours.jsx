@@ -18,16 +18,18 @@ export default class GuideTour extends Component {
     //    notGuide(){
     //         this.history.push('/book')
     //    }
-    setUser = (user) => {
-       
-        this.setState({ ...this.state, user })
+    setUser = (user) => {  
+        const{toursCreated, tourSessions} = user
+        this.setState({ ...this.state, user,toursCreated, tourSessions })
     }
 
     fetchUser = () => {
         if (this.state.user === null) {
+            
             this.authService.loggedIn()
                 .then(
                     (user) => {
+                       
                         console.log(user)
                         this.setUser(user)
                     },
@@ -43,36 +45,34 @@ export default class GuideTour extends Component {
         }
     }
 
-    setGuide = () =>{
-        if(this.props.location.guide){
-            const{toursCreated, tourSessions} = this.props.location.guide
-            this.setState({
-                ...this.state,
-                guide:this.props.location.guide,
-                tours: toursCreated,
-                sessions: tourSessions,
-            })
-        }
-        console.log("1")
-        console.log(this.props.location.guide)
-    }
+    // setGuide = () =>{
+    //     if(this.props.location.guide){
+    //         const{toursCreated, tourSessions} = this.props.location.guide
+    //         this.setState({
+    //             ...this.state,
+    //             guide:this.props.location.guide,
+    //             tours: toursCreated,
+    //             sessions: tourSessions,
+    //         })
+    //     }
+    //     console.log("1")
+    //     console.log(this.props.location.guide)
+    // }
 
     setHome = () =>{
        return <Redirect to='/guides/adminpanel'/>
     }
 
     displayTours = () => {
-        return this.state.tours.map((tour, i) => <TourAdminPreview key={i} tour={tour}></TourAdminPreview>)
+        return this.state.toursCreated.map((tour, i) => <TourAdminPreview key={i} tour={tour}></TourAdminPreview>)
     }
 
     
 
     render() {
         this.fetchUser()
-        if(this.state.guide === null){
-        this.setGuide()
-        }
-        if(this.state.guide !== null){
+        console.log(this.state)
+        if(this.state.user !== null){
             return (
                 <GuideMainDiv>
                 <div className="breadcrumbs"><h4>Mi panel / Mis Tours</h4><p>Este es tu panel de administración de Tours. Aquí puedes editar los tours existentes o crear nuevos.</p></div>
