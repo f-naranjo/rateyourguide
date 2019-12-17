@@ -4,54 +4,30 @@ import TourService from '../../../services/TourService'
 import { ReactSVG } from 'react-svg'
 import { Link } from 'react-router-dom'
 import { Switch, Route } from 'react-router-dom';
+import AuthService from '../../../services/AuthService'
 
 export default class Navbar extends Component {
     constructor(props) {
         super(props)
         this.tourService = new TourService();
+        this.authService = new AuthService();
     }
 
     state = {
     }
 
-    handleChange = (e) => {
-        const { name, value } = e.target;
-        this.setState({ ...this.state, [name]: value })
-    }
-    handleSignUp = (e) => {
-        e.preventDefault()
-        const { history, setUser } = this.props;
-        this.authService.signup(this.state)
-            .then(
-                (user) => {
-                    setUser(user);
-                    history.push("/")
-                },
-                (error) => {
-                    console.error(error)
-                }
-            )
-    }
-
-    handleUpload = (e) => {
-        const uploadData = new FormData();
-        uploadData.append('picture', e.target.files[0])
-        this.authService.upload(uploadData)
-            .then(
-                (data) => {
-                    this.setState({ ...this.state, picture: data.secure_url })
-                },
-                (error) => {
-                    console.error(error)
-                }
-            )
+    logout(){
+        this.authService.logout()
+        .then(
+            //his.history.push("/")
+        )
     }
 
     render() {
         return (
             <MainNav>
                 
-                <ReactSVG className="icon direction" src="./direction_icon.svg"/>
+                <Link onClick={()=>this.logout()}><ReactSVG className="icon direction" src="./direction_icon.svg"/></Link>
                 
                 <div className="app-logo"><Link to="/"><ReactSVG src="./dingologo.svg"></ReactSVG></Link></div>
              

@@ -86,7 +86,7 @@ const AdminTourDiv = styled.div`
         width:100%;
         display:flex;
         flex-wrap:wrap;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-self:flex-end;
         margin-top:auto;
     }

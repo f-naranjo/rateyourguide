@@ -10,40 +10,39 @@ export default class GuideTour extends Component {
         super(props)
         this.authService = new AuthService();
     }
-    state = {
-        user: null,
-        guide: null,
-    }
+    // state = {
+    //     user: null,
+    // }
 
     //    notGuide(){
     //         this.history.push('/book')
     //    }
-    setUser = (user) => {  
-        const{toursCreated, tourSessions} = user
-        this.setState({ ...this.state, user,toursCreated, tourSessions })
-    }
+    // setUser = (user) => {  
+    //     const{toursCreated, tourSessions} = user
+    //     this.setState({ ...this.state, user,toursCreated, tourSessions })
+    // }
 
-    fetchUser = () => {
-        if (this.state.user === null) {
+    // fetchUser = () => {
+    //     if (this.state.user === null) {
             
-            this.authService.loggedIn()
-                .then(
-                    (user) => {
+    //         this.authService.loggedIn()
+    //             .then(
+    //                 (user) => {
                        
-                        console.log(user)
-                        this.setUser(user)
-                    },
-                    (error) => {
-                        console.log("2")
-                        this.setUser(false)
-                    }
-                )
-                .catch(() => {
-                    console.log("3")
-                    this.setUser(false)
-                })
-        }
-    }
+    //                     console.log(user)
+    //                     this.setUser(user)
+    //                 },
+    //                 (error) => {
+    //                     console.log("2")
+    //                     this.setUser(false)
+    //                 }
+    //             )
+    //             .catch(() => {
+    //                 console.log("3")
+    //                 this.setUser(false)
+    //             })
+    //     }
+    // }
 
     // setGuide = () =>{
     //     if(this.props.location.guide){
@@ -64,15 +63,13 @@ export default class GuideTour extends Component {
     }
 
     displayTours = () => {
-        return this.state.toursCreated.map((tour, i) => <TourAdminPreview key={i} tour={tour}></TourAdminPreview>)
+        if(this.props.location.guide){return this.props.location.guide.toursCreated.map((tour, i) => <TourAdminPreview key={i} tour={tour}></TourAdminPreview>)}
     }
 
     
 
     render() {
-        this.fetchUser()
-        console.log(this.state)
-        if(this.state.user !== null){
+        if(this.props.location.guide!== null){
             return (
                 <GuideMainDiv>
                 <div className="breadcrumbs"><h4>Mi panel / Mis Tours</h4><p>Este es tu panel de administración de Tours. Aquí puedes editar los tours existentes o crear nuevos.</p></div>
@@ -80,6 +77,7 @@ export default class GuideTour extends Component {
                 <Link className="admin-btn-xl create"
                             to={{
                                 pathname: '/guides/adminpanel/tour/create',
+                                guide:this.props.location.guide
                             }}
                         ><i class="far fa-calendar-plus"></i>CREAR NUEVO TOUR</Link>
 

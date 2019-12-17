@@ -27,6 +27,7 @@ export default class GuideHome extends Component {
         this.setState({ ...this.state, user })
     }
 
+
     fetchUser = () => {
         if (this.state.user === null) {
             this.authService.loggedIn()
@@ -36,12 +37,10 @@ export default class GuideHome extends Component {
                         this.setUser(user)
                     },
                     (error) => {
-                        console.log("2")
                         this.setUser(false)
                     }
                 )
                 .catch(() => {
-                    console.log("3")
                     this.setUser(false)
                 })
         }

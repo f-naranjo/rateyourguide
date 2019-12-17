@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/Login/Login';
 import LoginGuide from './components/Login/LoginGuide';
 import SignUp from './components/Signup/Signup';
@@ -22,6 +22,9 @@ import GuideComments from './components/Guide/GuideComments/GuideComments';
 import GuideProfile from './components/Guide/GuideProfile/GuideProfile';
 import GuideSessions from './components/Guide/GuideSessions/GuideSessions';
 import GuideCreateTour from './components/Guide/GuideCreateTour/GuideCreateTour';
+import GuideEditTour from './components/Guide/GuideEditTour/GuideEditTour';
+import GmapsPlaces from './components/Gmaps/GmapsPlaces/GmapsPlaces';
+import GmapMap from './components/Gmaps/Gmaps Map/GmapsMap';
 
 class App extends React.Component {
   constructor(props) {
@@ -57,6 +60,22 @@ class App extends React.Component {
     }
   }
 
+  updateUser = () =>{
+    this.authService.loggedIn()
+    .then(
+      (user) => {
+        this.setUser(user)
+        this.setHome()
+      },
+      (error) => {
+        this.setUser(false)
+      }
+    )
+    .catch(() => {
+      this.setUser(false)
+    })
+  }
+
   componentDidMount() {
     this.fetchUser()
   }
@@ -80,6 +99,26 @@ class App extends React.Component {
             <Navbar></Navbar>
             <Switch>
             <Route exact path="/loginGuide" render={(match) => <LoginGuide {...match} setUser={this.setUser} />} />
+            <Route exact paht="/google" render={(match) =><div className="google-test"> <GmapsPlaces {...match} setUser={this.setUser} /><GmapMap /></div>}/>
+              <Route exact path="/" render={(match) => <Home {...match} />} />
+              <Route exact path="/book/now" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
+              <Route exact path="/book" render={(match) => <FormBook {...match} />} />
+              <Route exact path="/book/guides" render={(props) => <PageGuidesBook {...props}></PageGuidesBook>} />
+              <Route exact path="/book/now/guides" render={(props) => <PageGuidesNow {...props}></PageGuidesNow>} />
+              <Route exact path="/book/guide/tours" render={(props) => <PageAvailableTours {...props}></PageAvailableTours>} />
+              <Route exact path="/book/guide/tour/session" render={(props) => <PageSessionDetail {...props}></PageSessionDetail>} />
+              <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />
+              <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
+            </Switch>
+          </div>
+      )
+    }
+    if(this.state.user.name){
+      return(
+        <div className="App-Clients">
+            <Navbar></Navbar>
+            <Switch>
+            <Route exact path="/loginGuide" render={(match) => <LoginGuide {...match} setUser={this.setUser} />} />
               <Route exact path="/" render={(match) => <Home {...match} />} />
               <Route exact path="/book/now" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
               <Route exact path="/book" render={(match) => <FormBook {...match} />} />
@@ -98,13 +137,14 @@ class App extends React.Component {
         <div className="App-Guides">
             <GuideSidebar/>
             <Switch>
-              <Route exact path="/guides/adminpanel" render={(match) => <GuideHome {...match}/>} />
-              <Route exact path="/guides/adminpanel/sessions" render={(match) =><GuideSessions {...match} /> } />
-              <Route exact path="/guides/adminpanel/tours" render={(match) => <GuideTour {...match} />}/>
-              <Route exact path="/guides/adminpanel/tour/create" render={(match) => <GuideCreateTour {...match} />}/>
-              <Route exact path="/guides/adminpanel/calendar" render={(match) => <GuideCalendar {...match} />} />
-              <Route exact path="/guides/adminpanel/comments" render={(match) => <GuideComments {...match} />} />
-              <Route exact path="/guides/adminpanel/profile" render={(match) => <GuideProfile {...match} />} />
+              <Route exact path="/guides/adminpanel" render={(match) => <GuideHome updateUser={(e) => this.updateUser(e)} {...match}/>} />
+              <Route exact path="/guides/adminpanel/sessions" render={(match) =><GuideSessions updateUser={(e) => this.updateUser(e)} {...match} /> } />
+              <Route exact path="/guides/adminpanel/tours" render={(match) => <GuideTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
+              <Route exact path="/guides/adminpanel/tour/create" render={(match) => <GuideCreateTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
+              <Route exact path="/guides/adminpanel/tour/edit" render={(match) => <GuideEditTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
+              <Route exact path="/guides/adminpanel/calendar" render={(match) => <GuideCalendar updateUser={(e) => this.updateUser(e)} {...match} />} />
+              <Route exact path="/guides/adminpanel/comments" render={(match) => <GuideComments updateUser={(e) => this.updateUser(e)} {...match} />} />
+              <Route exact path="/guides/adminpanel/profile" render={(match) => <GuideProfile updateUser={(e) => this.updateUser(e)} {...match} />} />
             </Switch>
           </div>
       )

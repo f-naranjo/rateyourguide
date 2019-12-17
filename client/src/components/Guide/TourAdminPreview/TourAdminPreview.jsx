@@ -18,35 +18,26 @@ export default class TourAdminPreview extends Component {
         })
     }
 
-    componentDidMount(){
-        // const { title, img, claim, date, price, rates,id } = this.props.tour;
-        // console.log(this.props.tour)
-        // const mediumrate = Math.round((rates.reduce((ac, cu) => {
-        //     return ac + cu
-        // }, 0) / rates.length))
-        // console.log("es"+typeof(mediurate))
-        console.log(this.props)
-    }
-
     render() {
-       
+        if(this.props.tour){
+            const { title, img, claim, date, price, rates,id } = this.props.tour;
+            const mediumrate = Math.round((rates.reduce((ac, cu) => {
+                return ac + cu
+            }, 0) / rates.length))
         
+       
         return (
-            <React.Fragment>
-            {this.props.tour?
-
             <AdminTourDiv>
                 <div className="preview-wrapper">
                     <div className="tour-img">
                         <img className="tourimg" src={this.props.tour.img} alt="" />
                     </div>
-                    {/* <div className="tour-info">
+                    <div className="tour-info">
                         <div className="tour-title">
                         <h2>{title}</h2>
                         <p><i class="fas fa-star"></i> <span>{typeof(mediumrate) === Number && mediumrate}</span>/10</p>
                         </div>
 
-                        
                         <p>{claim}</p>
                         <p><i class="fas fa-map-marker-alt"></i> Madrid Centro</p>
                         
@@ -54,12 +45,12 @@ export default class TourAdminPreview extends Component {
                         <Link className="admin-btn edit"
                             to={{
                                 pathname: '/guides/adminpanel/tour/edit',
-                                state: id,
+                                tour: this.props.tour,
                             }}
                         ><i class="fas fa-edit"></i> EDITAR</Link>
                          <Link className="admin-btn delete"
                             to={{
-                                pathname: '/guides/adminpanel/tours',
+                                pathname: '/guides/adminpanel/',
                                 state: id,
                             }}
                             onClick={(e) => this.deleteTour(id)}
@@ -73,12 +64,11 @@ export default class TourAdminPreview extends Component {
 
                         </div>
                         
-                    </div> */}
+                    </div>
                 </div>
-
-            </AdminTourDiv>:<p>cargando...</p>}
-            </React.Fragment>
+            </AdminTourDiv>
             
         )
+    }else return(<p>cargando</p>)
     }
 }

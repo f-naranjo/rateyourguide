@@ -58,3 +58,14 @@
   align-items: center;
   background:#f6f6f6;
 } 
+
+.google-test{
+  width:100%
+}
+
+.gmarker{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background-color:red;
+}

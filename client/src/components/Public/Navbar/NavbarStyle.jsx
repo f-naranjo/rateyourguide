@@ -42,7 +42,7 @@ color: ${appColor.secondary};
         height:32px;
         justify-content:center;
     }
-    
+    display:none;
 `;
 
 

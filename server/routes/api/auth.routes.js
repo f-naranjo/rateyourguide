@@ -95,7 +95,6 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/login/guide/:true', (req, res, next) => {
-  console.log("params")
   passport.authenticate('local', (err, theUser, failureDetails) => {
     if (err) {
       res.status(500).json({ message: 'Something went wrong authenticating user' });

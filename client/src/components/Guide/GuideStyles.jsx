@@ -43,6 +43,7 @@ const GuideMainDiv = styled.div`
     margin-top:1.5rem;
     margin-bottom:1.5rem;
     transition:0.3s;
+    margin-left:1rem;
 
 }
 

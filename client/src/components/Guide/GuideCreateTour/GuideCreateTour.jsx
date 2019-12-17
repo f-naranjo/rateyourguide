@@ -15,23 +15,13 @@ export default class GuideCreateTour extends Component {
         this.guideService = new GuideService();
     }
     state = {
-        user: null,
         img:"https://glowvarietyshow.com/wp-content/uploads/2017/03/placeholder-image.jpg",
         title:"",
         claim:"",
         description:"",
         price:0,
         meetingPoint:"",
-    }
-
-    //    notGuide(){
-    //         this.history.push('/book')
-    //    }
-    setUser = (user) => {
-
-        this.setState({ ...this.state, 
-                        user,
-                        userId:user.id })
+        guideId:null,
     }
 
     handleUpload = (e) => {
@@ -55,57 +45,34 @@ export default class GuideCreateTour extends Component {
     }
 
 
-    fetchUser = () => {
-        if (this.state.user === null) {
-            this.authService.loggedIn()
-                .then(
-                    (user) => {
-
-                        this.setUser(user)
-                    },
-                    (error) => {
-                       
-                        this.setUser(false)
-                    }
-                )
-                .catch(() => {
-                 
-                    this.setUser(false)
-                })
-        }
-    }
-
-    setGuide = () => {
-        if (this.state.user) {
-            this.setState({
-                ...this.state,
-                guideId: this.state.user.id,
-            })
-        }
-    }
-
     createTour = (e) => {
         e.preventDefault()
-        this.guideService.createTour(this.state.userId,this.state.img,this.state.title,this.state.claim,this.state.description,this.state.price,this.state.meetingPoint)
+        this.guideService.createTour(this.props.location.guide.id,this.state.img,this.state.title,this.state.claim,this.state.description,this.state.price,this.state.meetingPoint)
         .then(
           (tourCreated) => {
-            this.props.history.push("/guides/adminpanel/tours")
+            this.props.updateUser()
           }
         ).catch(err=>console.log(err))
     }
 
-    render() {
-        this.fetchUser()
-        if (this.state.user === null) {
-            this.setGuide()
+    componentDidMount(){
+        if(!this.state.guide===null){
+            this.setState({
+                ...this.state,
+                guideId:this.props.location.guide
+            })
         }
-        if (this.state.user !== null) {
+    }
+
+   
+    render() {
+       
             return (
                 <GuideMainDiv>
                     <div className="breadcrumbs"><h4>Mi panel / Mis Tours / Crear Tour</h4><p>Aquí puedes crear un Tour nuevo</p></div>
                     <div className="page-controls">
                     </div>
-                    <CreateTourForm className="create-tour-form" onSubmit={this.createTour}>
+                    <CreateTourForm className="create-tour-form" >
                         <div className="form-left"> 
                             <label htmlFor="picture">Elige la imagen del Tour: </label>
                             <input type="file" name="picture" onChange={this.handleUpload} />
@@ -132,15 +99,15 @@ export default class GuideCreateTour extends Component {
                             <input type="checkbox" name="category" value="Naturaleza">Naturaleza</input>
                             <input type="checkbox" name="category" value="Mar">Mar</input>
                         </fieldset> */}
-                        <input type="submit" value="CREAR TOUR"/>
+                        <input type="submit" onClick={this.createTour}/>
                         </div>
                         
                     </CreateTourForm>
 
                 </GuideMainDiv>
             )
-        }
-        return (<h1>Cargando...</h1>)
+        
+
     }
 }
 

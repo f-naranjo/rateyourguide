@@ -16,15 +16,20 @@ export default class GuideSidebar extends Component {
     }
     state = {
         user: null,
-        guide: null,
     }
 
     //    notGuide(){
     //         this.history.push('/book')
     //    }
     setUser = (user) => {
-
         this.setState({ ...this.state, user })
+    }
+
+    logout(){
+        this.authService.logout()
+        .then(
+            //his.history.push("/")
+        )
     }
 
     fetchUser = () => {
@@ -32,44 +37,41 @@ export default class GuideSidebar extends Component {
             this.authService.loggedIn()
                 .then(
                     (user) => {
-                        console.log(user)
+           
                         this.setUser(user)
                     },
                     (error) => {
-                        console.log("2")
                         this.setUser(false)
                     }
                 )
                 .catch(() => {
-                    console.log("3")
                     this.setUser(false)
                 })
         }
     }
 
-    fetchGuide = () => {
-        if (this.state.user) {
-            this._isMounted = true;
-            this.guideService.getGuide(this.state.user.id)
-                .then((guide) => {
-                    if (this._isMounted) {
-                        this.setState({
-                            ...this.state,
-                            guide: guide,
-                        })
-                    }
-                })
-        }
-    }
+    // fetchGuide = () => {
+    //     if (this.state.user) {
+    //         this._isMounted = true;
+    //         this.guideService.getGuide(this.state.user.id)
+    //             .then((guide) => {
+    //                 if (this._isMounted) {
+    //                     this.setState({
+    //                         ...this.state,
+    //                         guide: guide,
+    //                     })
+    //                 }
+    //             })
+    //     }
+    // }
 
     componentWillUnmount() {
         this._isMounted = false;
     }
 
     render() {
-        this.fetchUser()
-        if (!this.state.guide) {
-            this.fetchGuide()
+        if (!this.state.user) {
+            this.fetchUser()
         }
         
         return (
@@ -77,46 +79,42 @@ export default class GuideSidebar extends Component {
                 
                 <ReactSVG src="./dingologo.svg"></ReactSVG>
                 <div className="guide-info">
-                {this.state.guide && <img src={this.state.guide.info.img} alt=""/>}
-                {this.state.guide && <h2>{this.state.guide.info.name}</h2>}
+                {this.state.user && <img src={this.state.user.info.img} alt=""/>}
+                {this.state.user && <h2>{this.state.user.info.name}</h2>}
                 </div>
                 <ul class="main-guidemenu">
                     <li>
                         <Link
                             to={{
                                 pathname: "/guides/adminpanel/",
-                                guide: this.state.guide
+                                guide: this.state.user
                             }}><i class="fas fa-user-circle"></i> Mi resumen</Link></li>
                     <li><Link
                             to={{
                                 pathname: "/guides/adminpanel/sessions",
-                                guide: this.state.guide
+                                guide: this.state.user
                             }}><i class="fas fa-stopwatch"></i> Sesiones Pendientes</Link></li>
                     <li><Link
                             to={{
                                 pathname: "/guides/adminpanel/calendar",
-                                guide: this.state.guide
+                                guide: this.state.user
                             }}><i class="far fa-calendar-alt"></i> Planificación Semanal</Link></li>
                     <li><Link
                             to={{
                                 pathname: "/guides/adminpanel/tours",
-                                guide: this.state.guide
+                                guide: this.state.user
                             }}><i class="fas fa-lightbulb"></i> Mis Tours</Link></li>
                     <li><Link
                             to={{
                                 pathname: "/guides/adminpanel/comments",
-                                guide: this.state.guide
+                                guide: this.state.user
                             }}><i class="fas fa-star"></i> Mis valoraciones</Link></li>
                     <li><Link
                             to={{
                                 pathname: "/guides/adminpanel/profile",
-                                guide: this.state.guide
+                                guide: this.state.user
                             }}><i class="fas fa-user-edit"></i> Editar Perfil</Link></li>
-                            <li><Link
-                            to={{
-                                pathname: "/guides/logout",
-                                guide: this.state.guide
-                            }}><i class="fas fa-user-edit"></i> Logout</Link></li>
+                            <li><Link onClick={()=>this.logout()}><i class="fas fa-user-edit"></i> Logout</Link></li>
                 </ul>
                
             </GuideSidebarDiv>
