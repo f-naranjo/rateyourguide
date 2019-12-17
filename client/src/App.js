@@ -25,6 +25,7 @@ import GuideCreateTour from './components/Guide/GuideCreateTour/GuideCreateTour'
 import GuideEditTour from './components/Guide/GuideEditTour/GuideEditTour';
 import GmapsPlaces from './components/Gmaps/GmapsPlaces/GmapsPlaces';
 import GmapMap from './components/Gmaps/Gmaps Map/GmapsMap';
+import GuideCreateSessions from './components/Guide/GuideCreateSessions/GuideCreateSessions';
 
 class App extends React.Component {
   constructor(props) {
@@ -99,7 +100,7 @@ class App extends React.Component {
             <Navbar></Navbar>
             <Switch>
             <Route exact path="/loginGuide" render={(match) => <LoginGuide {...match} setUser={this.setUser} />} />
-            <Route exact paht="/google" render={(match) =><div className="google-test"> <GmapsPlaces {...match} setUser={this.setUser} /><GmapMap /></div>}/>
+            {/* <Route exact paht="/google" render={(match) =><div className="google-test"> <GmapsPlaces {...match} setUser={this.setUser} /><GmapMap /></div>} />  */}
               <Route exact path="/" render={(match) => <Home {...match} />} />
               <Route exact path="/book/now" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
               <Route exact path="/book" render={(match) => <FormBook {...match} />} />
@@ -139,6 +140,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/guides/adminpanel" render={(match) => <GuideHome updateUser={(e) => this.updateUser(e)} {...match}/>} />
               <Route exact path="/guides/adminpanel/sessions" render={(match) =><GuideSessions updateUser={(e) => this.updateUser(e)} {...match} /> } />
+              <Route exact path="/guides/adminpanel/sessions/create" render={(match) =><GuideCreateSessions updateUser={(e) => this.updateUser(e)} {...match} /> } />
               <Route exact path="/guides/adminpanel/tours" render={(match) => <GuideTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
               <Route exact path="/guides/adminpanel/tour/create" render={(match) => <GuideCreateTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
               <Route exact path="/guides/adminpanel/tour/edit" render={(match) => <GuideEditTour updateUser={(e) => this.updateUser(e)} {...match} />}/>

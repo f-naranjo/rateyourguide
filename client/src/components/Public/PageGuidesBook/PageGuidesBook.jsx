@@ -34,7 +34,7 @@ export default class PageGuidesBook extends Component {
                     })
                 }
             })
-       }
+        }
     }
 
     componentWillUnmount() {
@@ -50,7 +50,6 @@ export default class PageGuidesBook extends Component {
     render() {
 
         return (
-            
             <div className="guides-wrapper">
                <HeroInfo><h1>Estos son los guías que hemos encontrado con actividades disponibles para ti:</h1></HeroInfo>
                 {(this.state.guides.length > 0) && this.displayGuides()}

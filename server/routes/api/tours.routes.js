@@ -131,7 +131,7 @@ router.post('/guides/now/filter', (req, res, next) => {
 
 router.post('/guides/book/filter', (req, res, next) => {
   const {location,language,people,dateFrom,dateTo} = req.body;
-  console.log("estos son los datos" + location,language,people,dateFrom,dateTo)
+  console.log("entra en la ruta de filtrado en book")
   Guide.find()
     .populate([
       {

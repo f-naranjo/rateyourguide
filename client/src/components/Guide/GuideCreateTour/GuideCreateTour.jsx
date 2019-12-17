@@ -6,6 +6,7 @@ import GuideMainDiv from '../GuideStyles';
 import TourAdminPreview from '../TourAdminPreview/TourAdminPreview';
 import GuideService from '../../../services/GuideService';
 import CreateTourForm from './GuideCreateTourStyles';
+import GmapsPlaces from '../../Gmaps/GmapsPlaces/GmapsPlaces';
 
 
 export default class GuideCreateTour extends Component {
@@ -20,7 +21,7 @@ export default class GuideCreateTour extends Component {
         claim:"",
         description:"",
         price:0,
-        meetingPoint:"",
+        location:{},
         guideId:null,
     }
 
@@ -44,29 +45,60 @@ export default class GuideCreateTour extends Component {
        
     }
 
+    setUser = (user) => {
+    console.log("entra al set")
+    console.log(user)
+        this.setState({ ...this.state, guideId: user.id })
+      }
+
+    fetchUser = () => {
+        console.log("Entra al fetch")
+        if (this.state.guideId === null) {   
+            this.authService.loggedIn()
+                .then(
+                    (user) => {
+                        this.setUser(user)
+                    },
+                    (error) => {
+                        console.log("2")
+                        this.setUser(false)
+                    }
+                )
+                .catch(() => {
+                    console.log("3")
+                    this.setUser(false)
+                })
+        }
+    }
+
+    getData = (data) =>{
+        this.setState({
+            ...this.state,
+            location: data
+        })
+    }
+
 
     createTour = (e) => {
         e.preventDefault()
-        this.guideService.createTour(this.props.location.guide.id,this.state.img,this.state.title,this.state.claim,this.state.description,this.state.price,this.state.meetingPoint)
+        console.log("llama para crear")
+        console.log(this.state.location)
+        console.log(this.state.guideId)
+        this.guideService.createTour(this.state.guideId,this.state.img,this.state.title,this.state.claim,this.state.description,this.state.price,this.state.location)
         .then(
           (tourCreated) => {
+            this.setUser(null)
             this.props.updateUser()
           }
         ).catch(err=>console.log(err))
     }
 
     componentDidMount(){
-        if(!this.state.guide===null){
-            this.setState({
-                ...this.state,
-                guideId:this.props.location.guide
-            })
-        }
-    }
+        this.fetchUser()
+   }
 
    
     render() {
-       
             return (
                 <GuideMainDiv>
                     <div className="breadcrumbs"><h4>Mi panel / Mis Tours / Crear Tour</h4><p>Aquí puedes crear un Tour nuevo</p></div>
@@ -83,22 +115,14 @@ export default class GuideCreateTour extends Component {
                             <label htmlFor="price">Precio por persona en €: </label>
                             <input className="price" type="number" name="price"  value={this.state.price} required onChange={this.handleChange} />
                             <label htmlFor="meetingPoint">Busca en Google el Punto de Encuentro: </label>
-                            <input className="meetingPoint" type="text" name="meetingPoint" value={this.state.meetingPoint} required onChange={this.handleChange} />
+                            <GmapsPlaces getData = {(data => this.getData(data))}></GmapsPlaces>
+                            {/* <input className="meetingPoint" type="text" name="meetingPoint" value={this.state.meetingPoint} required onChange={this.handleChange} /> */}
                         </div>
                         <div className="form-right">
                             <div className="tour-img"><img src={this.state.img} alt="La imagen del Tour"/></div>
                         <label htmlFor="description">Descripción Larga: </label>
                         <textarea className="description" name="description" value={this.state.description} required onChange={this.handleChange} />
-                        {/* <fieldset>
-                            <legend>Selecciona las categorías que más se ajustan al Tour:</legend>
-                            <input type="checkbox" name="category" value="Aventura">Aventura</input>
-                            <input type="checkbox" name="category" value="Deporte">Deporte</input>
-                            <input type="checkbox" name="category" value="Estilo de Vida">Estilo de Vida</input>
-                            <input type="checkbox" name="category" value="Arte y Cultura">Arte y Cultura</input>
-                            <input type="checkbox" name="category" value="Gastronomía">Gastronomía</input>
-                            <input type="checkbox" name="category" value="Naturaleza">Naturaleza</input>
-                            <input type="checkbox" name="category" value="Mar">Mar</input>
-                        </fieldset> */}
+                    
                         <input type="submit" onClick={this.createTour}/>
                         </div>
                         

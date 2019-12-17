@@ -14,14 +14,14 @@ class GuideService{
     .catch(error => console.error(error))
   }
 
-  createTour = (userId,img,title,claim,description,price,meetingPoint) => {
-    return this.instance.post('/tour/create', {userId,img,title,claim,description,price,meetingPoint})
+  createTour = (userId,img,title,claim,description,price,location) => {
+    return this.instance.post('/tour/create', {userId,img,title,claim,description,price,location})
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }
 
-  editTour = (userId,img,title,claim,description,price,meetingPoint) => {
-    return this.instance.post('/tour/edit', {userId,img,title,claim,description,price,meetingPoint})
+  editTour = (userId,tourId,img,title,claim,description,price,location) => {
+    return this.instance.post('/tour/edit', {userId,tourId,img,title,claim,description,price,location})
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))
   }

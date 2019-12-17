@@ -35,18 +35,21 @@ export default class GmapMap extends Component {
             <div style={{ height: '50vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyCm0meO5cjbh70YvG6BIQVh5GqRHXHG7Uw" }}
-                    defaultCenter={this.props.center}
+                    defaultCenter={this.props.pos && this.props.pos}
                     defaultZoom={this.props.zoom}
                     yesIWantToUseGoogleMapApiInternals
                     onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
                 >
+                    {this.props.marker&&
                     <Marker
-                        
-                        lat={this.state.lat}
-                        lng={this.state.lng}
-                        draggable={true}
-                        text="My Marker"
-                    />
+                    lat={this.props.pos.lat}
+                    lng={this.props.pos.lng}
+                    draggable={true}
+                    text="My Marker"
+                />
+                    }
+                    
+                    
                 </GoogleMapReact>
             </div>
         );

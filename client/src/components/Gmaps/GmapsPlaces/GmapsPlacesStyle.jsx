@@ -11,7 +11,7 @@ display:flex;
   padding:0;
   background-color:${appColor.gray}
   color: ${appColor.primary};
-
+margin:0;
 a{
   text-decoration:none;
   color:${appColor.primary}

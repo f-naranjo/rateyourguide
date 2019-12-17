@@ -17,7 +17,11 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/tour/create', (req, res, next) => {
-  const { userId, img, title, claim, description, price, meetingPoint } = req.body;
+  console.log("--------->")
+  console.log(req.body)
+  console.log("<-------")
+
+  const { userId, img, title, claim, description, price, location} = req.body;
   let newTour;
   let tour = {
     owner: userId,
@@ -26,8 +30,8 @@ router.post('/tour/create', (req, res, next) => {
     claim: claim,
     description: description,
     category: ["Aventura", "Deporte", "Estilo de Vida", "Arte y Cultura", "Gastronomia", "Mar", "Naturaleza"],
-    price: +price,
-    meetingPoint: meetingPoint,
+    price: +price,  
+    location: location,
   }
   Tour.create(tour)
   .then((tourCreated)=>{
@@ -48,7 +52,7 @@ router.post('/tour/create', (req, res, next) => {
 })
 
 router.post('/tour/edit', (req, res, next) => {
-  const { userId, img, title, claim, description, price, meetingPoint } = req.body;
+  const { userId, tourId, img, title, claim, description, price, location } = req.body;
   let tour = {
     owner: userId,
     img: img,
@@ -57,9 +61,9 @@ router.post('/tour/edit', (req, res, next) => {
     description: description,
     category: ["Aventura", "Deporte", "Estilo de Vida", "Arte y Cultura", "Gastronomia", "Mar", "Naturaleza"],
     price: +price,
-    meetingPoint: meetingPoint,
+    location: location,
   }
-  Tour.findByIdAndUpdate(userId,tour)
+  Tour.findByIdAndUpdate(tourId,tour)
     .then((updatedGuide) => {
       res.status(200).json(updatedGuide)
     });

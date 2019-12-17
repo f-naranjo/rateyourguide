@@ -5,6 +5,7 @@ import AuthService from './../../../services/AuthService';
 import GuideMainDiv from '../GuideStyles';
 import GuideService from '../../../services/GuideService';
 import EditTourForm from './GuideEditTourStyles';
+import GmapsPlaces from '../../Gmaps/GmapsPlaces/GmapsPlaces';
 
 
 export default class GuideEditTour extends Component {
@@ -19,8 +20,9 @@ export default class GuideEditTour extends Component {
         claim: "",
         description: "",
         price: 0,
-        meetingPoint: "",
+        location: {},
         tourId: null,
+        guideId: null,
     }
 
     handleUpload = (e) => {
@@ -43,16 +45,47 @@ export default class GuideEditTour extends Component {
 
     }
 
+    getData = (data) =>{
+        this.setState({
+            ...this.state,
+            location: data
+        })
+    }
 
     editTour = (e) => {
         e.preventDefault()
-        this.guideService.editTour(this.state.tourId, this.state.img, this.state.title, this.state.claim, this.state.description, this.state.price, this.state.meetingPoint)
+        this.guideService.editTour(this.state.guideId,this.state.tourId, this.state.img, this.state.title, this.state.claim, this.state.description, this.state.price, this.state.location)
             .then(
                 (tourCreated) => {
                    
                 }
             ).catch(err => console.log(err))
     }
+
+    setUser = (user) => {
+        this.setState({ ...this.state, user })
+      }
+
+    fetchUser = () => {
+        console.log("Entra al fetch")
+        if (this.state.guideId === null) {   
+            this.authService.loggedIn()
+                .then(
+                    (user) => {
+                        this.setUser(user)
+                    },
+                    (error) => {
+                        console.log("2")
+                        this.setUser(false)
+                    }
+                )
+                .catch(() => {
+                    console.log("3")
+                    this.setUser(false)
+                })
+        }
+    }
+
 
     componentDidMount() {
         if (this.state.tourId === null) {
@@ -63,8 +96,9 @@ export default class GuideEditTour extends Component {
                 claim: this.props.location.tour.claim,
                 description: this.props.location.tour.description,
                 price: this.props.location.tour.price,
-                meetingPoint: this.props.location.tour.meetingPoint,
-                tourId: this.props.location.tour.id
+                tourId: this.props.location.tour.id,
+                location: this.props.location.tour.location,
+                guideId:this.props.location.tour.owner
             })
         }
     }
@@ -87,8 +121,9 @@ export default class GuideEditTour extends Component {
                             <input className="claim" type="text" name="claim" value={this.state.claim} required onChange={this.handleChange} />
                             <label htmlFor="price">Precio por persona en €: </label>
                             <input className="price" type="number" name="price" value={this.state.price} required onChange={this.handleChange} />
-                            <label htmlFor="meetingPoint">Busca en Google el Punto de Encuentro: </label>
-                            <input className="meetingPoint" type="text" name="meetingPoint" value={this.state.meetingPoint} required onChange={this.handleChange} />
+                            <label htmlFor="meetingPoint">El punto de encuentro es: {this.state.location.address}. Lo puedes cambiar con el buscador: </label>
+                            <GmapsPlaces getData = {(data => this.getData(data))}></GmapsPlaces>
+                            {/* <input className="meetingPoint" type="text" name="meetingPoint" value={this.state.location.address} required onChange={this.handleChange} /> */}
                         </div>
                         <div className="form-right">
                             <div className="tour-img"><img src={this.state.img} alt="La imagen del Tour" /></div>

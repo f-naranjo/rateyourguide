@@ -10,82 +10,86 @@ export default class GuideTour extends Component {
         super(props)
         this.authService = new AuthService();
     }
-    // state = {
-    //     user: null,
-    // }
 
-    //    notGuide(){
-    //         this.history.push('/book')
-    //    }
-    // setUser = (user) => {  
-    //     const{toursCreated, tourSessions} = user
-    //     this.setState({ ...this.state, user,toursCreated, tourSessions })
-    // }
+    state = {
+        user: null,
+    }
 
-    // fetchUser = () => {
-    //     if (this.state.user === null) {
-            
-    //         this.authService.loggedIn()
-    //             .then(
-    //                 (user) => {
-                       
-    //                     console.log(user)
-    //                     this.setUser(user)
-    //                 },
-    //                 (error) => {
-    //                     console.log("2")
-    //                     this.setUser(false)
-    //                 }
-    //             )
-    //             .catch(() => {
-    //                 console.log("3")
-    //                 this.setUser(false)
-    //             })
-    //     }
-    // }
+    setUser = (user) => {
+        this.setState({ ...this.state, user })
+    }
 
-    // setGuide = () =>{
-    //     if(this.props.location.guide){
-    //         const{toursCreated, tourSessions} = this.props.location.guide
-    //         this.setState({
-    //             ...this.state,
-    //             guide:this.props.location.guide,
-    //             tours: toursCreated,
-    //             sessions: tourSessions,
-    //         })
-    //     }
-    //     console.log("1")
-    //     console.log(this.props.location.guide)
-    // }
+    fetchUser = () => {
+        if (this.state.user === null) {
 
-    setHome = () =>{
-       return <Redirect to='/guides/adminpanel'/>
+            this.authService.loggedIn()
+                .then(
+                    (user) => {
+                        console.log(user)
+                        this.setUser(user)
+                    },
+                    (error) => {
+                        console.log("2")
+                        this.setUser(false)
+                    }
+                )
+                .catch(() => {
+                    console.log("3")
+                    this.setUser(false)
+                })
+        }
+    }
+
+    updateUser() {
+        this.authService.loggedIn()
+            .then(
+                (user) => {
+                    console.log(user)
+                    this.setUser(user)
+                },
+                (error) => {
+                    console.log("2")
+                    this.setUser(false)
+                }
+            )
+            .catch(() => {
+                console.log("3")
+                this.setUser(false)
+            })
+
+    }
+
+    setHome = () => {
+        return <Redirect to='/users/adminpanel/' />
     }
 
     displayTours = () => {
-        if(this.props.location.guide){return this.props.location.guide.toursCreated.map((tour, i) => <TourAdminPreview key={i} tour={tour}></TourAdminPreview>)}
+        console.log("entra al display")
+        if (this.state.user) { return this.state.user.toursCreated.map((tour, i) => <TourAdminPreview key={i} tour={tour} updateUser={()=>this.updateUser()}></TourAdminPreview>) }
     }
 
-    
+    componentDidMount() {
+        this.fetchUser()
+    }
 
     render() {
-        if(this.props.location.guide!== null){
+        if (this.state.user !== null) {
             return (
                 <GuideMainDiv>
-                <div className="breadcrumbs"><h4>Mi panel / Mis Tours</h4><p>Este es tu panel de administración de Tours. Aquí puedes editar los tours existentes o crear nuevos.</p></div>
-                <div className="page-controls">
-                <Link className="admin-btn-xl create"
+                    <div className="breadcrumbs"><h4>Mi panel / Mis Tours</h4><p>Este es tu panel de administración de Tours. Aquí puedes editar los tours existentes o crear nuevos.</p></div>
+                    <div className="page-controls">
+                        <Link className="admin-btn-xl create"
                             to={{
                                 pathname: '/guides/adminpanel/tour/create',
-                                guide:this.props.location.guide
+                                //user:this.state.user
                             }}
                         ><i class="far fa-calendar-plus"></i>CREAR NUEVO TOUR</Link>
 
-                </div>
-                {this.displayTours()}
+                    </div>
+                    {this.displayTours()}
                 </GuideMainDiv>
             )
         }
-      return(<h1>Cargando...</h1>)
+        return (<GuideMainDiv><h1>Cargando...</h1></GuideMainDiv>)
     }
 }

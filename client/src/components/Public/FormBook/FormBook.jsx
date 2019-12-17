@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import ButtonBack from '../../../styles/buttonBack';
 import ButtonForward from '../../../styles/buttons';
+import GmapsPlaces from '../../Gmaps/GmapsPlaces/GmapsPlaces';
 export default class FormBook extends Component {
     constructor(props) {
         super(props)
@@ -27,6 +28,14 @@ export default class FormBook extends Component {
         console.log(this.state)
     }
 
+    getData = (data) =>{
+        console.log("entra en getData de FormBook")
+        console.log(data)
+        this.setState({
+            ...this.state,
+            location: data
+        })
+    }
     handleDate = (date) =>{
         console.log(date[0])
         this.setState({...this.state, dateFrom: date[0], dateTo: date[1],date: date})
@@ -38,7 +47,7 @@ export default class FormBook extends Component {
             <BookForm>
                 <form onSubmit={this.handleSignUp}>
                     <label htmlFor="location">¿A dónde viajas? </label>
-                    <input className="location" type="text" name="location" value={location} required onChange={this.handleChange} />
+                    <GmapsPlaces getData = {(data => this.getData(data))}></GmapsPlaces>
                      <label>Selecciona las fechas: </label>
                      <DateRangePicker className="date-range" onChange={this.handleDate}
           value={this.state.date}></DateRangePicker>

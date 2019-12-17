@@ -20,6 +20,31 @@ export default class PageAvailableTours extends Component {
         
     }
 
+    // function calcDistance(lat1, lng1, lat2, lng2) {
+    //     const R = 6371; // earth radius in km
+    //     let dLat = toRad(lat2 - lat1);
+    //     let dLng = toRad(lng2 - lng1);
+    //     lat1 = toRad(lat1);
+    //     lat2 = toRad(lat2);
+    //   ​
+    //     let a =
+    //       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    //       Math.sin(dLng / 2) * Math.sin(dLng / 2) * Math.cos(lat1) * Math.cos(lat2);
+    //     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    //     let d = R * c;
+    //     return d;
+    //   }
+    //   ​
+    //   function toRad(value) {
+    //     return (value * Math.PI) / 180;
+    //   }
+    //   Contraer
+      
+      
+      
+      
+      
+
     componentDidMount() {
         this._isMounted = true
 
@@ -113,13 +138,18 @@ export default class PageAvailableTours extends Component {
     }
 
     render() {
-        console.log(this.state.tours)
-        return (
-            <div>
-                {(this.state.tours) && <HeroInfo><h1>Estas son las experiencias que {this.state.tours[0].owner.info.name} tiene disponibles:</h1></HeroInfo>}
-                {(this.state.tours) && this.displayTours()}
-                {(this.state.tours) && <ButtonBack>VOLVER</ButtonBack>}
-            </div>
-        )
+        if(this.state.tours){
+           
+            return (
+                <div>
+                    {(this.state.tours) && <HeroInfo><h1>Estas son las experiencias que {this.state.tours[0].owner.info.name} tiene disponibles:</h1></HeroInfo>}
+                    {(this.state.tours) && this.displayTours()}
+                    {(this.state.tours) && <ButtonBack>VOLVER</ButtonBack>}
+                </div>
+            )
+        }else{
+            return(<h1>Cargando...</h1>)
+        }
+       
     }
 }

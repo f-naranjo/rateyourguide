@@ -14,16 +14,20 @@ export default class TourAdminPreview extends Component {
         console.log("entro a borrar")
         this.guideService.deleteTour(id)
         .then((deleteTour)=>{
-            console.log("tour borrado")
+            this.props.updateUser()
         })
     }
 
     render() {
         if(this.props.tour){
-            const { title, img, claim, date, price, rates,id } = this.props.tour;
-            const mediumrate = Math.round((rates.reduce((ac, cu) => {
+            const { title, location, img, claim, date, price, rates,id } = this.props.tour;
+            let mediumrate;
+            if(rates.length === 0){
+                 mediumrate = 0
+            }else {mediumrate = Math.round((rates.reduce((ac, cu) => {
                 return ac + cu
-            }, 0) / rates.length))
+            }, 0) / rates.length))} 
+           
         
        
         return (
@@ -35,32 +39,32 @@ export default class TourAdminPreview extends Component {
                     <div className="tour-info">
                         <div className="tour-title">
                         <h2>{title}</h2>
-                        <p><i class="fas fa-star"></i> <span>{typeof(mediumrate) === Number && mediumrate}</span>/10</p>
+                        <p><i className="fas fa-star"></i> <span>{mediumrate}</span>/10</p>
                         </div>
 
                         <p>{claim}</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Madrid Centro</p>
-                        
+                        <p><i className="fas fa-map-marker-alt"></i>{location.address}</p>
+                        <p><i className="fas fa-euro-sign"></i> {price}</p>
                         <div className="admin-btns">
                         <Link className="admin-btn edit"
                             to={{
                                 pathname: '/guides/adminpanel/tour/edit',
                                 tour: this.props.tour,
                             }}
-                        ><i class="fas fa-edit"></i> EDITAR</Link>
+                        ><i className="fas fa-edit"></i> EDITAR</Link>
                          <Link className="admin-btn delete"
                             to={{
-                                pathname: '/guides/adminpanel/',
+                                pathname: '/guides/adminpanel/tours',
                                 state: id,
                             }}
                             onClick={(e) => this.deleteTour(id)}
-                        ><i class="fas fa-trash-alt"></i> ELIMINAR</Link>
+                        ><i className="fas fa-trash-alt"></i> ELIMINAR</Link>
                          <Link className="admin-btn create"
                             to={{
                                 pathname: '/guides/adminpanel/tours',
                                 state: id,
                             }}
-                        ><i class="far fa-calendar-plus"></i> CREAR SESIONES</Link>
+                        ><i className="far fa-calendar-plus"></i> CREAR SESIONES</Link>
 
                         </div>
                         

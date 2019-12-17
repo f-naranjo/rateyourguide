@@ -64,7 +64,7 @@ Guide.find()
     guide.toursCreated.forEach((tourCreated,idx)=>{
       //if hours are set to 0, it takes current hour.
       //the server has one hour less by default
-      tourSessions.push(...createSessions(`2019-12-${9+(idx+1)}-23-58`,5,guide._id,tourCreated))
+      tourSessions.push(...createSessions(`2019-12-${10+(idx+1)}-23-58`,5,guide._id,tourCreated))
     })
   })
 })

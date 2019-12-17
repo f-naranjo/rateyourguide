@@ -5,6 +5,7 @@ import SessionDetail from './PageSessionDetailStyle'
 import ButtonForward from '../../../styles/buttons';
 import ButtonBack from '../../../styles/buttonBack';
 import HeroInfo from '../../../styles/heroinfo';
+import GmapMap from '../../Gmaps/Gmaps Map/GmapsMap';
 
 
 export default class PageSessionDetail extends Component {
@@ -72,13 +73,11 @@ export default class PageSessionDetail extends Component {
                         </div>
                             
                             <div className="info-wrapper">
-                            
-                                
                                 <h3>Sobre la experiencia:</h3>
                                 <p>{tour.description}</p>
                                 <h3>Punto de encuentro:</h3>
-                                <p>{owner.info.name} te estará esperando en El sitio que hay que meter en la BD hoy a las 10:00 (Hora de la BD)</p>
-                                <img src="https://media.metrolatam.com/2019/02/27/screenshot20190227at123048pm-c1134760775ab2f1b3aa9046ea66964a.jpg" />
+                                <p>{owner.info.name} te estará esperando en {tour.location.address} hoy a las 10:00 (Hora de la BD)</p>
+                                <GmapMap pos={tour.location.coords} marker={true}/>
                             
                             <div className="nav-buttons">
                                 <ButtonBack><i class="fas fa-arrow-left"></i> Volver</ButtonBack>   

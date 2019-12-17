@@ -248,8 +248,9 @@ let guides = [
     profileViews: 233,
     billing: [],
   },
-  {username: "francisco",
-  password: bcrypt.hashSync("francisco", bcrypt.genSaltSync(bcryptSalt)),
+  {
+    username: "francisco",
+    password: bcrypt.hashSync("francisco", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Francisco Navarro",
       description: "Ergadoo torpedo fistro. Va usté muy cargadoo está la cosa muy malar a gramenawer mamaar torpedo está la cosa muy malar ese pedazo",
@@ -267,8 +268,9 @@ let guides = [
     profileViews: 345,
     billing: [],
   },
-  {username: "dani",
-  password: bcrypt.hashSync("dani", bcrypt.genSaltSync(bcryptSalt)),
+  {
+    username: "dani",
+    password: bcrypt.hashSync("dani", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Daniel Pulpeiro",
       description: "Aaaaaah po kass bee do bee do bee do aaaaaah poulet tikka masala hana dul sae poulet tikka masala jiji potatoooo bee do bee",
@@ -439,7 +441,12 @@ let tours1 = [
     price: 25,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 6, 9, 8, 8, 10]
+    rates: [7, 6, 9, 8, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
+
   },
   {
     img: "https://saposyprincesas.elmundo.es/wp-content/uploads/2016/05/asdfa.jpg",
@@ -451,7 +458,11 @@ let tours1 = [
     price: 60,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 5, 6, 9, 10, 6, 7, 9]
+    rates: [7, 8, 5, 6, 9, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKaxBz1w4tv6skMzSj7G0c6ohKqf3y7TmBfcnW6yAmjVV2H1Yb&s",
@@ -463,7 +474,11 @@ let tours1 = [
     price: 20,
     meetingPoint: "google address",
     comments: [],
-    rates: [6, 9, 10]
+    rates: [6, 9, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "http://hostaloriente.es/wp-content/uploads/2019/03/madrid-1288x724.png",
@@ -475,7 +490,11 @@ let tours1 = [
     price: 15,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 5, 10]
+    rates: [7, 8, 5, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 
 ]
@@ -491,7 +510,11 @@ let tours2 = [
     price: 25,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 6, 9, 8, 10]
+    rates: [7, 6, 9, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://cdn.shopify.com/s/files/1/0339/9513/files/Best-IPA-Gear-Patrol-Lead-1440_grande.jpg?v=1522152683",
@@ -503,7 +526,11 @@ let tours2 = [
     price: 35,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 5, 6, 7, 8, 9]
+    rates: [7, 8, 5, 6, 7, 8, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://unareceta.com/wp-content/uploads/2017/06/receta-de-muffins-con-pepitas-de-chocolate.jpg",
@@ -515,7 +542,11 @@ let tours2 = [
     price: 23,
     meetingPoint: "google address",
     comments: [],
-    rates: [6, 9, 10, 8, 8, 9]
+    rates: [6, 9, 10, 8, 8, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -530,7 +561,11 @@ let tours3 = [
     price: 12,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 6, 9, 8, 10]
+    rates: [7, 6, 9, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "http://lapiedradesisifo.com/wp-content/uploads/2018/10/ministerio-aprova-modelo-de-contrato-para-musicos-e-outros-profissionais-do-entr.jpg",
@@ -542,7 +577,11 @@ let tours3 = [
     price: 37,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 5, 6, 9, 5, 6, 10, 6, 7, 9]
+    rates: [7, 8, 5, 6, 9, 5, 6, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "http://farm4.staticflickr.com/3375/3638206797_4eac6fa140_z.jpg",
@@ -554,7 +593,11 @@ let tours3 = [
     price: 10,
     meetingPoint: "google address",
     comments: [],
-    rates: [6, 9, 10, 7, 7, 7]
+    rates: [6, 9, 10, 7, 7, 7],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "http://www.escapadarural.com/blog/wp-content/uploads/2016/02/Sierra-Norte-de-Madrid-2.jpg",
@@ -566,7 +609,11 @@ let tours3 = [
     price: 36,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 5, 10, 10, 10, 9]
+    rates: [7, 8, 5, 10, 10, 10, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 
 ]
@@ -582,7 +629,11 @@ let tours4 = [
     price: 18,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 9, 8, 10]
+    rates: [7, 8, 9, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://cdn2.traveler.es/uploads/images/thumbs/es/trav/3/s/2016/17/escapada_al_campo_madrileno_los_paisajes_mas_bellos_de_la_sierra_6068_1000x665.jpg",
@@ -594,7 +645,11 @@ let tours4 = [
     price: 22,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 5, 6, 10, 6, 7, 9]
+    rates: [7, 5, 6, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://guias-viajar.com/madrid/wp-content/uploads/2015/02/Monumento-Alfonso-XII-FB-001.jpg",
@@ -606,7 +661,11 @@ let tours4 = [
     price: 12,
     meetingPoint: "google address",
     comments: [],
-    rates: [6, 9, 10, 7, 8, 7]
+    rates: [6, 9, 10, 7, 8, 7],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -621,7 +680,11 @@ let tours5 = [
     price: 0,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 6, 9, 5, 7, 8, 8, 10]
+    rates: [7, 6, 9, 5, 7, 8, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://farm4.staticflickr.com/3804/12290923085_ba548c4bc3_b.jpg",
@@ -633,7 +696,11 @@ let tours5 = [
     price: 0,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 5, 6, 5, 5, 9, 10, 6, 7, 9]
+    rates: [7, 8, 5, 6, 5, 5, 9, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://madridsecreto.co/wp-content/uploads/2017/12/20150315-Museo-Reina-Sofia-063.jpg",
@@ -645,7 +712,11 @@ let tours5 = [
     price: 10,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,7,7,7,10]
+    rates: [6, 9, 7, 7, 7, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://upload.wikimedia.org/wikipedia/commons/d/df/Escultura_La_Mano_de_Botero_de_Madrid.jpg",
@@ -657,7 +728,11 @@ let tours5 = [
     price: 18,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,8,6,7,8,5,10]
+    rates: [7, 8, 6, 7, 8, 5, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 
 ]
@@ -668,24 +743,32 @@ let tours6 = [
     title: "Taller de Cocina Vegana",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Estilo de Vida","Gastronomia"],
+    category: ["Estilo de Vida", "Gastronomia"],
     duration: 2,
     price: 17,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,6,7,7,9,5,7,8,8,10]
+    rates: [7, 6, 7, 7, 9, 5, 7, 8, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "ihttps://www.atrapalo.com/common/photo/event/4/7/9/3127/366997/vertic_880_0.jpg",
     title: "Taller de Cocina Vegetariana",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Estilo de Vida","Gastronomia"],
+    category: ["Estilo de Vida", "Gastronomia"],
     duration: 2,
     price: 19,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 9, 10, 6, 7, 9]
+    rates: [7, 8, 9, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://www.cuerpomente.com/medio/2018/05/11/carrot-cake-raw_8a3d33f9.jpg",
@@ -697,7 +780,11 @@ let tours6 = [
     price: 10,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,7,7,8,9,7,10]
+    rates: [6, 9, 7, 7, 8, 9, 7, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -712,7 +799,11 @@ let tours7 = [
     price: 19,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,5,7,8,8,10]
+    rates: [7, 5, 7, 8, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "http://img2.rtve.es/v/3501382?w=1600&preview=1456474335899.jpg",
@@ -724,7 +815,11 @@ let tours7 = [
     price: 13,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 9, 10,10,10, 6, 7, 9]
+    rates: [7, 8, 9, 10, 10, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://vdmedia.elpais.com/elpaistop/201712/1/20171201172919_1512145831_still.jpg",
@@ -736,7 +831,11 @@ let tours7 = [
     price: 8,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,7,7,8,9,7,10,5,5]
+    rates: [6, 9, 7, 7, 8, 9, 7, 10, 5, 5],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -746,24 +845,32 @@ let tours8 = [
     title: "Zumba Master",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Deporte","Estilo de Vida"],
+    category: ["Deporte", "Estilo de Vida"],
     duration: 3,
     price: 19,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,5,7,8,9,8,4,8,10]
+    rates: [7, 5, 7, 8, 9, 8, 4, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://www.feda.net/wp-content/uploads/2016/08/55301893_s.jpg",
     title: "Ritmos Latinos en el Parque Eva Duarte",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Deporte","Arte y Cultura"],
+    category: ["Deporte", "Arte y Cultura"],
     duration: 2,
     price: 10,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 8, 9,10, 6, 7, 9]
+    rates: [7, 8, 9, 10, 6, 7, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://www.costacruceros.es/content/dam/costa/costa-magazine/article-images/e178b00/ventre.jpg.image.694.390.low.jpg",
@@ -775,7 +882,11 @@ let tours8 = [
     price: 12,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,7,7,8,9,7,10,7,8,10,5,5]
+    rates: [6, 9, 7, 7, 8, 9, 7, 10, 7, 8, 10, 5, 5],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -785,12 +896,16 @@ let tours9 = [
     title: "Trekking en Rascafría",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Aventura", "Deporte","Naturaleza"],
+    category: ["Aventura", "Deporte", "Naturaleza"],
     duration: 4,
     price: 35,
     meetingPoint: "google address",
     comments: [],
-    rates: [7, 6, 9, 8, 10]
+    rates: [7, 6, 9, 8, 10],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://portal.minervafoods.com/files/styles/blog_post_page/public/como_fazer_hamburguer_caseiro_0.jpg?itok=kxHwP-dY",
@@ -802,7 +917,11 @@ let tours9 = [
     price: 8,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,8,5,6,7,6,8,9]
+    rates: [7, 8, 5, 6, 7, 6, 8, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://arc-photo-larazon.s3.amazonaws.com/eu-central-1-prod/public/WG7OVNX6DJDQ7PW2WG5IBC7YVY.jpg",
@@ -814,7 +933,11 @@ let tours9 = [
     price: 22,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,10,8,8,8,8,8,9]
+    rates: [6, 9, 10, 8, 8, 8, 8, 8, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -829,7 +952,11 @@ let tours10 = [
     price: 35,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,6,9,8,10,5,6,8,8]
+    rates: [7, 6, 9, 8, 10, 5, 6, 8, 8],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://encolombia.com/wp-content/uploads/2019/05/Meditacion-Medicina-Alternativa-696x398.jpg",
@@ -841,31 +968,43 @@ let tours10 = [
     price: 23,
     meetingPoint: "google address",
     comments: [],
-    rates: [7,8,5]
+    rates: [7, 8, 5],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "http://madridmayrit.files.wordpress.com/2013/07/casa-1916.jpg",
     title: "Taller Danzas Étnicas",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Arte y Cultura","Naturaleza"],
+    category: ["Arte y Cultura", "Naturaleza"],
     duration: 3,
     price: 16,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,10,8,9]
+    rates: [6, 9, 10, 8, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
   {
     img: "https://uecluster.blob.core.windows.net/images/futurosostenible/1511882795_niscs.jpg",
     title: "Recogida de Setas en la Sierra",
     claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
     description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
-    category: ["Naturaleza","Aventura"],
+    category: ["Naturaleza", "Aventura"],
     duration: 4,
     price: 15,
     meetingPoint: "google address",
     comments: [],
-    rates: [6,9,10,8,9,9,9,9]
+    rates: [6, 9, 10, 8, 9, 9, 9, 9],
+    location: {
+      address: "Madrid, España",
+      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+    }
   },
 ]
 
@@ -910,7 +1049,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[0] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[0],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[0], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -921,8 +1060,8 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[1] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[1],{$push: {toursCreated: tourCreated._id}}).then()
-          .then()
+          Guide.findByIdAndUpdate(allGuides[1], { $push: { toursCreated: tourCreated._id } }).then()
+            .then()
         })
       })
       .then(() => {
@@ -933,7 +1072,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[2] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[2],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[2], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -944,7 +1083,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[3] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[3],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[3], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -955,7 +1094,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[4] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[4],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[4], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -966,7 +1105,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[5] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[5],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[5], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -977,7 +1116,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[6] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[6],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[6], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -988,7 +1127,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[7] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[7],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[7], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -999,7 +1138,7 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[8] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[8],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[8], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
       .then(() => {
@@ -1010,10 +1149,10 @@ Guide.deleteMany()
         console.log(toursCreated.map(u => u._id));
         toursCreated.forEach((tourCreated) => {
           Tour.findByIdAndUpdate(tourCreated._id, { owner: allGuides[9] }, { new: true }).then()
-          Guide.findByIdAndUpdate(allGuides[9],{$push: {toursCreated: tourCreated._id}}).then()
+          Guide.findByIdAndUpdate(allGuides[9], { $push: { toursCreated: tourCreated._id } }).then()
         })
       })
-      
+
   })
   .catch(err => {
     mongoose.disconnect()

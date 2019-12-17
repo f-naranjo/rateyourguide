@@ -11,7 +11,8 @@ const tourSchema = new Schema({
   price: Number,
   meetingPoint: String,
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'TourComment' }],
-  rates: []
+  rates: [],
+  location: {}
 }, {
   timestamps: true,
   toJSON: {
