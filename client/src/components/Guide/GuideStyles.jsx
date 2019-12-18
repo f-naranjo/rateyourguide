@@ -74,6 +74,17 @@ const GuideMainDiv = styled.div`
   
 }
 
+.manage{
+  background-color: ${appColor.manage};
+  border:2px solid ${appColor.manage};
+  color:${appColor.primary};
+  :hover{
+    transition:0.3s;
+    background-color: ${appColor.white}
+  }
+
+}
+
 .delete{
     background-color: ${appColor.delete};
     border:2px solid ${appColor.delete};

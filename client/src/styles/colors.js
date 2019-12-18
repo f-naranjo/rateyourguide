@@ -12,6 +12,7 @@ const appColors = {
     delete:"#FFCCD8",
     create:"#D0EDA0",
     edit:"#FFF7AA",
+    manage:"#A3CAD6",
 }
 
 export default appColors;

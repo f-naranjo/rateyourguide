@@ -85,12 +85,21 @@ const AdminTourDiv = styled.div`
     .admin-btns{
         width:100%;
         display:flex;
+        flex-direction:column;
         flex-wrap:wrap;
-        justify-content: flex-end;
-        align-self:flex-end;
-        margin-top:auto;
-    }
+        margin-top:1rem;
 
+    }
+    
+    .tour-btns,.sessions-btns{
+       margin-bottom:0.5rem;
+       display:flex;
+       justify-content:flex-end;
+       width:100%;
+       a{
+           margin:0 0.5rem;
+        }
+    }
 `;
 
 

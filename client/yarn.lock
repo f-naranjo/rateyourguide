@@ -8642,6 +8642,14 @@ react-checkbox-group@^5.0.2:
   resolved "https://registry.yarnpkg.com/react-checkbox-group/-/react-checkbox-group-5.0.2.tgz#ccf6d5bd36d549727f8bc2c44b011224e4599450"
   integrity sha512-iNnKCwVNNlsj6DXIzPO9qx5BcwPf3lXV0u8UW6YcsVDwlS2AC+bJXq76z2uwbtWZbCIZHzm2mxMMj4Bzm3B+lw==
 
+react-clock@^2.3.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-clock/-/react-clock-2.4.0.tgz#39540f84e16f8b2c2137640f535c162041bd2a1e"
+  integrity sha512-BlzkzbhLEzLwdqtl+PAPvzMhRvg4xyxsiQnGpb+ZzL4YY5iFQgJa7C48EUGhbpnTtNwyMuaBG4KeYmUuUlTQUQ==
+  dependencies:
+    merge-class-names "^1.1.1"
+    prop-types "^15.6.0"
+
 react-date-picker@^7.9.0:
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-7.9.0.tgz#728cf4a7d47c5fa9c669f648bc7e7bdc55a1c79e"
@@ -8825,6 +8833,21 @@ react-svg@^11.0.3:
     "@babel/runtime" "^7.7.2"
     "@tanem/svg-injector" "^8.0.35"
     prop-types "^15.7.2"
+
+react-time-picker@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/react-time-picker/-/react-time-picker-3.8.0.tgz#77c6ee6b76711b707ccc99996662d22dfc49869d"
+  integrity sha512-NL0+kCZWL1vmh+1Hybn8LcAOpa5S+QavQu2+rQpVM8llksqfQQXlc/E8AICZcNeoBoG9ZikAvoTUIeIUhbgMgQ==
+  dependencies:
+    "@wojtekmaj/date-utils" "^1.0.0"
+    get-user-locale "^1.2.0"
+    make-event-props "^1.1.0"
+    merge-class-names "^1.1.1"
+    prop-types "^15.6.0"
+    react-clock "^2.3.0"
+    react-fit "^1.0.3"
+    react-lifecycles-compat "^3.0.4"
+    update-input-width "^1.1.1"
 
 react@^16.12.0:
   version "16.12.0"

@@ -6,6 +6,7 @@ import GuideMainDiv from '../GuideStyles';
 import GuideService from '../../../services/GuideService';
 import CreateSessionsForm from './GuideCreateSessionsStyle';
 import DatePicker from 'react-date-picker';
+import TimePicker from 'react-time-picker';
 
 
 export default class GuideCreateSessions extends Component {
@@ -20,7 +21,8 @@ export default class GuideCreateSessions extends Component {
         maxPeople: 10,
         duration: 4,
         language: "",
-        date: "",
+        date: new Date(),
+        time: "10:30"
     }
 
 
@@ -29,37 +31,37 @@ export default class GuideCreateSessions extends Component {
         this.setState({ ...this.state, [name]: value })
     }
 
+    handleDate = (date) => {
+        console.log(date)
+        this.setState({ ...this.state, date: date })
+    }
+
+    handleTime = (time) => {
+        console.log(time)
+        this.setState({ ...this.state, time: time })
+    }
+
     setUser = (user) => {
-        console.log("entra al set")
-        console.log(user)
         this.setState({ ...this.state, user })
     }
 
     fetchUser = () => {
-        console.log("Entra al fetch")
-        if (this.state.guideId === null) {
-            this.authService.loggedIn()
-                .then(
-                    (user) => {
-                        this.setUser(user)
-                    },
-                    (error) => {
-                        console.log("2")
-                        this.setUser(false)
-                    }
-                )
-                .catch(() => {
-                    console.log("3")
-                    this.setUser(false)
-                })
+        if (this.state.owner === null) {
+            this.setState({
+                owner: this.props.location.state.owner,
+                tourId: this.props.location.state.id,
+                tour: this.props.location.state
+            })
         }
     }
 
     createSession = (e) => {
         e.preventDefault()
         console.log("llama para crear")
-        const { owner, tour, maxPeople, duration, language, date } = this.state
-        this.guideService.createSession(owner, tour, maxPeople, duration, language, date)
+        const hour = this.state.time.split(":")
+        const date = new Date(this.state.date.setHours(+hour[0]+1, +hour[1]))
+        const { owner, tourId, maxPeople, duration, language } = this.state
+        this.guideService.createSession(owner, tourId, maxPeople, duration, language, date)
             .then(
                 (sessionCreated) => {
                     this.setUser(null)
@@ -80,8 +82,14 @@ export default class GuideCreateSessions extends Component {
                 </div>
                 <CreateSessionsForm className="create-tour-form" >
                     <div className="form-left">
-                        <h2>Estas creando sesiones para el Tour y su nombre de la BD</h2>
-                        <DatePicker name="date" onChange={this.handleChange} value={this.state.date}/>
+                        <h2>Estas creando sesiones para el Tour: {this.state.tour.title}</h2>
+                        <div className="session-date">
+                        <p>Elige la fecha y hora de la sesión:</p>
+                        <DatePicker onChange={this.handleDate} value={this.state.date} />
+                        <TimePicker onChange={this.handleTime} value={this.state.time} />
+                        </div>
+                        
+
                         <label htmlFor="language">¿En qué idioma vas a hacer esta sesión?: </label>
                         <select name="language" onChange={this.handleChange}>
                             <option value="spanish" defaultValue>Español</option>

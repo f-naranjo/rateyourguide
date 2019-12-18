@@ -21,6 +21,7 @@ import GuideCalendar from './components/Guide/GuideCalendar/GuideCalendar';
 import GuideComments from './components/Guide/GuideComments/GuideComments';
 import GuideProfile from './components/Guide/GuideProfile/GuideProfile';
 import GuideSessions from './components/Guide/GuideSessions/GuideSessions';
+import GuideTourSessions from './components/Guide/GuideTourSessions/GuideTourSessions';
 import GuideCreateTour from './components/Guide/GuideCreateTour/GuideCreateTour';
 import GuideEditTour from './components/Guide/GuideEditTour/GuideEditTour';
 import GmapsPlaces from './components/Gmaps/GmapsPlaces/GmapsPlaces';
@@ -141,6 +142,7 @@ class App extends React.Component {
               <Route exact path="/guides/adminpanel" render={(match) => <GuideHome updateUser={(e) => this.updateUser(e)} {...match}/>} />
               <Route exact path="/guides/adminpanel/sessions" render={(match) =><GuideSessions updateUser={(e) => this.updateUser(e)} {...match} /> } />
               <Route exact path="/guides/adminpanel/sessions/create" render={(match) =><GuideCreateSessions updateUser={(e) => this.updateUser(e)} {...match} /> } />
+              <Route exact path="/guides/adminpanel/sessions/edit" render={(match) =><GuideTourSessions updateUser={(e) => this.updateUser(e)} {...match} /> } />
               <Route exact path="/guides/adminpanel/tours" render={(match) => <GuideTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
               <Route exact path="/guides/adminpanel/tour/create" render={(match) => <GuideCreateTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
               <Route exact path="/guides/adminpanel/tour/edit" render={(match) => <GuideEditTour updateUser={(e) => this.updateUser(e)} {...match} />}/>
@@ -149,7 +151,7 @@ class App extends React.Component {
               <Route exact path="/guides/adminpanel/profile" render={(match) => <GuideProfile updateUser={(e) => this.updateUser(e)} {...match} />} />
             </Switch>
           </div>
-      )
+     )
     }
     return(<h1>Cargando...</h1>)
 

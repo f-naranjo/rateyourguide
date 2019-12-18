@@ -65,7 +65,7 @@ export default class GuideTour extends Component {
 
     displayTours = () => {
         console.log("entra al display")
-        if (this.state.user) { return this.state.user.toursCreated.map((tour, i) => <TourAdminPreview key={i} tour={tour} updateUser={()=>this.updateUser()}></TourAdminPreview>) }
+        if (this.state.user) { return this.state.user.toursCreated.map((tour, i) => <TourAdminPreview key={i} user={this.state.user} tour={tour} updateUser={()=>this.updateUser()}></TourAdminPreview>) }
     }
 
     componentDidMount() {
