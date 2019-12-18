@@ -24,10 +24,10 @@
     "yarn": "^1.21.0"
   },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "build-dev": "dotenv -e .env.development react-scripts build",
     "build-prod": "dotenv -e .env.production react-scripts build",
-    "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
