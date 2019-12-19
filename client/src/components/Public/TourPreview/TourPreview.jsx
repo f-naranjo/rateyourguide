@@ -2,14 +2,18 @@ import React, { Component } from 'react'
 import ButtonForward from '../../../styles/buttons'
 import DivPreviewTour from './TourPreviewStyle';
 import { Link } from 'react-router-dom';
-
+import SessionInfo from '../SessionInfo/SessionInfo'
 export default class TourPreview extends Component {
     constructor(props) {
         super(props)
     }
 
+    displaySessions(){
+        return this.props.sessions.map((session, i) => <SessionInfo key={i} session={session} ></SessionInfo>)
+    }
+
     render() {
-        const { title, img, claim, date, price, rates } = this.props.tour;
+        const { title, img, claim, date, price, rates, location } = this.props.tour;
         console.log(this.props.tour)
         const mediumrate = Math.round((rates.reduce((ac, cu) => {
             return ac + cu
@@ -26,45 +30,66 @@ export default class TourPreview extends Component {
                         <p><i class="fas fa-star"></i> <span>{mediumrate}</span>/10</p>
                         </div>
                         <div className="tour-items">
-                        <p><i class="fas fa-stopwatch"></i> 2h</p>
-                        <p><i class="fas fa-clock"></i> Hoy a las 10:00</p>
+                        <p>{claim}</p>
+                        
+                        
+                        <p>Sessiones Disponibles:</p>
+                        {this.displaySessions()}
+                        </div>
+                        <div className="location-price">
+                        <p><i class="fas fa-map-marker-alt"></i>{location.address}</p>
+                        <p class="price"><i class="fas fa-euro-sign"></i> {price}</p>
+
                         </div>
                         
-                        <p>{claim}</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Madrid Centro</p>
                         
                         
                         <Link
                             to={{
-                                pathname: '/book/guide/tour/session',
+                                pathname: '/book/guide/tour/detail',
                                 state: {
-                                    sessionId: this.props.sessionId
-
+                                    tour: this.props.tour,
+                                    sessions: this.props.sessions,
                                 }
                             }}
                         ><i class="fas fa-check"></i> RESERVAR</Link>
                     </div>
                 </div>
 
-                {/* <div className="info-wrapper">
-                    <div className="personal-info">
-                        <h2>{title}</h2>
-                        <p>{claim}</p>
-                    </div>
-                    <div className="personal-img">
-                        <img src={img} alt="" className="avatar" />
-                        <p><span className="rate">{mediumrate}</span>/10</p>
-                    </div>
-                </div>
-                <div className="featured-tour">
-                    <h3>Información Clave:</h3>
-                    <div className="tour-preview">
-                        <h4>⭐ El tour tiene un precio por persona de {price}€</h4>
-                        <p>Ahora mismo esta sesion tiene 10 personas apuntadas.</p>
-                    </div>
-                </div> */}
+            {/* </DivPreviewTour>
+              <DivPreviewTour imgsource={img}>
+              <div className="preview-wrapper">
+                  <div className="tour-img">
+                      <img className="tourimg" src={img} alt="" />
+                  </div>
+                  <div className="tour-info">
+                      <div className="tour-title">
+                      <h2>{title}</h2>
+                      <p><i class="fas fa-star"></i> <span>{mediumrate}</span>/10</p>
+                      </div>
+                      <div className="tour-items">
+                      <p><i class="fas fa-stopwatch"></i> 2h</p>
+                      <p><i class="fas fa-stopwatch"></i> 2h</p>
+                      <p><i class="fas fa-clock"></i> Hoy a las 10:00</p>
+                      </div>
+                      
+                      <p>{claim}</p>
+                      <p><i class="fas fa-map-marker-alt"></i>{location.address}</p>
+                      
+                      
+                      <Link
+                          to={{
+                              pathname: '/book/guide/tour/session',
+                              state: {
+                                  sessionId: this.props.sessionId
 
-            </DivPreviewTour>
+                              }
+                          }}
+                      ><i class="fas fa-check"></i> RESERVAR</Link>
+                  </div>
+              </div>*/}
+
+          </DivPreviewTour> 
         )
     }
 }

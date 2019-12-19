@@ -5,6 +5,7 @@ const uploader = require('../../configs/cloudinary.config')
 const Tour = require('../../models/Tour')
 const Guide = require('../../models/Guide')
 const TourSession = require('../../models/TourSession')
+const Booking = require('../../models/Booking')
 
 router.get('/all', (req, res, next) => {
   Tour.find()
@@ -214,6 +215,26 @@ router.get('/session/:id', (req, res, next) => {
       next();
       res.status(500).json({ mes: err });
     });
+})
+
+router.post('/booking/new', (req, res, next) =>{
+  const{owner,tourSession,status,people} = req.body
+  booking={
+    owner,tourSession,status,people
+  }
+Booking.create(booking)
+.then((bookingCreated) => {
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  console.log(bookingCreated._id)
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+
+  // Guide.findByIdAndUpdate(
+  //   userId,
+  //   { $push: { toursCreated: tourCreated._id } }
+  // )
+  res.status(200).json(bookingCreated)
+})
+
 })
 
 

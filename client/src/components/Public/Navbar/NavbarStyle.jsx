@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import appColor from '../../../styles/colors';
 
 const MainNav = styled.div`
+z-index:9999;
 display:flex;
 position:fixed;
 height:6rem;
@@ -42,7 +43,7 @@ color: ${appColor.secondary};
         height:32px;
         justify-content:center;
     }
-    display:none;
+
 `;
 
 

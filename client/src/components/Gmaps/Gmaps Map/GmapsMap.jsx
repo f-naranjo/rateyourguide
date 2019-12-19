@@ -20,7 +20,7 @@ export default class GmapMap extends Component {
             lat: 40.4167754,
             lng: -3.7037901999999576
         },
-        zoom: 11
+        zoom: 16
     };
 
     handleDrag(e){
@@ -32,7 +32,7 @@ export default class GmapMap extends Component {
             // use map and maps objects
           };
         return (
-            <div style={{ height: '50vh', width: '100%' }}>
+            <div style={{ height: '50vh', width: '100%', zIndex:0}}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyCm0meO5cjbh70YvG6BIQVh5GqRHXHG7Uw" }}
                     defaultCenter={this.props.pos && this.props.pos}

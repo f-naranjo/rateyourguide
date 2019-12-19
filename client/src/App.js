@@ -27,6 +27,7 @@ import GuideEditTour from './components/Guide/GuideEditTour/GuideEditTour';
 import GmapsPlaces from './components/Gmaps/GmapsPlaces/GmapsPlaces';
 import GmapMap from './components/Gmaps/Gmaps Map/GmapsMap';
 import GuideCreateSessions from './components/Guide/GuideCreateSessions/GuideCreateSessions';
+import PageTourDetail from './components/Public/PageTourDetail/PageTourDetail';
 
 class App extends React.Component {
   constructor(props) {
@@ -109,6 +110,7 @@ class App extends React.Component {
               <Route exact path="/book/now/guides" render={(props) => <PageGuidesNow {...props}></PageGuidesNow>} />
               <Route exact path="/book/guide/tours" render={(props) => <PageAvailableTours {...props}></PageAvailableTours>} />
               <Route exact path="/book/guide/tour/session" render={(props) => <PageSessionDetail {...props}></PageSessionDetail>} />
+              <Route exact path="/book/guide/tour/detail" render={(props) => <PageTourDetail {...props}></PageTourDetail>} />
               <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />
               <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
             </Switch>
@@ -127,9 +129,11 @@ class App extends React.Component {
               <Route exact path="/book/guides" render={(props) => <PageGuidesBook {...props}></PageGuidesBook>} />
               <Route exact path="/book/now/guides" render={(props) => <PageGuidesNow {...props}></PageGuidesNow>} />
               <Route exact path="/book/guide/tours" render={(props) => <PageAvailableTours {...props}></PageAvailableTours>} />
+              <Route exact path="/book/guide/tour/detail" render={(props) => <PageTourDetail {...props}></PageTourDetail>} />
               <Route exact path="/book/guide/tour/session" render={(props) => <PageSessionDetail {...props}></PageSessionDetail>} />
               <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />
               <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
+              <Route exact path="/user/book/success" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
             </Switch>
           </div>
       )

@@ -16,7 +16,7 @@ const HomeDiv = styled.div`
     width:80%;
     fill:${appColor.tertiary}
     margin:4rem;
-    margin-top:0rem;
+    margin-top:10rem;
   }
   h2{
     font-size:1.8rem;

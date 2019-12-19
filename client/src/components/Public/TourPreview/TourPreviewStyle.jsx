@@ -45,20 +45,23 @@ const DivPreviewTour = styled.div`
                 font-weight:600;
             }
             margin-bottom:1rem;
+            
         }
+        i{margin-right:0.3rem;}
+        
  
         .tour-items{
             display:flex;
-            align-items:center;
+            flex-direction:column;
+            width:100%;
+            align-items:flex-start;
             justify-content:flex-start;
             width:100%;
             margin:0 0 1rem 0;
             p{
-                margin:0 1rem;
-                :first-of-type{
-                    margin:0;
-                }
+                margin:1 0rem;
             }
+           
         }
 
         .tour-title{
@@ -86,10 +89,16 @@ const DivPreviewTour = styled.div`
             background-color: ${appColor.highlight}
             text-decoration:none;
             color:${appColor.primary}
-            align-self:flex-start;
+            align-self:flex-end;
             margin-top:1.5rem;
             margin-bottom:1.5rem;
         }
+     
+    }
+    .location-price{
+        display:flex;
+        justify-content:space-between;
+        width:100%;
     }
 
     :first-of-type{

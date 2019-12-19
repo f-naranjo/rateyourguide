@@ -56,6 +56,12 @@ class TourService {
     .catch(error => console.error(error))
   }
 
+  createBooking = ({owner,tourSession,status,people}) =>{
+    return this.instance.post('/booking/new',{owner,tourSession,status,people})
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
 }
 
 export default TourService;
