@@ -95,7 +95,6 @@ export default class GuideTourSessions extends Component {
                                 state:this.props.location.state.tour
                             }}
                         ><i class="far fa-calendar-plus"></i>CREAR NUEVA SESION</Link> */}
-
                     </div>
                     <SessionsDiv>
                        {this.displaySessions()}

@@ -5,6 +5,7 @@ import AuthService from './../../../services/AuthService';
 import GuideMainDiv from '../GuideStyles';
 import GuideService from '../../../services/GuideService';
 import TourService from '../../../services/TourService';
+import HomeAdmin from './GuideHomeStyle';
 
 export default class GuideHome extends Component {
     _isMounted = false;
@@ -16,14 +17,13 @@ export default class GuideHome extends Component {
     }
     state = {
         user: null,
-        guide: null,
+       
     }
 
     //    notGuide(){
     //         this.history.push('/book')
     //    }
     setUser = (user) => {
-       
         this.setState({ ...this.state, user })
     }
 
@@ -67,15 +67,76 @@ export default class GuideHome extends Component {
 
     render() {
         this.fetchUser()
-        if(!this.state.guide){
-            this.fetchGuide()
-        }
-        if(this.state.guide){
-            const {info, tourSessions, toursCreated, comments, rates, searchdisplays, profileViews} = this.state.guide
-        
+        if(this.state.user){
+            const {info, tourSessions, toursCreated, comments, rates, searchDisplays, profileViews} = this.state.user
+            const mediumrate = Math.round((rates.reduce((ac, cu) => {
+                return ac + cu
+            }, 0) / rates.length))
         return (
             <GuideMainDiv>
-                 <h1>HOLA! {info.name}, Bienvenido a tu panel de administración</h1>
+                 <div className="breadcrumbs"><h4>Mi panel</h4><p>Bienvenido de nuevo {info.name}! Estas son tus estadísticas actualizadas :)</p></div>
+                <HomeAdmin>
+                <div className="stats-main">
+                    <div className="stat">
+                    <i class="fas fa-star"></i>
+                        <h2>Tu valoración:</h2>
+        <p><span>{mediumrate}</span>/10</p>
+                        <p>Basado en {rates.length} opiniones</p>
+                    </div>
+                    <div className="stat">
+                    <i class="fas fa-euro-sign"></i>
+                    <h2>Facturado este mes:</h2>
+                        <p><span>643</span>€</p>
+                       
+                    </div>
+                    <div className="stat">
+                    <i class="fas fa-eye"></i>
+                    <h2>Visitas a tu perfil:</h2>
+                        <p><span>{profileViews}</span></p>
+                    </div>
+                    <div className="stat">
+                    <i class="fas fa-search"></i>
+                    <h2>Aparición en búsquedas:</h2>
+        <p><span>{searchDisplays}</span></p>
+                    </div>
+                </div>
+                <div className="stats-secondary">
+                    <div className="stat">
+                    <i class="fas fa-directions"></i>
+                    <h2>Tours Creados:</h2>
+                        <p><span>{toursCreated.length}</span></p>
+                        </div>
+                    <div className="stat">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2>Sesiones Activas:</h2>
+                        <p><span>{tourSessions.length}</span></p>
+                        </div>
+                    
+                    <div className="stat">
+                    <i class="fas fa-comments"></i>
+                    <h2>Comentarios de tus tours:</h2>
+                        <p><span>32</span></p>
+                        </div>
+                    
+                    <div className="stat">
+                    <i class="fas fa-comment-dots"></i>
+                    <h2>Comentarios Sobre ti:</h2>
+                        <p><span>12</span></p>
+                    </div>
+                </div>
+                {/* <div className="social">
+                    <h4>Últimas valoraciones hechas por clientes:</h4>
+                    <div className="comments-wrapper">
+                    <div className="comment">1</div>
+                    <div className="comment">2</div>
+                    <div className="comment">3</div>
+                    <div className="comment">4</div>
+                    <div className="comment">5</div>
+                    <div className="comment">6</div>
+                    </div>            
+                </div> */}
+                </HomeAdmin>
+                
             </GuideMainDiv>
         )
 

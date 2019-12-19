@@ -52,6 +52,10 @@ class GuideSidebar extends Component {
         this._isMounted = false;
     }
 
+    // static getDerivedStateFromProps(){
+    //     return {flag : this.props.hasNotifications} 
+    // }
+
     render() {
         if (!this.state.user) {
             this.fetchUser()

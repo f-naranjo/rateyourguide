@@ -13,9 +13,6 @@ export default class GuideSessions extends Component {
         user: null,
     }
 
-    //    notGuide(){
-    //         this.history.push('/book')
-    //    }
     setUser = (user) => {
        
         this.setState({ ...this.state, user })

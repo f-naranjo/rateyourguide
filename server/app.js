@@ -14,17 +14,18 @@ const passport = require('passport')
 //const passportGuides = require('passport')
 const cors = require('cors');
 
-const whitelist = ['https://dingooo.herokuapp.com/','http://localhost:3000']
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  credentials: true
-}
+// const whitelist = ['https://dingooo.herokuapp.com/','http://localhost:4000','https://localhost:4000','http://dingooo.herokuapp.com/']
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   },
+//   credentials: true
+// }
+
 
 
 require('./configs/db.config');
@@ -37,9 +38,11 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
 app.use(cors({
- corsOptions
-}));
+  credentials:true,
+  origin: ['https://dingooo.herokuapp.com/','http://localhost:3000','http://dingooo.herokuapp.com/']
+}))
 
 // Middleware Setup
 app.use(logger('dev'));

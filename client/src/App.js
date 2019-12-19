@@ -25,8 +25,6 @@ import GuideSessions from './components/Guide/GuideSessions/GuideSessions';
 import GuideTourSessions from './components/Guide/GuideTourSessions/GuideTourSessions';
 import GuideCreateTour from './components/Guide/GuideCreateTour/GuideCreateTour';
 import GuideEditTour from './components/Guide/GuideEditTour/GuideEditTour';
-import GmapsPlaces from './components/Gmaps/GmapsPlaces/GmapsPlaces';
-import GmapMap from './components/Gmaps/Gmaps Map/GmapsMap';
 import GuideCreateSessions from './components/Guide/GuideCreateSessions/GuideCreateSessions';
 import PageTourDetail from './components/Public/PageTourDetail/PageTourDetail';
 

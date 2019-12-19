@@ -15,6 +15,7 @@ export default class GuideProfile extends Component {
         this.guideService = new GuideService();
     }
     state = {
+        user:null,
         name: "",
         description: "",
         img: "",
@@ -52,9 +53,9 @@ export default class GuideProfile extends Component {
         let info = {
             name: name,
             description: description,
-            img:img,
-            email:email,
-            phone:phone,
+            img: img,
+            email: email,
+            phone: phone,
           //certification:certification,
             city:city,
           //languages:languages,
@@ -62,34 +63,60 @@ export default class GuideProfile extends Component {
         this.guideService.editProfile(guideId, info)
             .then(
                 (guideUpdated) => {
-
+                   // this.props.history.goBack()
+                   this.props.updateUser()
+                   this.props.history.push("/guides/adminPanel")
                 }
             ).catch(err => console.log(err))
     }
 
-    componentDidMount() {
-        if (this.state.guideId === null) {
-            this.setState({
-                ...this.state,
-                name: this.props.location.guide.info.name,
-                description: this.props.location.guide.info.description,
-                img: this.props.location.guide.info.img,
-                email: this.props.location.guide.info.email,
-                phone: this.props.location.guide.info.phone,
-                //certification: this.props.location.guide.certification,
-                city: this.props.location.guide.info.city,
-                //languages: this.props.location.languages,
-                guideId: this.props.location.guide.id
-            })
+    setUser = (user) => {
+        this.setState({ 
+            ...this.state, 
+            user:user,
+            name: user.info.name,
+            description: user.info.description,
+            img: user.info.img,
+            email: user.info.email,
+            phone: user.info.phone,
+            city: user.info.city,
+            languages: "Español, Inglés",
+            guideId: user.id,
+        
+         })
+    }
+
+    fetchUser = () => {
+        if (this.state.user === null) {
+
+            this.authService.loggedIn()
+                .then(
+                    (user) => {
+                        console.log(user)
+                        this.setUser(user)
+                    },
+                    (error) => {
+                        console.log("2")
+                        this.setUser(false)
+                    }
+                )
+                .catch(() => {
+                    console.log("3")
+                    this.setUser(false)
+                })
         }
+    }
+
+    componentDidMount() {
+        this.fetchUser()
     }
 
 
     render() {
-        if (this.props.location.guide) {
+        if (this.state.user !== null) {
             return (
                 <GuideMainDiv>
-                    <div className="breadcrumbs"><h4>Mi panel / Mis Tours / Editar Perfil</h4><p>Actualiza tus datos para que los usuarios te encuentren: {this.state.title}</p></div>
+                    <div className="breadcrumbs"><h4>Mi panel / Mis Tours / Editar Perfil</h4><p>Actualiza tus datos para que los usuarios te encuentren.</p></div>
                     <div className="page-controls">
                     </div>
                     <EditProfileForm className="edit-profile-form" >
