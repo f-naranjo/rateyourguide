@@ -84,13 +84,13 @@ app.use(passport.session())
 // app.use(passportGuides.initialize())
 // app.use(passportGuides.session())
 
-    
+app.use(express.static(path.join(__dirname, "public")));
 
 const index = require('./routes');
 app.use('/', index);
 
 app.use((req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + '/public/index.html');
   });
 
   
