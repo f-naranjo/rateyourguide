@@ -14,6 +14,7 @@ import PageSessionDetail from './components/Public/PageSessionDetail/PageSession
 import PageGuidesNow from './components/Public/PageGuidesNow/PageGuidesNow';
 import PageGuidesBook from './components/Public/PageGuidesBook/PageGuidesBook';
 import Home from './components/Public/Home/Home';
+import PageSuccessfullBooking from './components/Public/PageSuccessfullBooking/PageSuccessfullBooking';
 import GuideHome from './components/Guide/GuideHome/GuideHome';
 import GuideSidebar from './components/Guide/GuideSidebar/GuideSidebar';
 import GuideTour from './components/Guide/GuideTours/GuideTours';
@@ -102,7 +103,6 @@ class App extends React.Component {
             <Navbar></Navbar>
             <Switch>
             <Route exact path="/loginGuide" render={(match) => <LoginGuide {...match} setUser={this.setUser} />} />
-            {/* <Route exact paht="/google" render={(match) =><div className="google-test"> <GmapsPlaces {...match} setUser={this.setUser} /><GmapMap /></div>} />  */}
               <Route exact path="/" render={(match) => <Home {...match} />} />
               <Route exact path="/book/now" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
               <Route exact path="/book" render={(match) => <FormBook {...match} />} />
@@ -133,7 +133,7 @@ class App extends React.Component {
               <Route exact path="/book/guide/tour/session" render={(props) => <PageSessionDetail {...props}></PageSessionDetail>} />
               <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />
               <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
-              <Route exact path="/user/book/success" render={(match) => <FormToday handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
+              <Route exact path="/user/book/success" render={(match) => <PageSuccessfullBooking handleFilterParams={() => this.handleFilterParams()}  {...match} />} />
             </Switch>
           </div>
       )

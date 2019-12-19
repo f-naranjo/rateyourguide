@@ -444,7 +444,7 @@ let tours1 = [
     rates: [7, 6, 9, 8, 8, 10],
     location: {
       address: "Madrid, España",
-      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+      coords: { lat: 40.425541, lng: -3.707295 }
     }
 
   },
@@ -461,7 +461,7 @@ let tours1 = [
     rates: [7, 8, 5, 6, 9, 10, 6, 7, 9],
     location: {
       address: "Madrid, España",
-      coords: { lat: 40.4167754, lng: -3.7037901999999576 }
+      coords: { lat: 40.414669, lng: -3.701145 }
     }
   },
   {

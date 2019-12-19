@@ -41,7 +41,9 @@ export default class PageAvailableTours extends Component {
     //   }
     //   Contraer
       
-      
+    goBack = () =>{
+        this.props.history.goBack()
+    }
       
       
       
@@ -148,7 +150,7 @@ export default class PageAvailableTours extends Component {
                 <div>
                     {(this.state.availables) && <HeroInfo><h1>Estas son las experiencias que {this.props.location.state.guide.info.name} tiene disponibles:</h1></HeroInfo>}
                     {(this.state.availables) && this.displayTours()}
-                    {(this.state.availables) && <ButtonBack>VOLVER</ButtonBack>}
+                    {(this.state.availables) && <ButtonBack onClick={this.goBack}>VOLVER</ButtonBack>}
                 </div>
             )
         }else{

@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const uploader = require('../../configs/cloudinary.config')
 const Tour = require('../../models/Tour')
+const User= require('../../models/Tour')
 const Guide = require('../../models/Guide')
 const TourSession = require('../../models/TourSession')
 const Booking = require('../../models/Booking')
@@ -220,19 +221,35 @@ router.get('/session/:id', (req, res, next) => {
 router.post('/booking/new', (req, res, next) =>{
   const{owner,tourSession,status,people} = req.body
   booking={
-    owner,tourSession,status,people
+    owner,tourSession,status,people:+people
   }
 Booking.create(booking)
 .then((bookingCreated) => {
   console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
   console.log(bookingCreated._id)
   console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-
-  // Guide.findByIdAndUpdate(
-  //   userId,
-  //   { $push: { toursCreated: tourCreated._id } }
-  // )
-  res.status(200).json(bookingCreated)
+  const theBooking = bookingCreated;
+  User.findByIdAndUpdate(
+     bookingCreated.owner,
+    { $push: { bookings: bookingCreated._id } }
+  ).then(()=>{
+    console.log(theBooking)
+    console.log("THEBOOKING")
+  TourSession.findByIdAndUpdate(
+    theBooking.tourSession,
+    {$push: { bookings: theBooking},$inc: {currentPeople: 5}} 
+    // {$inc: {currentPeople: 5}
+  ).then(()=>{
+    console.log("todo bien por aquí")
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+  }).then(()=>{
+    console.log("booking successfully saved")
+    res.status(200).json(bookingCreated)
+  })
+  
 })
 
 })

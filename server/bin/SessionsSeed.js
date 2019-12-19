@@ -44,7 +44,7 @@ function createSessions(initialDate, weeks, owner, tour) {
       //language:"spanish",
       language: languages[randomInt(0,4)],
       maxPeople:randomInt(6,12),
-      currentPeople:randomInt(0,10),
+      currentPeople:0,
       duration: randomInt(1,6),
     }
   })
@@ -57,6 +57,9 @@ let tourSessions = []
 
 Guide.find()
 .then((guidesFound)=>{
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
   allToursOfGuide = new Array(guidesFound.length).fill([])
   guidesFound.forEach((guide,idx)=>{
     allGuides.push(guide._id)
@@ -64,7 +67,7 @@ Guide.find()
     guide.toursCreated.forEach((tourCreated,idx)=>{
       //if hours are set to 0, it takes current hour.
       //the server has one hour less by default
-      tourSessions.push(...createSessions(`2019-12-${10+(idx+1)}-23-58`,5,guide._id,tourCreated))
+      tourSessions.push(...createSessions(`2019-12-${12+(idx+1)}-${randomInt(10,18)}-00`,5,guide._id,tourCreated))
     })
   })
 })
