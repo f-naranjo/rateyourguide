@@ -39,7 +39,7 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: ['https://dingoo.herokuapp.com','http://localhost:3000']
+  origin: ['https://dingooo.herokuapp.com','http://localhost:3000']
 }));
 
 // Middleware Setup
