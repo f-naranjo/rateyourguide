@@ -14,6 +14,12 @@ class GuideService{
     .catch(error => console.error(error))
   }
 
+  getSessions = (id) => {
+    return this.instance.get(`/sessions/guide/${id}`)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
   createTour = (userId,img,title,claim,description,price,location) => {
     return this.instance.post('/tour/create', {userId,img,title,claim,description,price,location})
     .then(res => Promise.resolve(res.data))

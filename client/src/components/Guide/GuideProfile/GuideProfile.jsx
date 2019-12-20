@@ -63,9 +63,9 @@ export default class GuideProfile extends Component {
         this.guideService.editProfile(guideId, info)
             .then(
                 (guideUpdated) => {
-                   // this.props.history.goBack()
-                   this.props.updateUser()
-                   this.props.history.push("/guides/adminPanel")
+                    this.props.history.goBack()            
+                   //this.props.updateUser()
+                   //this.props.history.push("/guides/adminPanel")
                 }
             ).catch(err => console.log(err))
     }

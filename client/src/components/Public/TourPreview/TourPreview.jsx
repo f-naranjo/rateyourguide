@@ -32,9 +32,9 @@ export default class TourPreview extends Component {
                         <div className="tour-items">
                         <p>{claim}</p>
                         
-                        
-                        <p>Sessiones Disponibles:</p>
-                        {this.displaySessions()}
+                        {this.props.sessions && <p>Sessiones Disponibles:</p>}
+                        {this.props.sessions && this.displaySessions()}
+                    
                         </div>
                         <div className="location-price">
                         <p><i class="fas fa-map-marker-alt"></i>{location.address}</p>
@@ -43,7 +43,7 @@ export default class TourPreview extends Component {
                         </div>
                         
                         
-                        
+                        {this.props.sessions &&  
                         <Link
                             to={{
                                 pathname: '/book/guide/tour/detail',
@@ -52,7 +52,17 @@ export default class TourPreview extends Component {
                                     sessions: this.props.sessions,
                                 }
                             }}
-                        ><i class="fas fa-check"></i> RESERVAR</Link>
+                        ><i class="fas fa-check"></i> RESERVAR</Link>   
+                        }
+                        {this.props.sessionId && 
+                        <Link
+                            to={{
+                                pathname: '/book/guide/tour/session',
+                                state:{
+                                    sessionId: this.props.sessionId
+                                }
+                            }}
+                        >RESERVAR</Link>}
                     </div>
                 </div>
 

@@ -8,6 +8,7 @@ import HeroInfo from '../../../styles/heroinfo';
 import ButtonBack from '../../../styles/buttonBack';
 import _ from 'lodash'
 import AdminTourDiv from '../../Guide/TourAdminPreview/TourAdminPreviewStyle';
+import { Redirect } from 'react-router-dom';
 export default class PageAvailableTours extends Component {
     _isMounted = false;
 
@@ -43,6 +44,7 @@ export default class PageAvailableTours extends Component {
       
     goBack = () =>{
         this.props.history.goBack()
+        //<Redirect to={"/book/guides" + this.props.location.filterParams} />
     }
       
       
@@ -53,8 +55,6 @@ export default class PageAvailableTours extends Component {
         if(!this.props.location.state.filterParams.duration){
          
             const {toursCreated, tourSessions} = this.props.location.state.guide
-            console.log("TORUSCREATECD")
-            console.log(toursCreated)
                 const {location, language, people, dateFrom, dateTo} = this.props.location.state.filterParams
                 const availableSessions = tourSessions.filter((session)=>{
                     return session.language === language 
@@ -72,47 +72,44 @@ export default class PageAvailableTours extends Component {
                     }
                   }
                 for(let id in grouped){
-                    console.log("----un tour-----")
                     let group = grouped[id]
                     let tour = toursCreated.filter(tour => tour.id === group[0].tour)
                     availables.push(new AvailableTour(...tour,group))
                 }
-   
-                console.log("-----AVAILABLES----------")
-                console.log(availables)
+
                 this.setState({
                     ...this.state,
                     availables
                 })
         }
-        // if(this.props.location.state.filterParams.duration){
-        //     const {toursCreated, tourSessions} = this.props.location.state.guide
-        //     const {location, language, duration, people} = this.props.location.state.filterParams
-        //     let now = new Date()
-        //     let hourLimit = 24
-        //     let timeLimit = new Date(new Date().setUTCHours(hourLimit))
-        //     const availableSessions = tourSessions.filter((session)=>{
-        //         return session.language === language 
-        //         && session.duration < duration 
-        //         && (session.maxPeople - session.currentPeople ) > people 
-        //         && new Date(session.date) > now &&
-        //         new Date(session.date) < timeLimit 
-        //     })
-        //     let availableToursId =[] 
-        //     availableSessions.forEach(session => {
-        //         if(!availableToursId.includes(session.tour)){
-        //             availableToursId.push(session.tour)
-        //         }
-        //     })
-        //     let availableTours = toursCreated.filter((tour)=>{
-        //         let comp = false
-        //         availableToursId.forEach((tourId)=>{
-        //             if(tourId === tour.id){
-        //                 comp = true
-        //             }
-        //         })
-        //         if(comp) return true
-        //     })
+        if(this.props.location.state.filterParams.duration){
+            const {toursCreated, tourSessions} = this.props.location.state.guide
+            const {location, language, duration, people} = this.props.location.state.filterParams
+            let now = new Date()
+            let hourLimit = 24
+            let timeLimit = new Date(new Date().setUTCHours(hourLimit))
+            const availableSessions = tourSessions.filter((session)=>{
+                return session.language === language 
+                && session.duration < duration 
+                && (session.maxPeople - session.currentPeople ) > people 
+                && new Date(session.date) > now &&
+                new Date(session.date) < timeLimit 
+            })
+            let availableToursId =[] 
+            availableSessions.forEach(session => {
+                if(!availableToursId.includes(session.tour)){
+                    availableToursId.push(session.tour)
+                }
+            })
+            let availableTours = toursCreated.filter((tour)=>{
+                let comp = false
+                availableToursId.forEach((tourId)=>{
+                    if(tourId === tour.id){
+                        comp = true
+                    }
+                })
+                if(comp) return true
+            })
 
 
             //  Sort in ascending... WIP
@@ -126,12 +123,12 @@ export default class PageAvailableTours extends Component {
             //     return mediumA - mediumB
             // })
          
-        //     this.setState({
-        //         ...this.state,
-        //         tours: availableTours,
-        //         sessions: availableSessions,
-        //     })
-        // }
+            this.setState({
+                ...this.state,
+                tours: availableTours,
+                sessions: availableSessions,
+            })
+        }
 
     }
 
@@ -143,9 +140,12 @@ export default class PageAvailableTours extends Component {
         return this.state.availables.map((tour, i) => <TourPreview key={i} tour={tour.tour} sessions={tour.sessions}></TourPreview>)
     }
 
+    displayTourSessions = () => {
+        return this.state.tours.map((tour, i) => <TourPreview key={i} tour={tour} sessionId={this.state.sessions[i]._id}></TourPreview>)
+    }
+
     render() {
         if(this.state.availables){
-           
             return (
                 <div>
                     {(this.state.availables) && <HeroInfo><h1>Estas son las experiencias que {this.props.location.state.guide.info.name} tiene disponibles:</h1></HeroInfo>}
@@ -153,7 +153,23 @@ export default class PageAvailableTours extends Component {
                     {(this.state.availables) && <ButtonBack onClick={this.goBack}>VOLVER</ButtonBack>}
                 </div>
             )
-        }else{
+        }
+        if(this.state.sessions){
+            return (
+                <div>
+                    {(this.state.sessions) && <HeroInfo><h1>Estas son las experiencias que {this.props.location.state.guide.info.name} tiene disponibles:</h1></HeroInfo>}
+                    {(this.state.sessions) && this.displayTourSessions()}
+                    {(this.state.sessions) && <ButtonBack onClick={this.goBack}>VOLVER</ButtonBack>}
+                </div>
+            )
+        }
+        
+        
+        
+        
+        
+        
+        else{
             return(<h1>Vaya, parece que no hay experiencias disponibles para tu búsqueda :(</h1>)
         }
        

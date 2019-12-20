@@ -59,6 +59,11 @@ const SessionDetail = styled.div`
         line-height:2rem;
         text-align:left;
     }
+    .booking-info{
+        margin:2rem 0;
+        font-size:1.6rem;
+        font-weigth:600
+    }
 
     .nav-buttons{
         display:flex;

@@ -4,10 +4,11 @@ import { ReactSVG } from 'react-svg'
 import AuthService from './../../../services/AuthService';
 import GuideMainDiv from '../GuideStyles';
 import GuideService from '../../../services/GuideService';
-import SessionsDiv from './GuideTourSessionsStyle';
 import SessionAdminPreview from '../SessionPreview/SessionPreview';
+import SessionsDiv from './GuideTourSessionsStyle';
 
-export default class GuideTourSessions extends Component {
+
+export default class GuideSessions extends Component {
     constructor(props) {
         super(props)
         this.authService = new AuthService();

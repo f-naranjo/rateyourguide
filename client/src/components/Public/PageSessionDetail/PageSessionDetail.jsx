@@ -51,11 +51,12 @@ export default class PageSessionDetail extends Component {
         if (this.state.session) {
             const { session } = this.state
             const { tour, currentPeople, duration, date, language, maxPeople, owner, status } = session
-            //const formattedDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
-            // const mediumRate = Math.round((this.state.session.tour.rates.reduce((ac, cu) => {
+            // let formattedDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
+            //console.log(tour.rates)
+            // const mediumRate = Math.round((tour.rates.reduce((ac, cu) => {
             //     return ac + cu
             // }, 0) / rates.length))
-            console.log(this.state.session.tour.rates)
+            // console.log(tour.rates)
             //const {title} = tour
 
             //const {tour, currentPeople, duration, date, language, maxPeople, ownter, status} = this.state.session
@@ -68,7 +69,7 @@ export default class PageSessionDetail extends Component {
                         <div className="img-container"><img src={tour.img} /></div>
                         <div className="tour-header">
                         <h1>{tour.title}</h1>
-                        <div className="tour-maininfo"><p className="rate"><i class="fas fa-star"></i><span> 9*</span>/10</p><p><i class="fas fa-stopwatch"></i> {duration}h</p><p><i class="fas fa-clock"></i> 10:00</p><p><i class="fas fa-euro-sign"></i>{tour.price}</p>
+                        <div className="tour-maininfo"><p className="rate"><i class="fas fa-star"></i><span> 9</span>/10</p><p><i class="fas fa-stopwatch"></i> {duration}h</p><p><i class="fas fa-clock"></i> 10:00</p><p><i class="fas fa-euro-sign"></i>{tour.price}</p>
                                 </div>
                         </div>
                             
@@ -76,8 +77,8 @@ export default class PageSessionDetail extends Component {
                                 <h3>Sobre la experiencia:</h3>
                                 <p>{tour.description}</p>
                                 <h3>Punto de encuentro:</h3>
-                                <p>{owner.info.name} te estará esperando en {tour.location.address} hoy a las 10:00 (Hora de la BD)</p>
                                 <GmapMap pos={tour.location.coords} marker={true}/>
+                                <p className="booking-info">{owner.info.name} te estará esperando en {tour.location.address} hoy a las 10:00</p>
                             
                             <div className="nav-buttons">
                                 <ButtonBack><i class="fas fa-arrow-left"></i> Volver</ButtonBack>   

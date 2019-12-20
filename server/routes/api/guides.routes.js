@@ -5,6 +5,9 @@ const uploader = require('../../configs/cloudinary.config')
 const Tour = require('../../models/Tour')
 const Guide = require('../../models/Guide')
 const TourSession = require('../../models/TourSession')
+const User = require('../../models/User')
+const Booking = require('../../models/Booking')
+
 
 router.get('/:id', (req, res, next) => {
   Guide.findById(req.params.id)
@@ -15,6 +18,28 @@ router.get('/:id', (req, res, next) => {
       res.status(200).json(guideFound)
     })
 })
+
+router.get('/sessions/guide/:id', (req, res, next) => {
+  TourSession.find({owner:req.params.id})
+  .populate([
+    {
+      path: 'bookings',
+      model: 'Booking',
+      populate: {
+       path:'owner',
+       model:'User'
+      }
+    },
+    {
+      path: 'tour',
+      model: 'Tour',
+    }
+  ])
+    .then((guideFound) => {
+      res.status(200).json(guideFound)
+    })
+})
+
 
 router.post('/session/create', (req, res, next) => {
   console.log("-----Session del front----")
