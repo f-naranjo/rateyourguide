@@ -42,11 +42,11 @@ export default class PageTourDetail extends Component {
                 })
               },
               (error) => {
-                this.setUser(false)
+                //this.setUser(false)
               }
             )
             .catch(() => {
-              this.setUser(false)
+              //this.setUser(false)
             })
         }
       }

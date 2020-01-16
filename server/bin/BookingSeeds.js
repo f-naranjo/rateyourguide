@@ -12,7 +12,7 @@ const Booking = require("../models/Booking");
 const User = require("../models/User");
 
 mongoose
-  .connect(`${process.env.DB}`, { useNewUrlParser: true })
+  .connect(`${process.env.DBURL}`, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

@@ -14,7 +14,7 @@ const Tour = require("../models/Tour");
 const bcryptSalt = 10;
 
 mongoose
-  .connect(`${process.env.DB}`, { useNewUrlParser: true })
+  .connect(`${process.env.DBURL}`, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -233,7 +233,7 @@ let guides = [
     password: bcrypt.hashSync("javi", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Javier Morales",
-      description: "Lorem fistrum ese hombree pupita caballo blanco caballo negroorl a peich. Condemor se calle ustée al ataquerl a wan la caidita.",
+      description: "Soy un artista profesional, apasionado de su trabajo y del arte contemporáneo. Me encanta conocer gente y aprender acerca de otros artistas.",
       img: "https://tinyfac.es/data/avatars/7D3FA6C0-83C8-4834-B432-6C65ED4FD4C3-500w.jpeg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -253,7 +253,7 @@ let guides = [
     password: bcrypt.hashSync("francisco", bcrypt.genSaltSync(bcryptSalt)),
     info: {
       name: "Francisco Navarro",
-      description: "Ergadoo torpedo fistro. Va usté muy cargadoo está la cosa muy malar a gramenawer mamaar torpedo está la cosa muy malar ese pedazo",
+      description: `Llevo más de 5 años realizando experiencias increibles en Madrid , Paris y Londres. Me encanta transmitir mi pasión por descubrir ciudades!`,
       img: "https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -272,8 +272,8 @@ let guides = [
     username: "dani",
     password: bcrypt.hashSync("dani", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Daniel Pulpeiro",
-      description: "Aaaaaah po kass bee do bee do bee do aaaaaah poulet tikka masala hana dul sae poulet tikka masala jiji potatoooo bee do bee",
+      name: "Daniel Hernández",
+      description: "Hola! soy Daniel. Nací y crecí en la sierra de Madrid y soy un guía apasionado de la naturaleza",
       img: "https://pbs.twimg.com/profile_images/1000050491970260993/FJkauyEa.jpg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -292,8 +292,8 @@ let guides = [
     username: "lore",
     password: bcrypt.hashSync("lore", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Lorena Matalascabras",
-      description: "Tank yuuu! uuuhhh hana dul sae aaaaaah tulaliloo uuuhhh jiji chasy hahaha para tú. Pepete daa butt tank yuuu! Aaaaaah. Wiiiii belloo! Poopayee uuuhhh butt butt baboiii la bodaaa. Jiji po kass uuuhhh chasy",
+      name: "Lorena Montano",
+      description: "Bailo desde que tengo uso de razón. El baile se ha convertido en mi forma de vida. Empecé a bailar desde muy pequeñita :)",
       img: "https://randomuser.me/api/portraits/women/95.jpg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -312,8 +312,8 @@ let guides = [
     username: "carlos",
     password: bcrypt.hashSync("carlos", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Carlos Deladisco",
-      description: "Mamaar jarl mamaar la caidita. No te digo trigo por no llamarte Rodrigor hasta luego Lucas sexuarl no te digo trigo por no llamarte Rodrigor",
+      name: "Carlos Rodríguez",
+      description: "Aquí combino mis diversos conocimientos con una ubicación única para ofrecer una experiencia igualmente única y transformadora que no dejará a nadie indiferente.",
       img: "https://tinyfac.es/data/avatars/AEF44435-B547-4B84-A2AE-887DFAEE6DDF-200w.jpeg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -332,8 +332,10 @@ let guides = [
     username: "manu",
     password: bcrypt.hashSync("manu", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Manuel Illo",
-      description: "Por la gloria de mi madre te va a hasé pupitaa de la pradera hasta luego Lucas no puedor diodeno hasta luego Lucas a peich la caidita.",
+      name: "Manuel Ferrer",
+      description: `Hola, soy un joven fotógrafo profesional con años de experiencia al que le apasiona su trabajo. Me encargaré de que tengas hermosos recuerdos de tu estancia en esta gran ciudad.
+      Haré que sea una experiencia inolvidable.
+      `,
       img: "https://images-na.ssl-images-amazon.com/images/M/MV5BOWViYjUzOWMtMzRkZi00MjNkLTk4M2ItMTVkMDg5MzE2ZDYyXkEyXkFqcGdeQXVyODQwNjM3NDA@._V1_UY256_CR36,0,172,256_AL_.jpg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -352,8 +354,8 @@ let guides = [
     username: "laura",
     password: bcrypt.hashSync("laura", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Laura Hernández",
-      description: "Ta tikka masala hahaha para tú baboiii butt. Tulaliloo underweaaar daa ti aamoo! Belloo! Jiji ti aamoo!",
+      name: "Laura Ortega",
+      description: "Nacida en Madrid y tras vivir en Europa y USA durante varios años, decidí regresar a esta ciudad tan maravillosa para compartir momentos únicos con los viajeros.",
       img: "https://randomuser.me/api/portraits/women/36.jpg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -372,7 +374,7 @@ let guides = [
     username: "maria",
     password: bcrypt.hashSync("maria", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Maria Sousterrain",
+      name: "Maria Simo",
       description: "Condemor se calle ustée al ataquerl a wan la caidita. Pupita va usté muy cargadoo torpedo fistro. Va usté muy cargadoo",
       img: "https://images-na.ssl-images-amazon.com/images/M/MV5BMDc2M2NkMTctNmQ0MS00MjQxLWFkMGItNGY1Y2Y3NzYzZjg1XkEyXkFqcGdeQXVyNjAzMTgxNjY@._V1_UY256_CR74,0,172,256_AL_.jpg",
       email: "themail.transporter@gmail.com",
@@ -392,8 +394,8 @@ let guides = [
     username: "alfonso",
     password: bcrypt.hashSync("alfonso", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Alfonso Sinclair",
-      description: "Daa po kass poopayee tank yuuu! Chasy tank yuuu! Tulaliloo hana dul sae jeje jiji tulaliloo belloo! Bee do bee do bee do tank yuuu! Jeje pepete aaaaaah uuuhhh aaaaaah. Bee do bee do bee do poulet",
+      name: "Alfonso López",
+      description: "Con un diploma como guía turístico de la reconocida Escuela de Turismo Grand Sud de Toulouse, estudié para comprender y compartir con todos la historia de las Artes, desde sus inicios hasta nuestros días.",
       img: "https://randomuser.me/api/portraits/men/77.jpg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,
@@ -412,8 +414,8 @@ let guides = [
     username: "claire",
     password: bcrypt.hashSync("claire", bcrypt.genSaltSync(bcryptSalt)),
     info: {
-      name: "Claire Underwood",
-      description: "Jiji pepete bananaaaa bee do bee do bee do underweaaar pepete. Ti aamoo! baboiii tank yuuu!",
+      name: "Cristina Gómez",
+      description: "Me encanta viajar y visitar ciudades y edificios que antes he admirado, explicados por compañeros arquitectos de otros países que enriquecen la experiencia y que hacen inolvidable esas horas de intercambio juntos.",
       img: "https://images-na.ssl-images-amazon.com/images/M/MV5BYWU2ZmUyOTctNjE0Zi00N2Q3LTk1ZmYtMzAxMDRmNmM3OTFhXkEyXkFqcGdeQXVyNjU1Nzk5NTE@._V1_UY256_CR13,0,172,256_AL_.jpg",
       email: "themail.transporter@gmail.com",
       phone: 633445566,

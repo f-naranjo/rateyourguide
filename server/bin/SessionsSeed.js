@@ -14,7 +14,7 @@ const User = require("../models/User");
 const Guide = require("../models/Guide");
 
 mongoose
-  .connect(`${process.env.DB}`, { useNewUrlParser: true })
+  .connect(`${process.env.DBURL}`, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
