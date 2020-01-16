@@ -485,8 +485,14 @@ let tours1 = [
   {
     img: "http://hostaloriente.es/wp-content/uploads/2019/03/madrid-1288x724.png",
     title: "La arquitectura moderna de Madrid",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    claim: "¿Alguna vez te has sentido abrumado por las bellezas que te rodean en tu vida diaria? ¿Esta increíble catedral en el centro de la ciudad de la cual no sabes nada?",
+    description: `¿Alguna vez te has sentido abrumado por las bellezas que te rodean en tu vida diaria ? ¿Esta increíble catedral en el centro de la ciudad de la cual no sabes nada? ¿Este edificio que está viendo una y otra vez sin tener idea de cuándo fue construido, por qué fue construido de esta manera ?
+
+    Todos estamos rodeados de asombrosas obras de arte, pero a menudo no podemos leerlas,  entenderlas. Un espacio anónimo a través del cual no sabemos nada. ¿Cuál es la solución?
+    ¿Estudiando arquitectura? Posible pero no muy tentador.
+    ¿Aprender todo sobre un solo monumento o edificio? Puede hacerlo, pero ¿podría reproducir la experiencia con cada monumento?
+    ¿Y si hubiera otra manera?
+    Le daré las claves principales sobre cómo leer usted mismo la arquitectura, los estilos principales de la ciudad y cómo descifrarlos usted mismo, después del final de la visita. ¡La arquitectura se convertirá lentamente en un juego para usted, una investigación en su tiempo libre, un nuevo sabor que le ayudaré a adquirir en Madrid!`,
     category: ["Arte y Cultura"],
     duration: 1,
     price: 15,
@@ -505,8 +511,14 @@ let tours2 = [
   {
     img: "http://www.escapadarural.com/blog/wp-content/uploads/2015/05/10160667504_5ae45139ac_o.jpg",
     title: "Los 7 Picos de la Sierra",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    claim: "Gracias a nuestras rutas a caballo por la Sierra, guiadas por nuestros expertos guías, descubrirás todos esos parajes vírgenes y disfrutarás de un tiempo de aventura y diversión.",
+    description: `El Parque Nacional Sierra del Guadarrama ofrece paisajes increíbles y escarpados de una belleza impresionante.
+    Una de las mejores maneras de descubrirlos y admirarlos es a caballo.
+    Gracias a nuestras rutas a caballo por la Sierra, guiadas por nuestros expertos guías, descubrirás todos esos parajes vírgenes y disfrutarás de un tiempo de aventura y diversión.
+    Ofrecemos excursiones cortas de medio día, un día o viajes largos de fin de semana o excursiones más largas. Las excursiones de fin de semana incluyen el alojamiento en un hotel rural. Disponemos de caballos para todo tipo de jinetes, desde principiantes hasta consumados.
+    
+    Si no ves una fecha u hora que funcione, envíame un mensaje y comprobaré si es posible.
+    ¿Quieres hacer algo más largo con un picnic? Entonces compruebe esta nueva experiencia "Paseos a caballo en el Parque Natural de Madrid".`,
     category: ["Aventura", "Deporte"],
     duration: 2,
     price: 25,
@@ -604,8 +616,16 @@ let tours3 = [
   {
     img: "http://www.escapadarural.com/blog/wp-content/uploads/2016/02/Sierra-Norte-de-Madrid-2.jpg",
     title: "Escalada en la Sierra",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    claim: "El Parque Nacional Sierra del Guadarrama ofrece paisajes increíbles y escarpados de una belleza impresionante.",
+    description: `El Parque Nacional Sierra del Guadarrama ofrece paisajes increíbles y escarpados de una belleza impresionante.
+    Una de las mejores maneras de descubrirlos y admirarlos es a caballo.
+    Gracias a nuestras rutas a caballo por la Sierra, guiadas por nuestros expertos guías, descubrirás todos esos parajes vírgenes y disfrutarás de un tiempo de aventura y diversión.
+    Ofrecemos excursiones cortas de medio día, un día o viajes largos de fin de semana o excursiones más largas. Las excursiones de fin de semana incluyen el alojamiento en un hotel rural. Disponemos de caballos para todo tipo de jinetes, desde principiantes hasta consumados.
+    
+    Si no ves una fecha u hora que funcione, envíame un mensaje y comprobaré si es posible.
+    ¿Quieres hacer algo más largo con un picnic? Entonces compruebe esta nueva experiencia "Paseos a caballo en el Parque Natural de Madrid".  
+    
+    Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator`,
     category: ["Aventura", "Deporte"],
     duration: 4,
     price: 36,
@@ -895,9 +915,15 @@ let tours8 = [
 let tours9 = [
   {
     img: "https://cdn.civitatis.com/peru/cusco/galeria/trekking-paisajes-interiores-peru.jpg",
-    title: "Trekking en Rascafría",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    title: "Conoce el Parque Nacional de Madrid",
+    claim: "Si quieres explorar el lado auténtico y local de Madrid diferente del centro de la ciudad lleno de turistas te recomiendo que vengas conmigo",
+    description: `Si quieres explorar el lado auténtico y local de Madrid diferente del centro de la ciudad lleno de turistas te recomiendo que vengas conmigo
+    Haremos senderismo un mínimo de 3 horas en el horario que más te convenga  y también haremos una visita al castillo del pueblo de Manzanares el Real. 
+    La ruta se puede alargar si estás en forma y te apetece!
+    
+    1) Saldremos de Plaza Castilla y cogeremos un bus directo a Manzanares el Real (45 min)
+    Haremos una bonita ruta por el Tranco (la Pedriza) siguiendo el río y disfrutando de los bellos paisajes de montaña.
+    Visitaremos también en el pueblo el castillo de Manzanares el Real que es un palacio fortaleza de origen medieval`,
     category: ["Aventura", "Deporte", "Naturaleza"],
     duration: 4,
     price: 35,
@@ -947,8 +973,8 @@ let tours10 = [
   {
     img: "https://frasesdelavida.com/wp-content/uploads/2018/12/Frases-de-astronom%C3%ADa.jpg",
     title: "Acampada astronómica",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    claim: "2 noches bajo el cielo estrellado para descubrir los astros y sus anécdotas.",
+    description: `¡La sensación una vez en la sierra de Madrid es que el tiempo finalmente se detuvo! Los sonidos, los paisajes, los olores y los gustos locales le dan un propósito a la vida en su mejor momento. Disfrutaremos de momentos de completa contemplación mientras nos conectamos con la increíble naturaleza circundante. Las inclusiones y actividades fueron planificadas y organizadas de modo que todo lo que debe preocuparse es divertirse y ser feliz. Comeremos localmente, caminaremos y navegaremos a las mejores playas y nos enfocaremos en nuestro objetivo principal: ¡tranquilidad!`,
     category: ["Naturaleza"],
     duration: 6,
     price: 35,
@@ -963,8 +989,10 @@ let tours10 = [
   {
     img: "https://encolombia.com/wp-content/uploads/2019/05/Meditacion-Medicina-Alternativa-696x398.jpg",
     title: "Meditación en Los Morrillos",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    claim: "En el sendero de las meditaciones hacemos  un recorrido entre el campo y el bosque en 8 estaciones dentro de la reserva natural, viviendo en una estrecha conexión entre nuestro ser personal y la naturaleza.",
+    description: `En el sendero de las meditaciones hacemos  un recorrido entre el campo y el bosque en 8 estaciones dentro de la reserva natural, viviendo en una estrecha conexión entre nuestro ser personal y la naturaleza. Puedes escoger un tema entre "Conócete a ti mismo" y "Las 7 fases del desarrollo personal".
+    Iniciamos con una oración, sentados. En cada estación hacemos un corto ejercicio de meditación y una actividad vivencial.  Las actividades cambian según la estación:  movemos la tierra de la compostera, imaginamos una situación que se nos describe,  observamos detalles de los árboles, sentimos el ambiente del bosque, abrazamos un gran roble, construimos apachetas, despejamos plantas invasoras, caminamos descalzos sobre la grama en los senderos de meditación dinámica, y nos acostamos sobre el pastizal. Entre una estación y otra caminamos  en tramos de diferentes características: bosque nativo, camino de piedra o campo abierto. El recorrido  completo tiene 1 km aproximadamente. 
+    Terminamos con un rico refrigerio en medio de una agradable conversación.`,
     category: ["Naturaleza", "Estilo de Vida"],
     duration: 3,
     price: 23,
@@ -979,8 +1007,8 @@ let tours10 = [
   {
     img: "http://madridmayrit.files.wordpress.com/2013/07/casa-1916.jpg",
     title: "Taller Danzas Étnicas",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    claim: "Disfruta de un taller para descubrir las danzas de nuestros ancestros",
+    description: "La clase comienza con un encuentro y saludo, y luego pasa a una sesión de estiramiento con música. Después del calentamiento,vcomenzará la clase con los movimientos de base y compartirá la historia o el relato que hay detrás del baile. A medida que la clase progresa, los estudiantes aprenderán una serie de movimientos y ritmos, encadenándolos para lograr un baile completo. La clase incluirá movimiento a través del piso, música, sudor y amor. Algunas clases incluyen tambores en vivo (LD).",
     category: ["Arte y Cultura", "Naturaleza"],
     duration: 3,
     price: 16,
@@ -994,9 +1022,11 @@ let tours10 = [
   },
   {
     img: "https://uecluster.blob.core.windows.net/images/futurosostenible/1511882795_niscs.jpg",
-    title: "Recogida de Setas en la Sierra",
-    claim: "Imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero",
-    description: "Donec imperdiet mollis condimentum. Nam nec mauris posuere, mattis nulla ut, vulputate libero. Sed ultricies lobortis bibendum. Fusce orci augue, aliquam nec accumsan id, ultrices vel sem. Cras feugiat convallis nibh in egestas. Etiam feugiat risus ante, sit amet fermentum magna pellentesque in. Sed in augue vulputate, gravida arcu quis, interdum massa. Quisque mollis euismod velit. Ut sagittis rhoncus tortor, iaculis bibendum orci dignissim eget. Curabitur volutpat, nisi sit amet condimentum sodales, nibh est finibus justo, ut placerat tortor turpis at felis. Phasellus massa diam, tempor eget sem ac, bibendum scelerisque erat. Aenean accumsan odio vel tortor facilisis, at pretium ex auctor.",
+    title: "Jornada micológica en la Sierra",
+    claim: "Difruta,identifica y aprende a recoger de manera sostenible estos maravillosos productos de la naturaleza :)",
+    description: `Mi vocación es acercaros la naturaleza para que la conozcáis y la améis tanto como nosotros. A partir de ahí, acompañados por expertos micólogos, sabremos diferenciar las especies, identificaremos sus características y aprenderemos a recogerlas de manera sostenible.
+
+    Esta ruta tendrá además el añadido del espectacular entorno que nos rodeará, especialmente bonito en otoño por sus tonos dorados, rojos y amarillos y la cantidad de frutos que surgen en esta época.`,
     category: ["Naturaleza", "Aventura"],
     duration: 4,
     price: 15,
